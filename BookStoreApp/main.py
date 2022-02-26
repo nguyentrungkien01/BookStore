@@ -1,7 +1,6 @@
-from BookStoreApp import initTables, initAdmin, app
-
+from BookStoreApp import app, init_tables, init_admin
 
 if __name__ == '__main__':
-    initTables()
-    initAdmin()
+    init_tables()
+    init_admin()
     app.run()
