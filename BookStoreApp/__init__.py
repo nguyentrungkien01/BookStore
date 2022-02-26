@@ -34,12 +34,12 @@ cloudinary.config(cloud_name=CLOUD_NAME,
                   api_secret=API_SECRET)
 
 
-def initTables():
+def init_tables():
     try:
         db.create_all()
     except:
         db.session.rollback()
 
 
-def initAdmin():
+def init_admin():
     pass
