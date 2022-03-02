@@ -14,4 +14,4 @@ class LogOutView(BaseView):
         return current_user.is_authenticated
 
     def is_visible(self):
-        return True
+        return False

@@ -2,60 +2,40 @@
 
 
 {% block head %}
-    {{ super() }}
-    <!-- Chart JS -->
-    <!--<script src="/static/js/plugin/chart.js/chart.min.js"></script>-->
-    <!-- Owl carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-{% endblock %}
+{{ super() }}
+<!-- Owl carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
+{% endblock %}
 {% block header %}
-    {% if current_user.is_authenticated %}\
-        {% include 'includes/admin/navigation.html' %}
-        {% include 'includes/admin/sidebar.html' %}
+{% if current_user.is_authenticated %}
+{% include 'includes/admin/navigation.html' %}
+{% include 'includes/admin/sidebar.html' %}
+{% endif %}
+{% endblock %}
+{% block container %}
+{% block body %}
+{% if not current_user.is_authenticated %}
+{% include 'includes/admin/login.html' %}
+{% else %}
+<div class="main-panel">
+    {% block content %}
+    {% include 'includes/admin/home.html' %}
+    {% block footer %}
+    {% if current_user.is_authenticated %}
+    {% include 'includes/admin/footer.html' %}
     {% endif %}
+    {% endblock %}
+    {% endblock content %}
+    <!-- Specific Page JS goes HERE  -->
+    {% block javascripts %}{% endblock javascripts %}
+</div>
+{% endif %}
+
+{% block script %}
+
+
 {% endblock %}
 
-{% block container %}
-    {% block body %}
-        {% if not current_user.is_authenticated %}
-            {% include 'includes/admin/login.html' %}
-        {% else %}
-            <div class="main-panel">
-                {% block content %}
-                    {% if current_user.role_id == 1%}
-                        {% include 'includes/admin/home.html' %}
-                    {% endif %}
-
-                    {% block footer %}
-                        {% if current_user.is_authenticated %}
-                            {% include 'includes/admin/footer.html' %}
-                        {% endif %}
-                    {% endblock %}
-
-                {% endblock content %}
-                <!-- Specific Page JS goes HERE  -->
-                {% block javascripts %}{% endblock javascripts %}
-            </div>
-        {% endif %}
-
-        {% block script %}
-            <!-- Carousel -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-            <!-- Script Intro -->
-            <script>
-                $(document).ready(function () {
-                    $('#owl-intro').owlCarousel({
-                        loop: true,
-                        nav: false,
-                        autoplay: true,
-                        autoplayTimeout: 4000,
-                        margin: 10,
-                        items: 1
-                    });
-                })
-            </script>
-        {% endblock %}
-
-    {% endblock %}
+{% endblock %}
 {% endblock %}
