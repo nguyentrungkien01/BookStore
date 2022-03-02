@@ -12,7 +12,7 @@ class PreviewModel(db.Model):
     preview_id = Column(Integer, primary_key=True, autoincrement=True)
 
     # Thuộc tính
-    name = Column(String(100), nullable=False, unique=True)
+    image = Column(String(100), nullable=False, unique=True)
 
     # Khóa ngoại
     book_id = Column(Integer, ForeignKey('book_model.book_id'))

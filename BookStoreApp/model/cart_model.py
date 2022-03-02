@@ -1,4 +1,6 @@
-from sqlalchemy import Column, Integer, Boolean, ForeignKey
+import datetime
+
+from sqlalchemy import Column, Integer, Boolean, ForeignKey, DateTime
 from sqlalchemy.orm import relationship, backref
 
 from BookStoreApp import db
@@ -14,6 +16,7 @@ class CartModel(db.Model):
 
     # Thuộc tính
     is_paid = Column(Boolean, default=False)
+    created_date = Column(DateTime, default=datetime.datetime.now())
 
     # Khóa ngoại
     customer_id = Column(Integer, ForeignKey('customer_model.account_id'))

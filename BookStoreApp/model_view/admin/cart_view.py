@@ -3,6 +3,7 @@ from flask_login import current_user
 
 from BookStoreApp.model_view.admin.base_view import BaseView
 
+
 # Lớp tượng trưng cho trang chức năng thông tin giỏ hàng khách hàng phía admin
 class CartView(BaseView):
     @expose('/')
