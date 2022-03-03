@@ -1,7 +1,7 @@
 import hashlib
 
 from BookStoreApp.repository.admin.account_repository import \
-    get_account as ga, get_account_by_id as gabi, set_last_access as sla
+    get_account as ga, get_account_by_id as gabi, set_last_access as sla, change_password as cp
 
 
 # Lấy thông tin account từ tầng repository thông qua username và passwrod
@@ -18,3 +18,8 @@ def get_account_by_id(account_id=None, **kwargs):
 # Thiết lập lần truy cập cuối cùng của account
 def set_last_access(account=None):
     sla(account=account)
+
+# Thiết lập thay đổi mật khẩu
+def change_passwork(new_password=None, username=None):
+    hash_password = hashlib.md5(new_password.encode('utf8')).hexdigest()
+    cp(new_password=hash_password, username=username)
