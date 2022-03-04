@@ -1,6 +1,7 @@
 import json
 from flask import request,jsonify
 from BookStoreApp import  app
+from BookStoreApp.service.admin import account_service
 from BookStoreApp.service.admin.account_service import get_account as ga, change_passwork as cp
 
 @app.route("/api/admin/change_password", methods=['post', 'get'])
@@ -16,8 +17,9 @@ def change_passwork():
                 result= False
                 wrong_password = True
             else:
+                account = ga(username=username, password=old_password)
                 new_password = str(data.get("new_password"))
-                cp(new_password=new_password, username=username)
+                cp(new_password=new_password, account=account)
         else:
             print("thaast baij")
             result = False

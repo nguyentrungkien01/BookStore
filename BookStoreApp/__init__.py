@@ -1,5 +1,4 @@
 import cloudinary
-import mysql.connector
 from flask import Flask
 from flask_admin import Admin
 from flask_login import LoginManager
@@ -12,7 +11,7 @@ app = Flask(__name__)
 # thông tin database
 USERNAME_DB = 'root'
 PASSWORD_DB = '12345678'
-NAME_DB = 'BookStore'
+NAME_DB = 'book_store'
 IP_DB = 'localhost'
 
 # Thông tin cloudinary
@@ -22,7 +21,7 @@ API_SECRET = 'QBWH4PeSsQKyl4Elx1alQiWEhzs'
 
 # Cấu hình flask
 app.config['SQLALCHEMY_DATABASE_URI'] = \
-    str.format(f"mysql+pymysql://root:12345678@localhost/book_store?charset=utf8mb4")
+    str.format(f"mysql+pymysql://{USERNAME_DB}:{PASSWORD_DB}@{IP_DB}/{NAME_DB}?charset=utf8mb4")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['FLASK_ADMIN_FLUID_LAYOUT'] = True
 app.config['SQLALCHEMY_ECHO'] = True
@@ -37,13 +36,7 @@ cloudinary.config(cloud_name=CLOUD_NAME,
                   api_key=API_KEY,
                   api_secret=API_SECRET)
 
-#kết nối với máy chủ MySQL
-mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        passwd="12345678",
-        database="book_store"
-    )
+
 
 # Import model database
 from model.book_model import BookModel
