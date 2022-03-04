@@ -4,7 +4,8 @@ from BookStoreApp import  app
 from BookStoreApp.service.admin import account_service
 from BookStoreApp.service.admin.account_service import get_account as ga, change_passwork as cp
 
-@app.route("/api/admin/change_password", methods=['post', 'get'])
+# Đổi mật khẩu
+@app.route("/admin/api/change_password", methods=['post'])
 def change_passwork():
     if request.method.__eq__('POST'):
         result = True
@@ -21,6 +22,5 @@ def change_passwork():
                 new_password = str(data.get("new_password"))
                 cp(new_password=new_password, account=account)
         else:
-            print("thaast baij")
             result = False
     return jsonify(result=result, wrong_password= wrong_password)

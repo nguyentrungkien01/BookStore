@@ -4,7 +4,7 @@ var titleAlert = ''
 var textAlert = ''
 
 function passAccountData() {
-    fetch('/api/admin/change_password', {
+    fetch('/admin/api/change_password', {
         method: 'post',
         body: JSON.stringify({
             'username': document.getElementById("username").innerText.slice('nguoi dung: '.length).trim(),
