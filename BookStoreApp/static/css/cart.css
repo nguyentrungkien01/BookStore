@@ -66,13 +66,13 @@
     cursor: pointer;
 }
 
-.soluong .soluongsp {
+.amount .amount-product {
     width: 32px;
     height: 20px;
     border: 1px solid #d1d1d1;
 }
 
-.soluong .input-number {
+.amount .input-number {
     width: 73px;
     height: 20px;
 }
@@ -82,11 +82,11 @@
     margin-bottom: 5px;
 }
 
-.header-gio-hang span {
+.cart-header span {
     color: #979797;
 }
 
-.header-gio-hang {
+.cart-header {
     font-size: 14px;
     font-weight: 400;
 }
@@ -101,23 +101,23 @@
     font-size: 14px;
 }
 
-.tonggiatien .group .tongcong {
+.total-price .group .total {
     font-size: 19px;
     color: red;
     font-weight: 600;
 }
 
-.tonggiatien .group p {
+.total-price .group p {
     margin: 0;
     font-size: 13px;
 }
 
-.nutmuathem:hover {
+.buy-more:hover {
     background: #F5A623;
     color: white;
 }
 
-.nutmuathem {
+.buy-more {
     border: 1px solid #F5A623;
     color: #F5A623;
 }
@@ -178,6 +178,7 @@ a.header {
 .card-header {
     padding: 0;
     height: 42px;
+    border: unset;
 }
 
 .btn-shopping-without-signup:hover {
@@ -202,8 +203,8 @@ a.header {
     letter-spacing: 0.08rem;
 }
 
-#nav-dangnhap .form-signin,
-#nav-dangky .form-signin {
+#login-nav .form-signin,
+#register-nav .form-signin {
     padding: 15px 15px 8px 15px;
 }
 
@@ -212,17 +213,17 @@ a.header {
     background: #EEEEEE;
 }
 
-a#nav-dangky-tab {
+a#register-navtab {
     border-right: none;
 }
 
 
-a#nav-dangnhap-tab {
+a#login-navtab {
     margin-left: 0px;
     border-left: none;
 }
 
-#nav-dangky-tab {
+#register-navtab {
     margin-left: 0px;
 }
 
@@ -232,7 +233,7 @@ a#nav-dangnhap-tab {
     font-size: 14px;
 }
 
-.dangnhap-dangky {
+.login-logout {
     width: 100%;
 }
 
@@ -272,7 +273,7 @@ a#nav-dangnhap-tab {
     margin: 0;
 }
 
-label.chuyenkhoan {
+label.transfer {
     width: 315px;
     position: absolute;
     left: 32px;

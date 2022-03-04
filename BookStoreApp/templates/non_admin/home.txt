@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <title>BookStore OU - Mua sách trực tuyến giá rẻ nhất</title>
+    <meta name="description"
+        content="Mua sách online hay, giá tốt nhất, combo sách hot bán chạy, giảm giá cực khủng cùng với những ưu đãi như miễn phí giao hàng, quà tặng miễn phí, đổi trả nhanh chóng. Đa dạng sản phẩm, đáp ứng mọi nhu cầu.">
+    <meta name="keywords" content="nhà sách online, mua sách hay, sách hot, sách bán chạy, sách giảm giá nhiều">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- BS4 & Jquery -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js">
+    </script>
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/fe78fbcdb4.js" crossorigin="anonymous"></script>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="../static/plugins/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="../static/plugins/slick/slick-theme.css" />
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../static/favicon/site.webmanifest">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../static/plugins/cursor/cursor.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+</head>
+
+<body>
+    <!-- header start -->
+    {% include 'includes/non_admin/header.html' %}
+    <!-- header end -->
+
+    <!-- signin form start -->
+    {% include 'includes/non_admin/signin-form.html' %}
+    <!-- signin form end -->
+
+    <!-- signup form start -->
+    {% include 'includes/non_admin/signup-form.html' %}
+    <!-- signup form end -->
+
+    <!-- banner title (category and contact) start -->
+    {% include 'includes/non_admin/banner-title.html' %}
+    <!-- banner title (category and contact) end -->
+
+    <!-- content categories + banner slider start -->
+    {% include 'includes/non_admin/content-categories.html' %}
+    <!-- content categories + banner slider end -->
+
+    <!-- new book start -->
+    {% include 'includes/non_admin/home/new-book.html' %}
+    <!-- new book end -->
+
+    <!-- hot book start -->
+    {% include 'includes/non_admin/home/hot-book.html' %}
+    <!-- hot book end -->
+
+    <!-- comming soon book start -->
+    {% include 'includes/non_admin/home/commingsoon-book.html' %}
+    <!-- comming soon book end -->
+
+    <!-- recommend book start -->
+    {% include 'includes/non_admin/home/recommend-book.html' %}
+    <!-- recommend book end -->
+
+    <!-- services start -->
+    {% include 'includes/non_admin/services.html' %}
+    <!-- services end -->
+
+    <!-- footer start -->
+    {% include 'includes/non_admin/footer.html' %}
+    <!-- footer end -->
+
+    <!-- Main JS -->
+    {% include 'includes/non_admin/scripts.html' %}
+
+    <!-- Isotope -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+</body>
+
+</html>

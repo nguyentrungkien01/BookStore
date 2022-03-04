@@ -333,11 +333,11 @@ $(function () {
         productNumbers = parseInt(productNumbers);
 
         if (productNumbers) {
-            localStorage.setItem('cartNumbers', productNumbers + parseInt($(".soluongsp").val()));
-            document.querySelector('.cart .cart-amount').textContent = productNumbers + parseInt($(".soluongsp").val());
+            localStorage.setItem('cartNumbers', productNumbers + parseInt($(".amount-product").val()));
+            document.querySelector('.cart .cart-amount').textContent = productNumbers + parseInt($(".amount-product").val());
         } else {
-            localStorage.setItem('cartNumbers', parseInt($(".soluongsp").val()));
-            document.querySelector('.cart .cart-amount').textContent = parseInt($(".soluongsp").val());
+            localStorage.setItem('cartNumbers', parseInt($(".amount-product").val()));
+            document.querySelector('.cart .cart-amount').textContent = parseInt($(".amount-product").val());
         }
         setItem(product);
     }
@@ -353,9 +353,9 @@ $(function () {
                     [product.tag]: product
                 }
             }
-            cartItems[product.tag].inCart += parseInt($(".soluongsp").val());
+            cartItems[product.tag].inCart += parseInt($(".amount-product").val());
         } else {
-            product.inCart = parseInt($(".soluongsp").val());
+            product.inCart = parseInt($(".amount-product").val());
             cartItems = {
                 [product.tag]: product
             }
@@ -369,9 +369,9 @@ $(function () {
 
         if (cartCost != null) {
             cartCost = parseFloat(cartCost);
-            localStorage.setItem('totalCost', cartCost + parseInt($(".soluongsp").val()) * product.price);
+            localStorage.setItem('totalCost', cartCost + parseInt($(".amount-product").val()) * product.price);
         } else {
-            localStorage.setItem('totalCost', parseInt($(".soluongsp").val()) * product.price);
+            localStorage.setItem('totalCost', parseInt($(".amount-product").val()) * product.price);
         }
     }
 
@@ -395,7 +395,7 @@ $(function () {
             cartContent.innerHTML = '';
 
             cartContent.innerHTML += `
-            <h6 class="header-gio-hang">GIỎ HÀNG CỦA BẠN <span>(${productNumbers} sản phẩm)</span></h6>
+            <h6 class="cart-header">GIỎ HÀNG CỦA BẠN <span>(${productNumbers} sản phẩm)</span></h6>
             <div class="cart-list-items">
             `
             Object.values(cartItems).map(item => {
@@ -407,12 +407,12 @@ $(function () {
                         <div class="item-caption d-flex w-100">
                             <div class="item-info ml-3">
                                 <a href="product-item.html" class="book-name">${item.name}</a>
-                                <div class="soluong d-flex">
+                                <div class="amount d-flex">
                                     <div class="input-number input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text btn-spin btn-dec">-</span>
                                         </div>
-                                        <input type="text" value="${item.inCart}" class="soluongsp  text-center">
+                                        <input type="text" value="${item.inCart}" class="amount-product  text-center">
                                         <div class="input-group-append">
                                             <span class="input-group-text btn-spin btn-inc">+</span>
                                         </div>
@@ -435,10 +435,10 @@ $(function () {
 
             <div class="row">
                 <div class="col-md-3">
-                    <a href="index.html" class="btn nutmuathem mb-3">Mua thêm</a>
+                    <a href="index.html" class="btn buy-more mb-3">Mua thêm</a>
                 </div>
                 <div class="col-md-5 offset-md-4">
-                    <div class="tonggiatien">
+                    <div class="total-price">
                         <div class="group d-flex justify-content-between">
                             <p class="label">Tạm tính:</p>
                             <p class="tamtinh">${parseFloat(cartCost).toFixed(3)} ₫</p>
@@ -457,7 +457,7 @@ $(function () {
                         </div>
                         <div class="group d-flex justify-content-between align-items-center">
                             <strong class="text-uppercase">Tổng cộng:</strong>
-                            <p class="tongcong">${parseFloat(cartCost).toFixed(3)} ₫</p>
+                            <p class="total">${parseFloat(cartCost).toFixed(3)} ₫</p>
                         </div>
                         <small class="note d-flex justify-content-end text-muted">
                             (Giá đã bao gồm VAT)

@@ -13,3 +13,6 @@ def cart():
     return render_template('/non_admin/cart.html')
 
 
+@app.route('/tai-khoan')
+def account():
+    return render_template('/non_admin/account.html')
