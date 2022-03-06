@@ -10,8 +10,8 @@ app = Flask(__name__)
 
 # thông tin database
 USERNAME_DB = 'root'
-PASSWORD_DB = 'thanhnam'
-NAME_DB = 'BookStore'
+PASSWORD_DB = '12345678'
+NAME_DB = 'book_store'
 IP_DB = 'localhost'
 
 # Thông tin cloudinary
@@ -35,6 +35,8 @@ login = LoginManager(app=app)
 cloudinary.config(cloud_name=CLOUD_NAME,
                   api_key=API_KEY,
                   api_secret=API_SECRET)
+
+
 
 # Import model database
 from model.book_model import BookModel

@@ -1,8 +1,8 @@
 import datetime
+from math import acos
 
 from BookStoreApp import db
 from BookStoreApp.model.account_model import AccountModel
-
 
 # Lấy thông tin từ database của account dựa vào username và password
 def get_account(username=None, password=None, **kwargs):
@@ -25,3 +25,11 @@ def set_last_access(account=None):
         account.last_access = datetime.datetime.now()
         db.session.add(account)
         db.session.commit()
+
+# Thay đổi mật khẩu
+def change_password(new_password=None, account=None):
+    if new_password and account:
+        account.password = new_password
+        db.session.add(account)
+        db.session.commit()
+    
