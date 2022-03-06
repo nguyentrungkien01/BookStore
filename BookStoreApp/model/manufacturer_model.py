@@ -8,6 +8,7 @@ from BookStoreApp import db
 # Dùng chứa các thông tin của nhà xuất bản
 class ManufacturerModel(db.Model):
     __tablename__ = 'manufacturer_model'
+    __table_args__ = {'keep_existing': True}
 
     # Khóa chính
     manufacturer_id = Column(Integer, primary_key=True, autoincrement=True)
