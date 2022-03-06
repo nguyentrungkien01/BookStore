@@ -8,4 +8,5 @@ book_attachment_model = db.Table('book_attachment_model',
                                  Column('book_id', Integer,
                                         ForeignKey('book_model.book_id'), primary_key=True),
                                  Column('attach_book_id', Integer,
-                                        ForeignKey('book_model.book_id'), primary_key=True))
+                                        ForeignKey('book_model.book_id'), primary_key=True),
+                                 keep_existing=True)

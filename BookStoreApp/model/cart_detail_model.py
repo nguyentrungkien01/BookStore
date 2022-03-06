@@ -12,4 +12,5 @@ cart_detail_model = db.Table('cart_detail_model',
                              Column('book_id', Integer,
                                     ForeignKey('book_model.book_id'), primary_key=True),
                              Column('ordered_date', DateTime, default=datetime.datetime.now()),
-                             Column('amount', Integer, default=1))
+                             Column('amount', Integer, default=1),
+                             keep_existing=True)
