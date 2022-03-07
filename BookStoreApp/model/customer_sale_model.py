@@ -8,4 +8,5 @@ customer_sale_model = db.Table('customer_sale_model',
                                       ForeignKey('customer_model.account_id'), primary_key=True),
                                Column('sale_id', Integer,
                                       ForeignKey('sale_model.sale_id'), primary_key=True),
-                               Column('amount', Integer, default=1))
+                               Column('amount', Integer, default=1),
+                               keep_existing=True)

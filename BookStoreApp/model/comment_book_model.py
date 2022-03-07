@@ -12,4 +12,5 @@ comment_book_model = db.Table('comment_book_model',
                               Column('book_id', Integer,
                                      ForeignKey('book_model.book_id'), primary_key=True),
                               Column('created_date', DateTime, default=datetime.datetime.now()),
-                              Column('content', Text, default=''))
+                              Column('content', Text, default=''),
+                              keep_existing=True)

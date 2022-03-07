@@ -7,6 +7,7 @@ from BookStoreApp import db
 # Chứa các thông tin bản xem trước của sách
 class PreviewModel(db.Model):
     __tablename__ = 'preview_model'
+    __table_args__ = {'keep_existing': True}
 
     # Khóa chính
     preview_id = Column(Integer, primary_key=True, autoincrement=True)

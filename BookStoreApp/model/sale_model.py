@@ -8,6 +8,7 @@ from BookStoreApp import db
 # Chứa các thông tin của giảm giá
 class SaleModel(db.Model):
     __tablename__ = 'sale_model'
+    __table_args__ = {'keep_existing': True}
 
     # Khóa chính
     sale_id = Column(Integer, primary_key=True, autoincrement=True)

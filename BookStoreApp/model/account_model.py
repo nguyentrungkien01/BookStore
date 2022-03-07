@@ -11,6 +11,7 @@ from BookStoreApp import db
 # Chứa các thông tin của tài khoản
 class AccountModel(db.Model, UserMixin):
     __tablename__ = 'account_model'
+    __table_args__ = {'keep_existing': True}
 
     # khóa chính
     account_id = Column(Integer, primary_key=True, autoincrement=True)

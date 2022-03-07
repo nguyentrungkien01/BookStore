@@ -8,7 +8,7 @@ from BookStoreApp import db
 # Dùng chứa các thông tin của loại sách
 class CategoryModel(db.Model):
     __tablename__ = 'category_model'
-
+    __table_args__ = {'keep_existing': True}
     # Khóa chính
     category_id = Column(Integer, primary_key=True, autoincrement=True)
 

@@ -10,7 +10,7 @@ from BookStoreApp import db
 # Chứa các thông tin của giỏ hàng
 class CartModel(db.Model):
     __tablename__ = 'cart_model'
-
+    __table_args__ = {'keep_existing': True}
     # Khóa chính
     cart_id = Column(Integer, primary_key=True, autoincrement=True)
 
