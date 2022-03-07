@@ -27,9 +27,8 @@ def set_last_access(account=None):
         db.session.commit()
 
 # Thay đổi mật khẩu
-def change_password(new_password=None, account=None):
-    if new_password and account:
-        account.password = new_password
-        db.session.add(account)
-        db.session.commit()
+def set_change_password(new_password=None, account=None):
+    account.password = new_password
+    db.session.add(account)
+    db.session.commit()
     
