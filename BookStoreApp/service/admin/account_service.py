@@ -21,5 +21,6 @@ def set_last_access(account=None):
 
 # Thiết lập thay đổi mật khẩu
 def set_change_passwork(new_password=None, account=None):
-    hash_password = hashlib.md5(new_password.encode('utf8')).hexdigest()
-    cp(new_password=hash_password, account=account)
+    if new_password and account:
+        hash_password = hashlib.md5(new_password.encode('utf8')).hexdigest()
+        cp(new_password=hash_password, account=account)

@@ -9,4 +9,4 @@ def get_cart():
     print(gbic())
     print(info_user())
     # return render_template("/admin/cart.html", info_user=info_user(), list_book =gbic())
-    return jsonify(len(gbic()))
+    return jsonify(gbic())
