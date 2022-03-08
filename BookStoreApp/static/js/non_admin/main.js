@@ -123,9 +123,9 @@ $(function () {
     });
 
     // gui danh gia
-    $(".formdanhgia").hide(200);
-    $(".vietdanhgia").click(function (e) {
-        $(".formdanhgia").toggle(200);
+    $(".vote-form").hide(200);
+    $(".write-form").click(function (e) {
+        $(".vote-form").toggle(200);
     });
 
 
@@ -305,14 +305,14 @@ $(function () {
 
     // add to cart 
     let product = {
-        name: $('.khoithongtin .book-name').text(),
+        name: $('.block-info .book-name').text(),
         tag: $('.product-image').attr("alt"),
         price: parseFloat($('.price span.new-price').text()),
         old_price: parseFloat($('.price span.old-price').text()),
         inCart: 0
     }
 
-    let carts = document.querySelector('.nutmua');
+    let carts = document.querySelector('.buy-btn');
     if (carts) {
         carts.addEventListener('click', () => {
             cartNumbers(product);
