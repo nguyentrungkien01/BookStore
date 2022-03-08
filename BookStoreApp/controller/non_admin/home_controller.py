@@ -16,3 +16,8 @@ def cart():
 @app.route('/tai-khoan')
 def account():
     return render_template('/non_admin/account.html')
+
+
+@app.route('/chi-tiet-sach')
+def book_detail():
+    return render_template('/non_admin/book-detail.html')

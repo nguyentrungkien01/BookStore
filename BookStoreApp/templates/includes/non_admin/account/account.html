@@ -5,10 +5,10 @@
                 <!-- 2 tab: thông tin tài khoản, danh sách đơn hàng  -->
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-taikhoan-tab" data-toggle="tab" href="#nav-taikhoan"
+                        <a class="nav-item nav-link active" id="account-navtab" data-toggle="tab" href="#account-nav"
                             role="tab" aria-controls="nav-home" aria-selected="true">Thông tin tài khoản</a>
-                        <a class="nav-item nav-link" id="nav-donhang-tab" data-toggle="tab" href="#nav-donhang"
-                            role="tab" aria-controls="nav-profile" aria-selected="false">Danh sách đơn hàng</a>
+                        <a class="nav-item nav-link" id="order-tab" data-toggle="tab" href="#order-nav" role="tab"
+                            aria-controls="nav-profile" aria-selected="false">Danh sách đơn hàng</a>
                     </div>
                 </nav>
 
@@ -16,15 +16,15 @@
                 <div class="tab-content">
 
                     <!-- nội dung tab 1: thông tin tài khoản  -->
-                    <div class="tab-pane fade show active pl-4 " id="nav-taikhoan" role="tabpanel"
-                        aria-labelledby="nav-taikhoan-tab">
+                    <div class="tab-pane fade show active pl-4 " id="account-nav" role="tabpanel"
+                        aria-labelledby="account-navtab">
                         <div class="offset-md-4 mt-3">
                             <h3 class="account-header">Thông tin tài khoản</h3>
                         </div>
-                        <div class="hoten my-3">
+                        <div class="my-3">
                             <div class="row">
-                                <label class="col-md-2 offset-md-2" for="account-hoten">Họ tên</label>
-                                <input class="col-md-4" type="text" name="account-hoten">
+                                <label class="col-md-2 offset-md-2" for="account-name">Họ tên</label>
+                                <input class="col-md-4" type="text" name="account-name">
                             </div>
                         </div>
                         <div class="email my-3">
@@ -64,7 +64,7 @@
                             <div class="capnhat my-3">
                                 <div class="row">
                                     <button type="button"
-                                        class="button-capnhat text-uppercase offset-md-4 btn btn-warning mb-4">Cập
+                                        class="update-btn text-uppercase offset-md-4 btn btn-warning mb-4">Cập
                                         nhật</button>
                                 </div>
                             </div>
@@ -72,8 +72,8 @@
                     </div>
 
                     <!-- nội dung tab 2: danh sách đơn hàng -->
-                    <div class="tab-pane fade py-3" id="nav-donhang" role="tabpanel" aria-labelledby="nav-donhang-tab">
-                        <div class="donhang-table">
+                    <div class="tab-pane fade py-3" id="order-nav" role="tabpanel" aria-labelledby="order-tab">
+                        <div class="order-table">
                             <table class="m-auto">
                                 <tr>
                                     <th>Mã đơn hàng</th>
