@@ -8,4 +8,5 @@ love_book_model = db.Table('love_book_model',
                            Column('customer_id', Integer,
                                   ForeignKey('customer_model.account_id'), primary_key=True),
                            Column('book_id', Integer,
-                                  ForeignKey('book_model.book_id'), primary_key=True))
+                                  ForeignKey('book_model.book_id'), primary_key=True),
+                           keep_existing=True)

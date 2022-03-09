@@ -9,7 +9,8 @@ from BookStoreApp import db
 # Dùng để lưu thông tin của sách
 class BookModel(db.Model):
     __tablename__ = 'book_model'
-    __table_args__ = {'extend_existing': True}
+    __table_args__ = {'keep_existing': True}
+
     # Khóa chính
     book_id = Column(Integer, primary_key=True, autoincrement=True)
 

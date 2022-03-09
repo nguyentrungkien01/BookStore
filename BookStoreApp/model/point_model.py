@@ -8,6 +8,7 @@ from BookStoreApp import db
 # Chứa các thông tin điểm
 class PointModel(db.Model):
     __tablename__ = 'point_model'
+    __table_args__ = {'keep_existing': True}
 
     # Khóa chính
     point_id = Column(Integer, primary_key=True, autoincrement=True)

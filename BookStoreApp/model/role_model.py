@@ -8,6 +8,7 @@ from BookStoreApp import db
 # Chứa các thông tin vai trò của tài khoản
 class RoleModel(db.Model):
     __tablename__ = 'role_model'
+    __table_args__ = {'keep_existing': True}
 
     # Khóa chính
     role_id = Column(Integer, primary_key=True, autoincrement=True)

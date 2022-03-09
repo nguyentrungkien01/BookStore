@@ -10,6 +10,7 @@ from BookStoreApp.model.account_model import AccountModel
 # Chứa các thông tin của khách hàng
 class CustomerModel(AccountModel):
     __tablename__ = 'customer_model'
+    __table_args__ = {'keep_existing': True}
     # Khóa chính
     account_id = Column(Integer, ForeignKey('account_model.account_id'), primary_key=True)
 
