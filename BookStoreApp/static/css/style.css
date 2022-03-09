@@ -224,7 +224,7 @@ a.dropdown-item:hover {
 .scroll-up {
     position: fixed;
     bottom: 80px;
-    right:30px;
+    right: 30px;
     z-index: 9999;
     visibility: hidden;
     opacity: 0;
@@ -863,4 +863,681 @@ footer .header {
     .book-list {
         margin: unset;
     }
+}
+
+/* ======== Cart page ========== */
+/* css cho breadcrumb  */
+.breadcrumbbar {
+    height: 40px;
+}
+
+.breadcrumb {
+    height: 40px;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: ">";
+}
+
+.breadcrumb-item a {
+    font-size: 12px;
+    color: #666666;
+    text-decoration: none;
+    transition: 0.2s;
+    line-height: 40px;
+}
+
+.breadcrumb-item a:hover {
+    color: #F5A623;
+}
+
+.breadcrumb-item.active a {
+    color: #F5A623;
+}
+
+/* het css cho breadcrumb  */
+
+
+/* <---css cho gio-hang -->  */
+
+/* css cho cart-content  */
+.item-info .book-name {
+    text-decoration: none;
+    color: #282828;
+    display: block;
+}
+
+.item-price .remove {
+    cursor: pointer;
+    font-size: 18px;
+    color: #bebebe;
+}
+
+.item-price .old-price {
+    text-decoration: line-through;
+    color: #b6b6b6;
+}
+
+.item-price {
+    font-size: 14px;
+}
+
+.btn-spin {
+    padding: 0 4px;
+    height: 30px;
+    width: 17px;
+    background: #fefefe;
+    color: black;
+}
+
+.btn-spin:hover {
+    cursor: pointer;
+}
+
+.amount .amount-product {
+    width: 32px;
+    border: 1px solid #d1d1d1;
+}
+
+.amount .input-number {
+    width: 73px;
+    height: 20px;
+}
+
+.item-caption .item-info .book-name {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.cart-header span {
+    color: #979797;
+}
+
+.cart-header {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.cart-item a.img {
+    width: 90px;
+    height: auto;
+    border: 1px solid #c8c8c8;
+}
+
+.group strong {
+    font-size: 14px;
+}
+
+.total-price .group .total {
+    font-size: 19px;
+    color: red;
+    font-weight: 600;
+}
+
+.total-price .group p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.buy-more:hover {
+    background: #F5A623;
+    color: white;
+}
+
+.buy-more {
+    border: 1px solid #F5A623;
+    color: #F5A623;
+}
+
+/* het css cho cart-content  */
+
+/* css cho cart-steps  */
+.card-header {
+    transition: 0.3s;
+}
+
+.card-header.active i.fa.fa-chevron-right {
+    color: white;
+}
+
+.card-header.active span.steps {
+    background: #981318;
+}
+
+.card-header.active a.header {
+    color: white;
+}
+
+.card-header.active {
+    background: #CF111A;
+}
+
+.card-header.active .header i.fa-chevron-right {
+    transform: rotate(90deg);
+}
+
+
+.header span.label {
+    margin-left: 14px;
+}
+
+a.header {
+    display: block;
+    height: 100%;
+    line-height: 42px;
+    font-size: 15px;
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+}
+
+.header .steps {
+    display: inline-block;
+    height: 100%;
+    padding: 0px 16px;
+    background: #E7E7E7;
+}
+
+.card {
+    border-radius: 0;
+}
+
+.card-header {
+    padding: 0;
+    height: 42px;
+    border: unset;
+}
+
+.btn-shopping-without-signup:hover {
+    color: black !important;
+}
+
+.tab-pane .custom-control p {
+    margin-right: 22px;
+    margin-bottom: 5px;
+}
+
+.tab-pane .custom-control {
+    font-size: 13px;
+}
+
+.tab-pane .custom-control a {
+    margin-left: 26px;
+}
+
+.tab-pane .form-signin .btn {
+    padding: 12px;
+    letter-spacing: 0.08rem;
+}
+
+#login-nav .form-signin,
+#register-nav .form-signin {
+    padding: 15px 15px 8px 15px;
+}
+
+.nav .nav-item {
+    color: #a9a9a9;
+    background: #EEEEEE;
+}
+
+a#register-navtab {
+    border-right: none;
+}
+
+
+a#login-navtab {
+    margin-left: 0px;
+    border-left: none;
+}
+
+#register-navtab {
+    margin-left: 0px;
+}
+
+.nav-tabs .nav-item {
+    width: 50%;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+.login-logout {
+    width: 100%;
+}
+
+#step2contentid .card-body {
+    padding: 15px;
+}
+
+.note-before-checkout {
+    font-size: 14px;
+    margin: 10px 0 0 0;
+}
+
+.btn-checkout,
+.btn-shopping-without-signup {
+    padding: 12px;
+    letter-spacing: 0.08rem;
+    font-size: 80%;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.btn-checkout:hover {
+    color: black !important;
+}
+
+.option a {
+    color: #F5A623;
+    text-decoration: none;
+}
+
+.option2 p {
+    margin-bottom: 2px !important;
+}
+
+.option label {
+    font-size: 14px;
+    margin: 0;
+}
+
+label.transfer {
+    width: 315px;
+    position: absolute;
+    left: 32px;
+}
+
+.option p {
+    font-size: 14px;
+    padding-left: 17px;
+    margin-bottom: 10px;
+}
+
+#step3contentid .header {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* het css cho cart-steps  */
+
+@media (max-width:767px) {
+
+    /* giohang  */
+    .cart-content {
+        padding-right: 16px;
+    }
+
+    .cart-steps {
+        margin-left: 15px;
+    }
+}
+
+
+/* ========== Book detail page ======== */
+/* css cho product-page  */
+.product-detail .product-img {
+    transition: 0.2s;
+}
+
+.product-detail .thumb-img {
+    height: 100%;
+    width: 74px;
+    border: 1px solid #F2F2F2;
+}
+
+.product-detail .list-detailpic {
+    height: 76px;
+}
+
+.product-detail .thumb-img:hover {
+    cursor: pointer;
+}
+
+/* css cho khoi thong tin cua  product-page*/
+.block-info .header hr {
+    margin-top: 10px;
+}
+
+.block-info .rate {
+    color: #D9D9D5;
+    font-size: 14px;
+}
+
+.block-info .rate .active {
+    color: #F5A623;
+}
+
+.block-info .preferential .header {
+    margin-top: 5px;
+    padding: 10px 0px 2px 16px;
+    font-size: 13px;
+}
+
+.block-info .header h4 {
+    font-weight: 400;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.block-info .price {
+    font-size: 13px;
+}
+
+.block-info .input-number .btn-spin {
+    background: white;
+    border: 1px solid #ebebeb;
+}
+
+.block-info .input-number .btn-spin:hover {
+    cursor: pointer;
+    color: #2196F3;
+}
+
+.block-info .input-number .amount-product {
+    width: 38px;
+    border: 1px solid #ebebeb;
+}
+
+
+.block-info .amount label {
+    width: 101px;
+    font-size: 14px;
+    margin-top: 9px;
+}
+
+.book-info a.author {
+    color: #F5A623;
+    text-decoration: none;
+}
+
+.book-info ul li {
+    margin-bottom: 5px;
+}
+
+.block-info .book-info ul {
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+.block-info .book-info {
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
+    padding: 13px;
+    font-size: 13px;
+}
+
+.block-info .preferential ul {
+    list-style: none;
+}
+
+.block-info .preferential ul li::before {
+    content: "\2022";
+    color: #F5A623;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    font-size: 15px;
+}
+
+.block-info .preferential li a {
+    color: gray;
+}
+
+.block-info .preferential li {
+    margin-left: 33px;
+    margin-bottom: 5px;
+}
+
+.block-info .preferential {
+    background: #FEF6E9;
+    border: 1px solid #F5A623;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.block-info .price-detail {
+    margin-top: 7px;
+}
+
+.block-info .price-detail .new-price {
+    color: red;
+    font-size: 26px;
+    position: absolute;
+    top: 12px;
+    left: 149px;
+}
+
+/* don vi tien  */
+.block-info .price-detail .unit {
+    color: red;
+    font-size: 26px;
+    position: absolute;
+    top: 12px;
+    left: 250px;
+    font-weight: bold;
+}
+
+.block-info .cover-price .old-price {
+    text-decoration: line-through;
+    color: #b8b8b8;
+}
+
+.block-info .tietkiem {
+    margin-top: 7px;
+}
+
+.block-info small.share {
+    font-size: 15px;
+}
+
+.block-info .shopping-guide {
+    color: #F7A623;
+    font-size: 13px;
+    margin: 10px 0px;
+    display: block;
+}
+
+.block-info .buy-btn {
+    background: linear-gradient(#f5a623, #fd8205);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.block-info .buy-btn:hover {
+    box-shadow: 0px 11px 20px -10px #fd8205;
+}
+
+/* het css cho product-page  */
+
+
+/* .product-description  */
+.nav-tabs .nav-book-detail {
+    width: unset;
+}
+
+.vote-form .submit-comment {
+    border: 1px solid #F7A623;
+    color: #F7A623;
+    width: 60%;
+    font-weight: 500;
+}
+
+.vote-form .submit-comment:hover {
+    background: #F7A623;
+    color: white;
+}
+
+.vote-form .form-group input {
+    padding: 6px 15px;
+    font-size: 14px;
+    border: 1px solid #d7d2d2;
+}
+
+.vote-form .danhgiacuaban {
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.vote-form .title {
+    font-size: 17px !important;
+}
+
+.btn.write-form {
+    border: 1px solid #F7A623;
+    color: #F7A623;
+    padding: 7px 20px;
+}
+
+.btn.write-form:hover {
+    color: white;
+    background: #F7A623;
+}
+
+.vote-title .block-process {
+    margin-bottom: 8px;
+}
+
+#vote-nav .vote-title {
+    margin-top: 53px;
+}
+
+.block-process i.fa.fa-star {
+    margin-left: 6px;
+    color: #a5a5a5;
+}
+
+.progress {
+    width: 80%;
+    height: 10px;
+}
+
+#vote-nav p.amount-comment {
+    font-size: 13px;
+}
+
+#vote-nav .star i.fa.fa-star {
+    color: #d1cccc;
+}
+
+#vote-nav .point {
+    font-size: 45px;
+    color: red;
+    font-weight: bold;
+}
+
+.product-description #vote-nav p.title {
+    margin: 20px 0px 0px 0px;
+}
+
+.product-description h6.title {
+    margin-top: 22px;
+    font-size: 18px;
+}
+
+.product-description .nav-tabs a {
+    color: gray;
+    margin-right: 7px;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+.product-description .nav-tabs .nav-item.active {
+    color: black;
+    border-top: 4px solid #F5A623;
+}
+
+.product-description {
+    margin-left: 9px;
+}
+
+.vote-form .rating input {
+    display: none;
+
+}
+
+.vote-form .rating label {
+    display: block;
+    cursor: pointer;
+    width: 15px;
+}
+
+.vote-form .rating label::before {
+    content: '\f005';
+    font-family: 'Font Awesome\ 5 Free';
+    font-weight: 900;
+    position: relative;
+    display: block;
+    font-size: 15px;
+    color: rgb(187, 186, 186);
+}
+
+.vote-form .rating label::after {
+    content: '\f005';
+    font-family: 'Font Awesome\ 5 Free';
+    font-weight: 900;
+    position: absolute;
+    display: block;
+    font-size: 15px;
+    color: #F7A623;
+    top: 350px;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.vote-form .rating label:hover::after,
+.vote-form .rating label:hover~label::after,
+.vote-form .rating input:checked~label::after {
+    opacity: 1;
+}
+
+/* het css cho .product-description  */
+
+/* ======== Account page ========== */
+/* page tai khoan  */
+.account-page-tab-content .nav-tabs .nav-link {
+    border-radius: 0;
+}
+
+.account-page-tab-content a.nav-link {
+    margin-left: 0;
+}
+
+.account-page-tab-content .nav-tabs .nav-item.active {
+    color: black;
+    border-top: 4px solid #F5A623;
+}
+
+.account-page-tab-content .nav-tabs a {
+    color: gray;
+}
+
+.update-btn {
+    background: linear-gradient(#f8c168, #ffa142);
+    color: white;
+    font-weight: 500;
+    padding: 7px 15px 7px 15px;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.order-table table th {
+    font-weight: 500;
+    background: #cecece;
+}
+
+h3.account-header {
+    color: #9d9d9d;
+    font-size: 18px;
 }

@@ -11,17 +11,17 @@ def get_revenue_query(**kwargs):
         .join(BookModel) \
         .filter(BookModel.book_id == cart_detail_model.c.book_id) \
         .group_by(cart_detail_model.c.ordered_date) \
-        .order_by(func.sum(cart_detail_model.c.amount * BookModel.price))
+        .order_by(cart_detail_model.c.ordered_date)
 
 
-# Tạo câu truy vấn khi báo ccaos tần suất bán sách
+# Tạo câu truy vấn khi báo cáo tần suất bán sách
 def get_frequently_book_selling_query(**kwargs):
     return db.session.query(BookModel.name,
                             func.sum(cart_detail_model.c.amount)) \
         .join(BookModel)\
         .filter(BookModel.book_id == cart_detail_model.c.book_id)\
         .group_by(BookModel.name) \
-        .order_by(func.sum(cart_detail_model.c.amount))
+        .order_by(BookModel.name)
 
 
 # Lọc sữ liệu báo cáo theo điều kiện
@@ -32,7 +32,7 @@ def get_report_data(query=None, **kwargs):
     month = kwargs.get('month')
     quarter = kwargs.get('quarter')
     year = kwargs.get('year')
-    
+
     if month:
         query = query.filter(func.month(cart_detail_model.c.ordered_date) == month)
 
