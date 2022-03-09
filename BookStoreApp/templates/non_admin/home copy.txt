@@ -2,21 +2,21 @@
 <html lang="vi">
 
 <head>
-    {% block title %}
-    {% endblock %}
-
-    {% block head_meta %}
+    <title>BookStore OU - Mua sách trực tuyến giá rẻ nhất</title>
     <meta name="description"
         content="Mua sách online hay, giá tốt nhất, combo sách hot bán chạy, giảm giá cực khủng cùng với những ưu đãi như miễn phí giao hàng, quà tặng miễn phí, đổi trả nhanh chóng. Đa dạng sản phẩm, đáp ứng mọi nhu cầu.">
     <meta name="keywords" content="nhà sách online, mua sách hay, sách hot, sách bán chạy, sách giảm giá nhiều">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% endblock %}
 
-    {% block head %}
     <!-- BS4 & Jquery -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js">
+    </script>
+
     <!-- Font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
     <script src="https://kit.fontawesome.com/fe78fbcdb4.js" crossorigin="anonymous"></script>
@@ -37,18 +37,10 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="../static/plugins/cursor/cursor.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-
-    <!-- Font -->
-    <script src="/static/plugins/webfont/webfont.min.js"></script>
-    <script src="https://kit.fontawesome.com/9922726b65.js"></script>
-
-    {% endblock %}
-
+    <link rel="stylesheet" href="../static/css/home.css">
 </head>
 
 <body>
-    {% block header %}
     <!-- header start -->
     {% include 'includes/non_admin/header.html' %}
     <!-- header end -->
@@ -68,27 +60,36 @@
     <!-- content categories + banner slider start -->
     {% include 'includes/non_admin/content-categories.html' %}
     <!-- content categories + banner slider end -->
-    {% endblock %}
 
-    {% block body %}
+    <!-- new book start -->
+    {% include 'includes/non_admin/home/new-book.html' %}
+    <!-- new book end -->
 
-    {% endblock %}
+    <!-- hot book start -->
+    {% include 'includes/non_admin/home/hot-book.html' %}
+    <!-- hot book end -->
 
-    {% block services %}
+    <!-- comming soon book start -->
+    {% include 'includes/non_admin/home/commingsoon-book.html' %}
+    <!-- comming soon book end -->
+
+    <!-- recommend book start -->
+    {% include 'includes/non_admin/home/recommend-book.html' %}
+    <!-- recommend book end -->
+
     <!-- services start -->
     {% include 'includes/non_admin/services.html' %}
     <!-- services end -->
-    {% endblock %}
 
-    {% block footer %}
     <!-- footer start -->
     {% include 'includes/non_admin/footer.html' %}
     <!-- footer end -->
-    {% endblock %}
 
-    {% block script %}
+    <!-- Main JS -->
     {% include 'includes/non_admin/scripts.html' %}
-    {% endblock %}
+
+    <!-- Isotope -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 </body>
 
 </html>
