@@ -1,6 +1,6 @@
 from sqlalchemy import func
 
-from BookStoreApp import db, BookModel
+from BookStoreApp import db, BookModel, CartModel
 from BookStoreApp.model.cart_detail_model import cart_detail_model
 
 
@@ -9,7 +9,9 @@ def get_revenue_query(**kwargs):
     return db.session.query(cart_detail_model.c.ordered_date,
                             func.sum(cart_detail_model.c.amount * BookModel.price)) \
         .join(BookModel) \
-        .filter(BookModel.book_id == cart_detail_model.c.book_id) \
+        .filter(BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
+        .join(CartModel)\
+        .filter(CartModel.is_paid.__eq__(True))\
         .group_by(cart_detail_model.c.ordered_date) \
         .order_by(cart_detail_model.c.ordered_date)
 
@@ -19,7 +21,9 @@ def get_frequently_book_selling_query(**kwargs):
     return db.session.query(BookModel.name,
                             func.sum(cart_detail_model.c.amount)) \
         .join(BookModel)\
-        .filter(BookModel.book_id == cart_detail_model.c.book_id)\
+        .filter(BookModel.book_id == cart_detail_model.c.book_id) \
+        .join(CartModel) \
+        .filter(CartModel.is_paid.__eq__(True)) \
         .group_by(BookModel.name) \
         .order_by(BookModel.name)
 
