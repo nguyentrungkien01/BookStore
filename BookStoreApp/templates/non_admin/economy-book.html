@@ -1,0 +1,27 @@
+{% extends 'non_admin/layout.html'%}
+
+
+{% block title %}
+<title>Sách kinh tế - Mua sách trực tuyến giá rẻ nhất</title>
+{% endblock %}
+
+
+{% block head %}
+{{super()}}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+{% endblock %}
+
+
+{% block body %}
+{{super()}}
+
+
+{% include 'includes/non_admin/category/economy-book.html' %}
+
+{% block script %}
+{{super()}}
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+{% endblock %}
+{% endblock %}

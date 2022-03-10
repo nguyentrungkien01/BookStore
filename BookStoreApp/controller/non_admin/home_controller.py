@@ -21,3 +21,8 @@ def account():
 @app.route('/chi-tiet-sach')
 def book_detail():
     return render_template('/non_admin/book-detail.html')
+
+
+@app.route('/sach-kinh-te')
+def category():
+    return render_template('/non_admin/economy-book.html')
