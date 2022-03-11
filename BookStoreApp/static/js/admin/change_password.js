@@ -4,7 +4,7 @@ var titleAlert = ''
 var textAlert = ''
 
 function passAccountData() {
-    fetch('/api/staff/change_password', {
+    fetch('/admin/api/change-password', {
         method: 'post',
         body: JSON.stringify({
             'username': document.getElementById("username").innerText.slice('nguoi dung: '.length).trim(),
@@ -19,21 +19,29 @@ function passAccountData() {
     }).then(function (datas) {
         if (datas['result']) {
             Swal.fire(
-                'Đổi mật khẩu thành công!',
+                'Đổi mật khẩu thành công!!!',
                 'Mật khẩu của bạn đã được cập nhật.',
                 'success'
             ).then(function () {
                 window.location = '/admin/';
             })
-        } else {
-            Swal.fire({
-                title: 'Đổi mật khẩu không thành công',
-                text: 'Xin vui lòng nhập lại',
-                icon: 'warning',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Ok',
-            })
-        }
+        } else if (datas['wrong_password']){
+                Swal.fire({
+                    title: 'Nhập mật khẩu cũ sai!!!',
+                    text: 'Xin vui lòng kiểm tra lại',
+                    icon: 'warning',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Ok',
+                })
+                } else{
+                    Swal.fire({
+                        title: 'Đổi mật khẩu thất bại!!!',
+                        text: 'Xin vui lòng kiểm tra lại',
+                        icon: 'warning',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Ok',
+                    })
+                }
     })
 }
 
@@ -78,15 +86,15 @@ $(document).ready(function () {
 })
 
 function checkCondition(element, text) {
-    if (!(element.val().length >= 8 && element.val().length <= 12)) {
+    if (!(element.val().length >= 6 && element.val().length <= 8)) {
         titleAlert = `Độ dài của ${text} không hợp lệ`
-        textAlert = 'Lưu ý: độ dài từ 8 đến 12 ký tự'
+        textAlert = 'Lưu ý: độ dài từ 6 đến 8 ký tự'
         return false
     }
     var numbers = /[0-9]/g;
     if (element.val().match(numbers) == null) {
         titleAlert = `${text} chỉ được nhập số`
-        textAlert = 'Xin vui lòng nhập lại'
+        textAlert = 'Xin vui lòng kiểm tra lại!!!'
         return false
     }
     return true
@@ -108,6 +116,10 @@ function checkAlertWrong() {
     }
     if ($('#newPsw').val() != $('#cfmNewPsw').val()) {
         titleAlert = 'Mật khẩu xác nhận không trùng khớp với mật khẩu mới'
+        return false
+    }
+    if ($('#newPsw').val() == $('#oldPsw').val()) {
+        titleAlert = 'Mật khẩu mới trùng với mật khẩu cũ'
         return false
     }
     return true

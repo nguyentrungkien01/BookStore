@@ -19,8 +19,26 @@
     </div>
     <div class="page-inner mt--5">
         <div class="row mt--2 justify-content-center">
-           
         </div>
     </div>
+    <div id="cart-admin">
+
+        <input name="gender" type="radio" id="input-asc">Sắp xếp tăng dần
+        <input name="gender" type="radio" id="input-desc">Sắp xếp giảm dần
+        <select id="select-val">
+            <option value="select-all">--- Tất cả ---</option>
+            <option value="select-1">Dưới 1 triệu</option>
+            <option value="select-2">Từ 1 - 2 triệu</option>
+            <option value="select-3">Trên 2 triệu</option>
+        </select>
+
+        <input name="gender" type="button" value="Tìm kiếm" onclick="getCartData()">
+
+    </div>
 </div>
+{% block script %}
+
+<!-- Main JS -->
+<script src="{{ url_for('static', filename='js/admin/admin_cart.js') }}"></script>
+{% endblock %}
 {% endblock %}
