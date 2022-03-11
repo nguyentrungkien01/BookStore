@@ -386,7 +386,7 @@ body {
 
 .logo-header {
   float: left;
-  width: 250px;
+  width: 260px;
   height: 62px;
   line-height: 60px;
   color: #333333;
@@ -503,7 +503,7 @@ body {
   top: 0;
   bottom: 0;
   left: 0;
-  width: 250px;
+  width: 260px;
   margin-top: 62px;
   display: block;
   z-index: 1000;
@@ -1190,7 +1190,7 @@ body {
 
 .main-panel {
   position: relative;
-  width: calc(100% - 250px);
+  width: calc(100% - 260px);
   height: 100vh;
   min-height: 100%;
   float: right;
@@ -1565,11 +1565,11 @@ body {
   }
 
   .sidebar_minimize .sidebar:hover {
-    width: 250px;
+    width: 260px;
   }
 
   .sidebar_minimize .sidebar:hover .sidebar-wrapper {
-    width: 250px;
+    width: 260px;
   }
 
   .sidebar_minimize .sidebar:hover .sidebar-wrapper .user {
@@ -1612,7 +1612,7 @@ body {
   }
 
   .sidebar_minimize.sidebar_minimize_hover .logo-header {
-    width: 250px;
+    width: 260px;
     padding-left: 25px;
     padding-right: 25px;
     text-align: left;
@@ -1629,7 +1629,7 @@ body {
   }
 
   .sidebar_minimize.sidebar_minimize_hover .main-panel {
-    width: calc(100% - 250px);
+    width: calc(100% - 260px);
   }
 
   .sidebar_minimize_hover .logo-header .nav-toggle {
@@ -1641,7 +1641,7 @@ body {
 
 /*    overlay sidebar    */
 .overlay-sidebar:not(.is-show) .sidebar {
-  left: -250px;
+  left: -260px;
 }
 
 .overlay-sidebar .main-panel {
@@ -6998,7 +6998,7 @@ label.error {
 }
 
 .messages-notif-box .message-notif-scroll {
-  max-height: 250px;
+  max-height: 260px;
 }
 
 .messages-notif-box .notif-center a {
@@ -11820,7 +11820,7 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 
   .nav_open .main-panel,
   .nav_open .main-header {
-    transform: translate3d(250px, 0, 0) !important;
+    transform: translate3d(260px, 0, 0) !important;
   }
 
   .quick_sidebar_open .quick-sidebar {
@@ -11943,7 +11943,7 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
   }
 
   .nav_open.topbar_open .main-panel {
-    transform: translate3d(250px, 60px, 0) !important;
+    transform: translate3d(260px, 60px, 0) !important;
   }
 
   .navbar-header .navbar-nav {
@@ -12124,7 +12124,7 @@ div.table-responsive>div.dataTables_wrapper>div.row>div[class^="col-"]:last-chil
 
 @media screen and (max-width: 576px) {
   #chart-container {
-    min-height: 250px;
+    min-height: 260px;
   }
 
   .form-check-inline {
@@ -12991,7 +12991,7 @@ body .main-panel .modal-content .modal-body input:focus {
 
 .doctor-modal .show-hint {
   right: unset;
-  left: 250px;
+  left: 260px;
   top: 53px;
 }
 
