@@ -21,6 +21,12 @@
 <div class="main-panel">
     {% block content %}
     {% include 'includes/admin/home.html' %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.22/jspdf.plugin.autotable.min.js"
+        integrity="sha512-3QG6xTKwQ+Gj16++ggVRGrg0pZbC5/u131WyV3Pg/C9JMIKubrs1SbeloGdT5tpx+fVVV1jjkuo+dzbbF080hw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ url_for('static', filename='js/admin/home_page.js') }}"></script>
     {% block footer %}
     {% if current_user.is_authenticated %}
     {% include 'includes/admin/footer.html' %}
