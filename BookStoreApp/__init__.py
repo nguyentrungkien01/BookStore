@@ -50,7 +50,7 @@ from model.point_model import PointModel
 from model.preview_model import PreviewModel
 from model.role_model import RoleModel
 from model.sale_model import SaleModel
-from model.book_attachment_model import book_attachment_model
+from model.attachment_model import AttachmentModel
 from model.cart_detail_model import cart_detail_model
 from model.comment_book_model import comment_book_model
 from model.customer_sale_model import customer_sale_model
@@ -72,7 +72,7 @@ from model_view.admin.preview_view import PreviewView
 from model_view.admin.profile_view import ProfileView
 from model_view.admin.report_view import ReportView
 from model_view.admin.statistic_view import StatisticView
-from model_view.admin.book_attachment_view import BookAttachmentView
+from model_view.admin.attachment_view import AttachmentView
 
 # Import controller
 from controller.non_admin.home_controller import *
@@ -104,7 +104,7 @@ def init_admin():
     admin.add_view(ManufacturerView(ManufacturerModel, db.session, name='Nhà xuất bản',
                                     category='Thông tin bổ sung sách'))
     admin.add_view(PreviewView(name='Bản xem trước sách', category='Thông tin bổ sung sách'))
-    admin.add_view(BookAttachmentView(name='Sách đính kèm', category='Thông tin bổ sung sách'))
+    admin.add_view(AttachmentView(AttachmentModel, db.session,name='Sách đính kèm', category='Thông tin bổ sung sách'))
     admin.add_view(SaleView(SaleModel, db.session, name='Giảm giá', category='Khác'))
     admin.add_view(PointView(PointModel, db.session, name='Điểm', category='Khác'))
     admin.add_view(RoleView(RoleModel, db.session, name='Vai trò tài khoản', category='Khác'))

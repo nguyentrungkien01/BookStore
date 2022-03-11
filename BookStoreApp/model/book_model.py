@@ -27,13 +27,11 @@ class BookModel(db.Model):
     point_id = Column(Integer, ForeignKey('point_model.point_id'))
     manufacturer_id = Column(Integer, ForeignKey('manufacturer_model.manufacturer_id'))
     category_id = Column(Integer, ForeignKey('category_model.category_id'))
+    attachment_id = Column(Integer, ForeignKey('attachment_model.attachment_id'))
 
     # Quan hệ
     previews = relationship('PreviewModel', backref='book', lazy=True,
                             foreign_keys='[PreviewModel.book_id]')
-    attach_books = relationship('BookModel', secondary='book_attachment_model',
-                                foreign_keys='[book_attachment_model.c.book_id]',
-                                backref=backref('books', lazy=True), lazy=True)
 
     def __str__(self):
         return '{}'.format(self.name)

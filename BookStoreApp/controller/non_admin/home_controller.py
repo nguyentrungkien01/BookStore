@@ -26,3 +26,4 @@ def book_detail():
 @app.route('/sach-kinh-te')
 def category():
     return render_template('/non_admin/economy-book.html')
+
