@@ -12738,8 +12738,8 @@ body[data-background-color="dark"] .auth-wrapper .form-group label {
   min-width: 204px;
   background: #fff;
   position: absolute;
-  top: 50px;
-  right: 68px;
+  top: 185px;
+  left: 105px;
   border-radius: 0 0 7px 7px;
   z-index: 9999
 }

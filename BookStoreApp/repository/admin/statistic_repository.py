@@ -2,7 +2,7 @@ from operator import and_
 
 from sqlalchemy import func
 
-from BookStoreApp import db, BookModel
+from BookStoreApp import db, BookModel, CartModel
 from BookStoreApp.model.cart_detail_model import cart_detail_model
 
 
@@ -10,10 +10,12 @@ from BookStoreApp.model.cart_detail_model import cart_detail_model
 def get_statistic_revenue_month(from_month=None, to_month=None):
     data = db.session.query(func.month(cart_detail_model.c.ordered_date),
                             func.sum(cart_detail_model.c.amount * BookModel.price)) \
-                            .join(BookModel) \
-                            .filter(BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
-                            .group_by(func.month(cart_detail_model.c.ordered_date)) \
-                            .order_by(func.month(cart_detail_model.c.ordered_date))
+        .join(BookModel) \
+        .filter(BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
+        .join(CartModel) \
+        .filter(CartModel.is_paid.__eq__(True)) \
+        .group_by(func.month(cart_detail_model.c.ordered_date)) \
+        .order_by(func.month(cart_detail_model.c.ordered_date))
 
     if from_month and to_month:
         data = data.filter(and_(func.month(cart_detail_model.c.ordered_date) >= from_month,
@@ -25,10 +27,12 @@ def get_statistic_revenue_month(from_month=None, to_month=None):
 def get_statistic_revenue_quarter(from_quarter=None, to_quarter=None):
     data = db.session.query(func.quarter(cart_detail_model.c.ordered_date),
                             func.sum(cart_detail_model.c.amount * BookModel.price)) \
-                            .join(BookModel) \
-                            .filter(BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
-                            .group_by(func.quarter(cart_detail_model.c.ordered_date)) \
-                            .order_by(func.quarter(cart_detail_model.c.ordered_date))
+        .join(BookModel) \
+        .filter(BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
+        .join(CartModel) \
+        .filter(CartModel.is_paid.__eq__(True)) \
+        .group_by(func.quarter(cart_detail_model.c.ordered_date)) \
+        .order_by(func.quarter(cart_detail_model.c.ordered_date))
 
     if from_quarter and to_quarter:
         data = data.filter(and_(func.quarter(cart_detail_model.c.ordered_date) >= from_quarter,
@@ -40,10 +44,12 @@ def get_statistic_revenue_quarter(from_quarter=None, to_quarter=None):
 def get_statistic_revenue_year(from_year=None, to_year=None):
     data = db.session.query(func.year(cart_detail_model.c.ordered_date),
                             func.sum(cart_detail_model.c.amount * BookModel.price)) \
-                            .join(BookModel) \
-                            .filter(BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
-                            .group_by(func.year(cart_detail_model.c.ordered_date)) \
-                            .order_by(func.year(cart_detail_model.c.ordered_date))
+        .join(BookModel) \
+        .filter(BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
+        .join(CartModel) \
+        .filter(CartModel.is_paid.__eq__(True)) \
+        .group_by(func.year(cart_detail_model.c.ordered_date)) \
+        .order_by(func.year(cart_detail_model.c.ordered_date))
 
     if from_year and to_year:
         data = data.filter(and_(func.year(cart_detail_model.c.ordered_date) >= from_year,
@@ -57,6 +63,8 @@ def get_statistic_frequently_book_selling_month(from_month=None, to_month=None, 
                             func.sum(cart_detail_model.c.amount)) \
         .join(BookModel) \
         .filter(BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
+        .join(CartModel) \
+        .filter(CartModel.is_paid.__eq__(True)) \
         .group_by(func.month(cart_detail_model.c.ordered_date)) \
         .order_by(func.month(cart_detail_model.c.ordered_date))
 
@@ -75,6 +83,8 @@ def get_statistic_frequently_book_selling_quarter(from_quarter=None, to_quarter=
                             func.sum(cart_detail_model.c.amount)) \
         .join(BookModel) \
         .filter(BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
+        .join(CartModel) \
+        .filter(CartModel.is_paid.__eq__(True)) \
         .group_by(func.quarter(cart_detail_model.c.ordered_date)) \
         .order_by(func.quarter(cart_detail_model.c.ordered_date))
 
@@ -93,6 +103,8 @@ def get_statistic_frequently_book_selling_year(from_year=None, to_year=None, boo
                             func.sum(cart_detail_model.c.amount)) \
         .join(BookModel) \
         .filter(BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
+        .join(CartModel) \
+        .filter(CartModel.is_paid.__eq__(True)) \
         .group_by(func.year(cart_detail_model.c.ordered_date)) \
         .order_by(func.year(cart_detail_model.c.ordered_date))
 
