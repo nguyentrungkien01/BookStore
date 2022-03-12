@@ -10,10 +10,8 @@ app = Flask(__name__)
 
 # thông tin database
 USERNAME_DB = 'root'
-
-PASSWORD_DB = '12345678'
-NAME_DB = 'book_store'
-
+PASSWORD_DB = 'thanhnam'
+NAME_DB = 'BookStore'
 IP_DB = 'localhost'
 
 # Thông tin cloudinary

@@ -12754,10 +12754,16 @@ body[data-background-color="dark"] .auth-wrapper .form-group label {
   margin-top: 5px;
 }
 
+/* 
 .stats-choice .form-group input {
   height: 40px;
   padding: 0 10px;
   border-radius: 5px;
+} */
+
+.stats-choice .form-group label,
+.form-check label {
+  margin-bottom: unset;
 }
 
 .stats-time {
@@ -13714,4 +13720,18 @@ body .main-panel .modal-content .modal-body input:focus {
   #search_result .modal-dialog {
     max-width: 500px !important;
   }
+}
+
+/* Cart guest */
+.img-book img {
+  display: block;
+  width: 80%;
+  height: auto;
+  margin: auto;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.book-info p {
+  margin: unset;
 }
