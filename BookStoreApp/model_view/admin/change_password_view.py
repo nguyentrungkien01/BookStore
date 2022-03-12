@@ -3,6 +3,7 @@ from flask_login import current_user
 
 from BookStoreApp.model_view.admin.base_view import BaseView
 
+
 # Lớp tượng trưng cho trang chức năng đổi mật khẩu phía admin
 class ChangePasswordView(BaseView):
     @expose('/')
@@ -14,5 +15,3 @@ class ChangePasswordView(BaseView):
 
     def is_visible(self):
         return False
-
-

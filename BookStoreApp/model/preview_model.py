@@ -17,4 +17,3 @@ class PreviewModel(db.Model):
 
     # Khóa ngoại
     book_id = Column(Integer, ForeignKey('book_model.book_id'))
-
