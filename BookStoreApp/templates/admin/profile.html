@@ -13,12 +13,13 @@
 
 {% block body %}
 {{super()}}
+<body onload="getProfileData({{current_user.account_id}})"></body>
 <div class="content">
     <div class="panel-header bg-primary-gradient">
         <div class="page-inner py-5">
             <div>
-                <h2 class="text-white pb-2 fw-bold">Báo cáo</h2>
-                <h5 class="text-white op-7 mb-2">Phòng khám Trung Thành</h5>
+                <h2 class="text-white pb-2 fw-bold">Thông tin cá nhân</h2>
+                <h5 class="text-white op-7 mb-2"></h5>
             </div>
         </div>
     </div>
@@ -35,7 +36,7 @@
                                 <div class="form-group-default">
                                     <div class="pt-2 pb-2">
                                         <span class="text-success fw-bold">Họ và tên đệm:</span>
-                                        <span></span>
+                                        <span id="lastName"></span>
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +44,7 @@
                                 <div class="form-group-default">
                                     <div class="pt-2 pb-2">
                                         <span class="text-success fw-bold">Tên:</span>
-                                        <span></span>
+                                        <span id="firstName"></span>
                                     </div>
                                 </div>
                             </div>
@@ -53,25 +54,7 @@
                                 <div class="form-group-default">
                                     <div class="pt-2 pb-2">
                                         <span class="text-success fw-bold">Ngày sinh:</span>
-                                        <span></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group-default">
-                                    <div class="pt-2 pb-2">
-                                        <span class="text-success fw-bold">Giới tính:</span>
-                                        <span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group-default">
-                                    <div class="pt-2 pb-2">
-                                        <span class="text-success fw-bold">Số điện thoại:</span>
-                                        <span class="not-fill">Chưa cập nhật thông tin !</span>
+                                        <span id="dateOfBirth"></span>
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +62,17 @@
                                 <div class="form-group-default">
                                     <div class="pt-2 pb-2">
                                         <span class="text-success fw-bold">Ngày vào làm:</span>
-                                        <span></span>
+                                        <span id="joinedDate"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group-default">
+                                    <div class="pt-2 pb-2">
+                                        <span class="text-success fw-bold">Số điện thoại:</span>
+                                        <span id="phoneNumber" >Chưa cập nhật thông tin !</span>
                                     </div>
                                 </div>
                             </div>
@@ -89,17 +82,7 @@
                                 <div class="form-group-default">
                                     <div class="pt-2 pb-2">
                                         <span class="text-success fw-bold">Địa chỉ email:</span>
-                                        <span class="not-fill">Chưa cập nhật thông tin !</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group-default">
-                                    <div class="pt-2 pb-2">
-                                        <span class="text-success fw-bold">Khoa trực thuộc:</span>
-                                        <span></span>
+                                        <span id="gmail">Chưa cập nhật thông tin !</span>
                                     </div>
                                 </div>
                             </div>
@@ -109,7 +92,7 @@
                                 <div class="form-group-default">
                                     <div class="pt-2 pb-2">
                                         <span class="text-success fw-bold">Địa chỉ:</span>
-                                        <span></span>
+                                        <span id="address"></span>
                                     </div>
                                 </div>
                             </div>
@@ -125,7 +108,7 @@
                             <div class="avatar avatar-xl">
             
                                 <img src="https://res.cloudinary.com/ouproject/image/upload/v1641740539/avatar_account/default_avatar_mvuqgu_vigdu2.png"
-                                    alt="avatar" class="avatar-img rounded-circle">
+                                    alt="avatar" id="avatar" class="avatar-img rounded-circle">
                             </div>
                         </div>
                     </div>
@@ -137,13 +120,12 @@
                                 </span>
                             </div>
                             <div class="job">
-                                <span class="text-warning fw-bold">Chức vụ:</span>
+                                <span class="text-warning fw-bold">Tên tài khoản: <span id="username" class="text-success"></span></span>
             
                             </div>
-            
+
                             <div class="desc">
-                                <span class="text-warning fw-bold">Số điện thoại:</span> <span class="not-fill"> chưa cập
-                                    nhật</span>
+                                <span class="text-warning fw-bold">Chức vụ: </span> <span id="role" class="text-success"></span>
                             </div>
                         </div>
                     </div>
@@ -152,4 +134,8 @@
         </div>
     </div>
 </div>
+{% block script %}
+<!-- Main JS -->
+<script src="{{ url_for('static', filename='js/admin/profile.js') }}"></script>
+{% endblock %}
 {% endblock %}
