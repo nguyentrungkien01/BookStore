@@ -1,6 +1,6 @@
 // Lấy thông tin người dùng
 function getProfileData(account_id){
-    fetch('/admin/api/profile', {
+    fetch('/admin/profile/api/profile-info', {
         method: 'post',
         body: JSON.stringify({
             'account_id':account_id
