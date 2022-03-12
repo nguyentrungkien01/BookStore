@@ -95,7 +95,7 @@ function setCartData(cart, book) {
                 bookx += `
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #02133e;">
                         <div class="card-head-row">
                             <div class="card-title">${bookId++}. ${book[j]['name_book']}</div>
                         </div>
