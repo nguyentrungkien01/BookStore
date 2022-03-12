@@ -1,21 +1,27 @@
-from BookStoreApp.repository.admin.cart_repository import get_book_in_cart as gbic,get_info_user_in_cart as info_user,\
+from BookStoreApp.repository.admin.cart_repository import get_book_in_cart as gbic, get_info_user_in_cart as info_user, \
     get_cart_model as gcm, get_total_by_cart_id as gtbc
+
 
 def get_cart_model():
     return gcm()
+
+
 # Lấy thông tin của khách hàng thông qua repository
 def get_info_user_in_cart():
     return info_user()
+
 
 # Lấy thông tin sách trong giỏ hàng thông qua repository
 def get_book_in_cart(**kwargs):
     return gbic()
 
+
 # Lấy tổng tiền theo cartId thông qua repository
-def get_total_by_cart_id(cartID=None,**kwargs):
+def get_total_by_cart_id(cartID=None, **kwargs):
     if cartID:
-       return gtbc(cart_id=cartID)
+        return gtbc(cart_id=cartID)
     return
+
 
 # Chuyển thông tyin người dùng sang dạng dictionary
 def get_info_user_data(data=None, **kwargs):
@@ -36,6 +42,7 @@ def get_info_user_data(data=None, **kwargs):
 
     return report_data
 
+
 # Chuyển thông tin sang dictionary
 def get_book(data=None, **kwargs):
     if data is None:
@@ -55,6 +62,7 @@ def get_book(data=None, **kwargs):
 
     return report_data
 
+
 # Lấy danh sách tổng tiền để hổ trợ code
 def get_list_total_money_by_cart_id(data=None, **kwargs):
     if data is None:
@@ -66,4 +74,3 @@ def get_list_total_money_by_cart_id(data=None, **kwargs):
         list.append(float(get_total_by_cart_id(value[0])))
 
     return list
-

@@ -3,6 +3,7 @@
 
 {% block head%}
 {{super()}}
+    <script src="{{url_for('static', filename='js/admin/preview.js')}}"></script>
 {% endblock%}
 
 
@@ -19,7 +20,36 @@
     </div>
     <div class="page-inner mt--5">
         <div class="row mt--2 justify-content-center">
-           
+            <div class="card col-md-12">
+               <form>
+                    <div class="form-group" id="bookNameInput">
+                        <label for="bookName">Tên sách</label>
+                        <input type="text" name="bookName" placeholder="Nhập tên sách" id="bookName"/>
+                        <div id="bookNameResultInput" class="show-hint"></div>
+                    </div>
+                  <button id="searchBookName" type="button" class="btn btn-primary">Tìm kiếm</button>
+               </form>
+            </div>
+            <div class="card col-md-12">
+                <h1>Kết quả tìm kiếm</h1>
+                <div>
+                    <div id="bookInfo"></div>
+                    <div id="previewInfo"></div>
+                </div>
+            </div>
+            <div class="card col-md-12" id = "previewAddition">
+                <h1>Thêm thông tin các bản xem trước của sách</h1>
+                <form action="/admin/previewview/api/add-preview" enctype="multipart/form-data" method="post">
+                    <div class="form-group">
+                        <label for="newPreview">Có thể chọn nhiều file trong 1 lần chọn</label>
+                        <input type="file" name="new_preview" class="form-control" id="newPreview" multiple>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="book_name" class="form-control" id="bookNameData" hidden>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Thêm</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
