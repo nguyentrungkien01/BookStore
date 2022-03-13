@@ -12,17 +12,14 @@ def get_info(data=None, **kwargs):
     profile_data = []
 
     profile_data.append({
-        'last_name': data[0],
+        'username': data[0],
         'first_name': data[1],
-        'avatar': data[2],
+        'last_name': data[2],
         'joined_date': data[3].strftime('%d/%m/%Y'),
-        'phone_number': data[4],
-        'date_of_birth': data[5].strftime('%d/%m/%Y'),
-        'gmail': data[6],
-        'type': data[7],
-        'role_name': data[8],
-        'address': data[9] + ", " + data[10] + ", " + data[11],
-        'username': data[12]
+        'avatar': data[4],
+        'gmail': data[5],
+        'role_name': data[6],
+        'lass_access': data[7].strftime("%m/%d/%Y, %H:%M:%S")
     })
 
     return profile_data
