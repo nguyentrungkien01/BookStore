@@ -402,7 +402,7 @@ $(function () {
                 cartContent.innerHTML += `
                     <div class="cart-item d-flex">
                         <a href="product-item.html" class="img">
-                            <img src="images/${item.tag}.jpg" class="img-fluid" alt="${item.tag}">
+                            <img src="../static/images/${item.tag}.jpg" class="img-fluid" alt="${item.tag}">
                         </a>
                         <div class="item-caption d-flex w-100">
                             <div class="item-info ml-3">
@@ -426,7 +426,6 @@ $(function () {
                             </div>
                         </div>
                     </div>
-                    <hr>
                 `
             })
 
