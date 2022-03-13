@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # thông tin database
 USERNAME_DB = 'root'
-PASSWORD_DB = '12345678'
+PASSWORD_DB = 'thanhnam'
 NAME_DB = 'BookStore'
 IP_DB = 'localhost'
 
@@ -39,7 +39,6 @@ cloudinary.config(cloud_name=CLOUD_NAME,
 # Import model database
 from model.book_model import BookModel
 from model.cart_model import CartModel
-from model.storage_model import StorageModel
 from model.category_model import CategoryModel
 from model.customer_model import CustomerModel
 from model.manufacturer_model import ManufacturerModel
@@ -56,7 +55,6 @@ from model.viewed_book_model import viewed_book_model
 
 # Import view
 from model_view.admin.book_view import BookView
-from model_view.admin.storage_view import StorageView
 from model_view.admin.category_view import CategoryView
 from model_view.admin.customer_view import CustomerView
 from model_view.admin.manufacturer_view import ManufacturerView
@@ -100,7 +98,6 @@ def init_admin():
     admin.add_view(CartView(name='Giỏ hàng khách'))
     admin.add_view(ReportView(name='Báo cáo', category='Dữ liệu'))
     admin.add_view(CategoryView(CategoryModel, db.session, name='Loại sách', category='Thông tin bổ sung sách'))
-    admin.add_view(StorageView(StorageModel, db.session, name='Kho chứa sách', category='Thông tin bổ sung sách'))
     admin.add_view(ManufacturerView(ManufacturerModel, db.session, name='Nhà xuất bản',
                                     category='Thông tin bổ sung sách'))
     admin.add_view(PreviewView(name='Bản xem trước sách', category='Thông tin bổ sung sách'))
