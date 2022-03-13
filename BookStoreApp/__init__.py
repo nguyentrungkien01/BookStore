@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # thông tin database
 USERNAME_DB = 'root'
-PASSWORD_DB = 'thanhnam'
+PASSWORD_DB = '12345678'
 NAME_DB = 'BookStore'
 IP_DB = 'localhost'
 
@@ -36,10 +36,10 @@ cloudinary.config(cloud_name=CLOUD_NAME,
                   api_key=API_KEY,
                   api_secret=API_SECRET)
 
-
 # Import model database
 from model.book_model import BookModel
 from model.cart_model import CartModel
+from model.storage_model import StorageModel
 from model.category_model import CategoryModel
 from model.customer_model import CustomerModel
 from model.manufacturer_model import ManufacturerModel
@@ -56,6 +56,7 @@ from model.viewed_book_model import viewed_book_model
 
 # Import view
 from model_view.admin.book_view import BookView
+from model_view.admin.storage_view import StorageView
 from model_view.admin.category_view import CategoryView
 from model_view.admin.customer_view import CustomerView
 from model_view.admin.manufacturer_view import ManufacturerView
@@ -82,6 +83,7 @@ from controller.admin.report_controller import *
 from controller.admin.statistic_controller import *
 from controller.admin.preview_controller import *
 
+
 # Tạo bảng database
 def init_tables():
     try:
@@ -98,15 +100,14 @@ def init_admin():
     admin.add_view(CartView(name='Giỏ hàng khách'))
     admin.add_view(ReportView(name='Báo cáo', category='Dữ liệu'))
     admin.add_view(CategoryView(CategoryModel, db.session, name='Loại sách', category='Thông tin bổ sung sách'))
+    admin.add_view(StorageView(StorageModel, db.session, name='Kho chứa sách', category='Thông tin bổ sung sách'))
     admin.add_view(ManufacturerView(ManufacturerModel, db.session, name='Nhà xuất bản',
                                     category='Thông tin bổ sung sách'))
     admin.add_view(PreviewView(name='Bản xem trước sách', category='Thông tin bổ sung sách'))
-    admin.add_view(AttachmentView(AttachmentModel, db.session,name='Sách đính kèm', category='Thông tin bổ sung sách'))
+    admin.add_view(AttachmentView(AttachmentModel, db.session, name='Sách đính kèm', category='Thông tin bổ sung sách'))
     admin.add_view(SaleView(SaleModel, db.session, name='Giảm giá', category='Khác'))
     admin.add_view(PointView(PointModel, db.session, name='Điểm', category='Khác'))
     admin.add_view(RoleView(RoleModel, db.session, name='Vai trò tài khoản', category='Khác'))
     admin.add_view(ProfileView(name='Thông tin cá nhân'))
     admin.add_view(ChangePasswordView(name='Đổi mật khẩu'))
     admin.add_view(LogOutView(name='Đăng xuất'))
-
-

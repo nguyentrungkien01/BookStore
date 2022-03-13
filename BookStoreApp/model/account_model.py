@@ -26,6 +26,7 @@ class AccountModel(db.Model, UserMixin):
     lass_access = Column(DateTime, default=datetime.datetime.now())
     first_name = Column(String(20), default='', nullable=False)
     last_name = Column(String(40), default='', nullable=False)
+    gmail = Column(String(50), nullable=False)
     type = Column(String(20), default='admin')
 
     # Khóa ngoại

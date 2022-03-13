@@ -1,4 +1,6 @@
-from sqlalchemy import Column, Integer, String, Boolean, Text, ForeignKey
+import datetime
+
+from sqlalchemy import Column, Integer, String, Boolean, Text, ForeignKey, DateTime, Float
 from sqlalchemy.dialects.mysql import DECIMAL
 from sqlalchemy.orm import relationship, backref
 
@@ -21,6 +23,13 @@ class BookModel(db.Model):
     like_amount = Column(Integer, default=0)
     is_free_ship = Column(Boolean, default=False)
     description = Column(Text, default='')
+    created_date = Column(DateTime, default=datetime.datetime.now())
+    publish_date = Column(DateTime, default=datetime.datetime.now())
+    author = Column(String(100), default='', nullable=False)
+    page_number = Column(Integer, default=0)
+    weight = Column(Float, default=0.0)
+    cover_page_type = Column(String(50), default='')
+    translator = Column(String(100), default='')
 
     # Khóa ngoại
     sale_id = Column(Integer, ForeignKey('sale_model.sale_id'))
