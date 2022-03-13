@@ -16,5 +16,5 @@ class StorageModel(db.Model):
     name = Column(String(50), nullable=False, unique=True)
 
     # Quan hệ
-    categories = relationship('CategoryModel', backref='storage', lazy=True,
-                              foreign_keys='[CategoryModel.storage_id]')
+    # categories = relationship('CategoryModel', backref='storage', lazy=True,
+    #                          foreign_keys='[CategoryModel.storage_id]')
