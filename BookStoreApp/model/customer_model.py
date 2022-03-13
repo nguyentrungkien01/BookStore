@@ -16,7 +16,6 @@ class CustomerModel(AccountModel):
 
     # Thuộc tính
     phone_number = Column(String(10), nullable=False)
-    gmail = Column(String(50), nullable=False)
     city = Column(String(30), nullable=False)
     district = Column(String(30), nullable=False)
     address = Column(String(50), nullable=False)
