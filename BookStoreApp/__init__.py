@@ -21,7 +21,7 @@ API_SECRET = 'QBWH4PeSsQKyl4Elx1alQiWEhzs'
 
 # Cấu hình flask
 app.config['SQLALCHEMY_DATABASE_URI'] = \
-    str.format(f"mysql+pymysql://{USERNAME_DB}:{PASSWORD_DB}@{IP_DB}/{NAME_DB}?charset=utf8mb4")
+    str.format(f'mysql+pymysql://{USERNAME_DB}:{PASSWORD_DB}@{IP_DB}/{NAME_DB}?charset=utf8mb4')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['FLASK_ADMIN_FLUID_LAYOUT'] = True
 app.config['SQLALCHEMY_ECHO'] = True
@@ -35,7 +35,6 @@ login = LoginManager(app=app)
 cloudinary.config(cloud_name=CLOUD_NAME,
                   api_key=API_KEY,
                   api_secret=API_SECRET)
-
 
 
 # Import model database
@@ -81,7 +80,7 @@ from controller.admin.home_page_controller import *
 from controller.admin.profile_controller import *
 from controller.admin.report_controller import *
 from controller.admin.statistic_controller import *
-from controller.admin.book_attachment_controller import *
+from controller.admin.preview_controller import *
 
 # Tạo bảng database
 def init_tables():

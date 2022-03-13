@@ -12,11 +12,11 @@ def load_account(account_id):
 
 
 # Lấy thông tin đăng nhập từ web để kiểm tra tài khoản
-@app.route("/admin-login", methods=['POST'])
+@app.route('/admin-login', methods=['POST'])
 def login_admin():
     if request.method == 'POST':
-        username = request.form.get("username")
-        password = request.form.get("password")
+        username = request.form.get('username')
+        password = request.form.get('password')
         if username and password:
             account = ga(username=username, password=password)
         else:
