@@ -1,7 +1,8 @@
 import json
 import os
 import random
-from BookStoreApp import app
+from BookStoreApp import app, client
+import smtplib
 
 
 # Đọc dữ liệu từ file json
@@ -99,3 +100,22 @@ def decode_vigenere(cipher_text, secret_number, division):
 
     return plain_text
 
+
+# Gửi tin nhắn
+def send_message_phone_number(message):
+    client.messages.create(
+        from_='+15706092840',
+        body=message,
+        to='+84982482975'
+    )
+
+
+# Gửi mail
+def send_mail(from_gmail_account, from_gmail_password, to_mail_account, message):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(from_gmail_account, from_gmail_password)
+    server.sendmail(from_gmail_account,
+                    to_mail_account,
+                    message.encode('utf-8'))
+    server.quit()
