@@ -17,68 +17,7 @@
                 <!-- giao diện giỏ hàng khi có hàng (phần comment màu xanh bên dưới là phần 2 sản phẩm trong giỏ hàng nhưng giờ đã demo bằng jquery) -->
                 <div class="col-md-8 cart">
                     <div class="cart-content py-3 pl-3">
-                        <h6 class="cart-header">GIỎ HÀNG CỦA BẠN <span>(1 sản phẩm)</span></h6>
-                        <div class="cart-list-items">
-                            <div class="cart-item d-flex">
-                                <a href="product-item.html" class="img">
-                                    <img src="../static/images/lap-ke-hoach-kinh-doanh-hieu-qua-mt.jpg"
-                                        class="img-fluid" alt="anhsp1">
-                                </a>
-                                <div class="item-caption d-flex w-100">
-                                    <div class="item-info ml-3">
-                                        <a href="product-item.html" class="ten">Lập kế hoạch kinh doanh hiệu quả</a>
-                                        <div class="amount d-flex">
-                                            <div class="input-number input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text btn-spin btn-dec">-</span>
-                                                </div>
-                                                <input type="text" value="1" class="amount-product  text-center">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text btn-spin btn-inc">+</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-price ml-auto d-flex flex-column align-items-end">
-                                        <div class="giamoi">111.200 ₫</div>
-                                        <div class="giacu">139.000 ₫</div>
-                                        <span class="remove mt-auto"><i class="far fa-trash-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <a href="/" class="btn buy-more mb-3">Mua thêm</a>
-                            </div>
-                            <div class="col-md-5 offset-md-4">
-                                <div class="total-price">
-                                    <div class="group d-flex justify-content-between">
-                                        <p class="label">Tạm tính:</p>
-                                        <p class="tamtinh">328.000 ₫</p>
-                                    </div>
-                                    <div class="group d-flex justify-content-between">
-                                        <p class="label">Giảm giá:</p>
-                                        <p class="giamgia">0 ₫</p>
-                                    </div>
-                                    <div class="group d-flex justify-content-between">
-                                        <p class="label">Phí vận chuyển:</p>
-                                        <p class="phivanchuyen">0 ₫</p>
-                                    </div>
-                                    <div class="group d-flex justify-content-between">
-                                        <p class="label">Phí dịch vụ:</p>
-                                        <p class="phidicvu">0 ₫</p>
-                                    </div>
-                                    <div class="group d-flex justify-content-between align-items-center">
-                                        <strong class="text-uppercase">Tổng cộng:</strong>
-                                        <p class="total">328.000 ₫</p>
-                                    </div>
-                                    <small class="note d-flex justify-content-end text-muted">
-                                        (Giá đã bao gồm VAT)
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
+                      
                     </div>
                 </div>
 
@@ -131,20 +70,7 @@
                                                 <button
                                                     class="btn btn-lg btn-block btn-signin text-uppercase text-white"
                                                     type="submit" style="background: #F5A623">Đăng nhập</button>
-
-                                                <div class="my-4"></div>
-                                                <button class="btn btn-lg btn-google btn-block text-uppercase"
-                                                    type="submit"><i class="fab fa-google mr-2"></i> Đăng nhập bằng
-                                                    Google</button>
-                                                <button class="btn btn-lg btn-facebook btn-block text-uppercase"
-                                                    type="submit"><i class="fab fa-facebook-f mr-2"></i> Đăng nhập
-                                                    bằng Facebook</button>
                                             </form>
-                                            <div class="btnduoicung" style="padding: 0 15px 15px 15px;">
-                                                <button
-                                                    class="btn btn-lg btn-block btn-shopping-without-signup text-uppercase text-white"
-                                                    style="background: #F5A623">Mua hàng không cần đăng ký</button>
-                                            </div>
                                         </div>
                                         <div class="tab-pane fade" id="register-nav" role="tabpanel"
                                             aria-labelledby="register-navtab">
@@ -173,7 +99,7 @@
                                                 </div>
                                                 <div class="custom-control custom-checkbox mb-3">
                                                     <p class="text-center">Bằng việc đăng ký, bạn đã đồng ý với
-                                                        DealBook về</p>
+                                                        BookStore OU về</p>
                                                     <a href="#" class="text-decoration-none text-center"
                                                         style="color: #F5A623">Điều khoản dịch
                                                         vụ & Chính sách bảo mật</a>
@@ -184,11 +110,6 @@
                                                     type="submit" style="background: #F5A623">Đăng ký</button>
 
                                             </form>
-                                            <div class="btnduoicung" style="padding: 0 15px 15px 15px;">
-                                                <button
-                                                    class="btn btn-lg btn-block btn-shopping-without-signup text-uppercase text-white"
-                                                    style="background: #F5A623">Mua hàng không cần đăng ký</button>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -284,7 +205,7 @@
                                             <label for="atm" class="transfer">Thanh toán chuyển khoản trước
                                                 qua Thẻ ATM/Internet Banking</label>
                                             <p class="mt-4">- Quý khách chỉ chuyển khoản khi được xác nhận có đủ
-                                                sách qua điện thoại từ DealBook.</p>
+                                                sách qua điện thoại từ BookStore OU.</p>
                                             <p>- Thời gian chuyển khoản là trong tối đa 2 ngày từ khi có xác
                                                 nhận đủ sách.</p>
                                             <p>- Nội dung chuyển khoản cần ghi: <a href="#">[Mã đơn hàng]</a> ;

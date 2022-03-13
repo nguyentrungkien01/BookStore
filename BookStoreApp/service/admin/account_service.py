@@ -19,6 +19,7 @@ def get_account_by_id(account_id=None, **kwargs):
 def set_last_access(account=None):
     sla(account=account)
 
+
 # Thiết lập thay đổi mật khẩu
 def set_change_passwork(new_password=None, account=None):
     if new_password and account:
