@@ -5,7 +5,7 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
 from BookStoreApp.model_view.admin.home_page_view import HomeView
-
+from twilio.rest import Client
 app = Flask(__name__)
 
 # thông tin database
@@ -35,6 +35,10 @@ login = LoginManager(app=app)
 cloudinary.config(cloud_name=CLOUD_NAME,
                   api_key=API_KEY,
                   api_secret=API_SECRET)
+# twilio
+account_sid = 'AC1dc7baac41475a5ecf3eeee27c07369c'
+auth_token = '32dcea9652cd23b9b59bb241327a365f'
+client = Client(account_sid, auth_token)
 
 # Import model database
 from model.book_model import BookModel
