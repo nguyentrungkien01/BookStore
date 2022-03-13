@@ -14,10 +14,20 @@ class BookView(BaseModelView):
     column_sortable_list = ['book_id',
                             'name',
                             'price',
-                            'like_amount']
+                            'like_amount',
+                            'created_date',
+                            'publish_date',
+                            'author',
+                            'page_number',
+                            'weight',
+                            'cover_page_type',
+                            'translator']
     column_searchable_list = ['name',
                               'price',
-                              'like_amount']
+                              'like_amount',
+                              'author',
+                              'cover_page_type',
+                              'translator']
     column_default_sort = 'book_id'
     column_labels = dict(book_id='Mã sách',
                          name='Tên sách',
@@ -29,7 +39,14 @@ class BookView(BaseModelView):
                          point='Điểm',
                          manufacturer='Nhà xuất bản',
                          category='Loại sách',
-                         description='Mô tả')
+                         description='Mô tả',
+                         created_date='Ngày tạo',
+                         publish_date='Ngày xuất bản',
+                         author='Tác giả',
+                         page_number='Số trang',
+                         weight='Cân nặng',
+                         cover_page_type='Hình thức trang bìa',
+                         translator='Dịch giả')
 
     # Lọc dữ liệu
     column_filters = (FilterLike(BookModel.name, name='Tên sách'),
@@ -40,6 +57,20 @@ class BookView(BaseModelView):
                       FilterNotEqual(BookModel.price, name='Giá'),
                       FilterGreater(BookModel.price, name='Giá'),
                       FilterSmaller(BookModel.price, name='Giá'),
+                      FilterLike(BookModel.author, name='Tác giả'),
+                      FilterNotLike(BookModel.author, name='Tác giả'),
+                      FilterEqual(BookModel.page_number, name='Số trang'),
+                      FilterNotEqual(BookModel.page_number, name='Số trang'),
+                      FilterGreater(BookModel.page_number, name='Số trang'),
+                      FilterSmaller(BookModel.page_number, name='Số trang'),
+                      FilterEqual(BookModel.weight, name='Cân nặng'),
+                      FilterNotEqual(BookModel.weight, name='Cân nặng'),
+                      FilterGreater(BookModel.weight, name='Cân nặng'),
+                      FilterSmaller(BookModel.weight, name='Cân nặng'),
+                      FilterLike(BookModel.cover_page_type, name='Hình thức trang bìa'),
+                      FilterNotLike(BookModel.cover_page_type, name='Hình thức trang bìa'),
+                      FilterLike(BookModel.translator, name='Dịch giả'),
+                      FilterNotLike(BookModel.translator, name='Dịch giả'),
                       FilterEqual(BookModel.like_amount, name='Số lượt thích'),
                       FilterNotEqual(BookModel.like_amount, name='Số lượt thích'),
                       FilterGreater(BookModel.like_amount, name='Số lượt thích'),
@@ -51,6 +82,11 @@ class BookView(BaseModelView):
                         'price',
                         'image',
                         'is_free_ship',
+                        'author',
+                        'cover_page_type',
+                        'translator',
+                        'page_number',
+                        'weight',
                         'description'), 'Thông tin sách'),
         rules.FieldSet(('sale',
                         'point',
@@ -65,6 +101,21 @@ class BookView(BaseModelView):
                   render_kw={
                       'placeholder': 'Tên sách...'
                   }),
+        author=dict(validators=[DataRequired(), validators.Length(max=100)],
+                    render_kw={
+                        'placeholder': 'Tác giả...'
+                    }),
+        translator=dict(validators=[validators.Length(max=100)],
+                        render_kw={
+                            'placeholder': 'Dịch giả...'
+                        }),
+        cover_page_type=dict(validators=[DataRequired(), validators.Length(max=50)],
+                             render_kw={
+                                 'placeholder': 'Hình thức bìa...'
+                             }),
+
+        page_number=dict(validators=[DataRequired(), validators.NumberRange(min=1, max=9999)]),
+        weight=dict(validators=[DataRequired(), validators.NumberRange(min=0.1, max=10)]),
         price=dict(validators=[DataRequired(), validators.NumberRange(min=1000, max=10000000)])
     )
 
@@ -85,8 +136,11 @@ class BookView(BaseModelView):
                 'like_amount',
                 'is_free_ship',
                 'image',
-                'description',
-                'sale',
-                'point',
-                'category',
-                'manufacturer']
+                'created_date',
+                'publish_date',
+                'author',
+                'page_number',
+                'weight',
+                'cover_page_type',
+                'translator',
+                'description']
