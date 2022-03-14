@@ -31,7 +31,6 @@ def book_detail():
 def category():
     return render_template('/non_admin/economy-book.html')
 
-
 # @app.route('/test-vigenere')
 # def test_vigenere():
 #     data = {

@@ -113,7 +113,6 @@ def decode_vigenere(cipher_text):
 
     return plain_text
 
-
 # Gửi tin nhắn
 def send_message_phone_number(message):
     client.messages.create(
