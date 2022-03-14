@@ -20,27 +20,27 @@
             <div class="modal-body">
                 <form id="form-signup" class="form-signin mt-2">
                     <div class="form-label-group">
-                        <input type="text" class="form-control" placeholder="Nhập họ" name="last_name" required
+                        <input id="lastName" type="text" class="form-control" placeholder="Nhập họ" name="last_name" required
                             autofocus>
                     </div>
                     <div class="form-label-group">
-                        <input type="text" class="form-control" placeholder="Nhập tên" name="fisrt_name" required
+                        <input id="firstName" type="text" class="form-control" placeholder="Nhập tên" name="last_name" required
                             autofocus>
                     </div>
                     <div class="form-label-group">
-                        <input type="date" class="form-control" placeholder="Ngày sinh" name="date_of_birth" required
+                        <input id="dateOfBirth" type="date" class="form-control" placeholder="Ngày sinh" name="date_of_birth" required
                             autofocus>
                     </div>
                     <div class="form-label-group">
-                        <input type="text" class="form-control" placeholder="Nhập số điện thoại" name="phone" required>
+                        <input id="phoneNumber" type="text" class="form-control" placeholder="Nhập số điện thoại" name="phone" required>
                     </div>
                     <div class="form-label-group">
-                        <input type="email" class="form-control" placeholder="Nhập địa chỉ email" name="email" required>
+                        <input id="email" type="email" class="form-control" placeholder="Nhập địa chỉ email" name="email" required>
                     </div>
                     <div class="form-label-group row">
                         <div class="col-6">
                             <label for="city">Tỉnh/Thành phố</label>
-                            <select name="city" id="city"></select>
+                            <select name="city" id="city" onclick="setDistricts()"></select>
                         </div>
 
                         <div class="col-6">
@@ -49,23 +49,23 @@
                         </div>
                     </div>
                     <div class="form-label-group">
-                        <input type="text" class="form-control" placeholder="Nhập địa chỉ" name="address" required
+                        <input id="address" type="text" class="form-control" placeholder="Nhập địa chỉ" name="address" required
                             autofocus>
                     </div>
                     <div class="form-label-group">
-                        <input type="text" class="form-control" placeholder="Nhập tên tài khoản" name="username"
+                        <input id="username" type="text" class="form-control" placeholder="Nhập tên tài khoản" name="username"
                             required autofocus>
                     </div>
                     <div class="form-label-group">
-                        <input type="password" class="form-control" placeholder="Nhập mật khẩu" name="password"
+                        <input id="password" type="password" class="form-control" placeholder="Nhập mật khẩu" name="password"
                             required>
                     </div>
                     <div class="form-label-group mb-4">
-                        <input type="password" class="form-control" name="confirm_password"
+                        <input id="confirmPassword" type="password" class="form-control" name="confirm_password"
                             placeholder="Nhập lại mật khẩu" required>
                     </div>
                     <button class="btn btn-lg btn-block btn-signin text-uppercase text-white mt-3" type="submit"
-                        style="background: #F5A623">Đăng ký</button>
+                        style="background: #F5A623" onclick="setTimeout('setSignup()', 300)">Đăng ký</button>
                     <hr class="mt-3 mb-2">
                     <div class="custom-control custom-checkbox p-0">
                         <p class="text-center">Bằng việc đăng ký, bạn đã đồng ý với BookStore về</p>
