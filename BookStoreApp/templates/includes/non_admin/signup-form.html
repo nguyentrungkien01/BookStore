@@ -40,12 +40,12 @@
                     <div class="form-label-group row">
                         <div class="col-6">
                             <label for="city">Tỉnh/Thành phố</label>
-                            <select name="city" id="city" onclick="setDistricts()"></select>
+                            <select name="city" id="city" style="width:90%; height: 35px" onclick="setDistricts()"></select>
                         </div>
 
                         <div class="col-6">
                             <label for="district">Quận/Huyện</label>
-                            <select name="district" id="district"></select>
+                            <select name="district" id="district"  style="width:90%; height: 35px"></select>
                         </div>
                     </div>
                     <div class="form-label-group">
@@ -57,15 +57,24 @@
                             required autofocus>
                     </div>
                     <div class="form-label-group">
-                        <input id="password" type="password" class="form-control" placeholder="Nhập mật khẩu" name="password"
+                        <input id="inputPassword" type="password" class="form-control" placeholder="Nhập mật khẩu" name="password"
                             required>
                     </div>
                     <div class="form-label-group mb-4">
                         <input id="confirmPassword" type="password" class="form-control" name="confirm_password"
                             placeholder="Nhập lại mật khẩu" required>
                     </div>
-                    <button class="btn btn-lg btn-block btn-signin text-uppercase text-white mt-3" type="submit"
-                        style="background: #F5A623" onclick="setTimeout('setSignup()', 300)">Đăng ký</button>
+                    <div id="confirmEmail" class="form-label-group mb-4" style="display: none">
+                        <div class="text-danger" style="font-size:12px">*Vui lòng kiểm tra email</div>
+                        <div style="display: flex;">
+                            <input id="numberEmail" type="text" style="height: 36px;" onkeyup="setCheckNumber(this,event)"
+                                placeholder="Nhập mã xác thực..." >
+                            <button class="btn-danger" style="margin-left:5px; height: 36px;width: 70px;"
+                                onclick="setConfirmEmail()" type="button">Gửi lại</button>
+                        </div>
+                    </div>
+                    <button id="btn-sign-up" class="btn btn-lg btn-block btn-signin text-uppercase text-white mt-3" type="submit"
+                        style="background: #F5A623" onclick="setTimeout('setConfirmEmail()', 10)">Đăng ký</button>
                     <hr class="mt-3 mb-2">
                     <div class="custom-control custom-checkbox p-0">
                         <p class="text-center">Bằng việc đăng ký, bạn đã đồng ý với BookStore về</p>
