@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # thông tin database
 USERNAME_DB = 'root'
-PASSWORD_DB = 'thanhnam'
+PASSWORD_DB = '12345678'
 NAME_DB = 'BookStore'
 IP_DB = 'localhost'
 
@@ -76,6 +76,7 @@ from model_view.admin.attachment_view import AttachmentView
 
 # Import controller
 from controller.non_admin.home_controller import *
+from controller.non_admin.sign_up_controller import *
 from controller.admin.account_controller import *
 from controller.admin.cart_controller import *
 from controller.admin.change_password_controller import *
@@ -92,7 +93,6 @@ def init_tables():
         db.create_all()
     except:
         db.session.rollback()
-
 
 # Tạo view phía admin
 def init_admin():
