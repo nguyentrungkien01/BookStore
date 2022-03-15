@@ -7,9 +7,7 @@ window.onload = function () {
         listCountry = data
         setCountry(data)
         setDistrictsDefault()
-    }).catch(err => {
-                console.log(err)
-    });
+    })
 }
 
 // Đổ dữ liệu tỉnh/thành ra client
@@ -86,16 +84,17 @@ function setConfirmEmail(){
             }
             else
                 numberConfirm= data
-        }).catch(err => {
-            console.log(err)
-        });
+        })
     }
 }
 
 // kiểm tra dữ liệu mật mã nhập từ phía client
 function setCheckNumber(e, event){
-    if(e.value == numberConfirm)
+    if(e.value == numberConfirm){
         setSignup()
+        return
+    }
+
     if (event.keyCode == 13) {
         Swal.fire({
                     title: 'Mật mã sai !!!',
@@ -171,9 +170,7 @@ function setSignup() {
                     $('#city').val('Thành phố Hà Nội')
                     setDistrictsDefault()
                 }
-        }).catch(err => {
-             console.log(err)
-        });
+        })
 }
 // xóa disabled của các thẻ input
 function setDisabledInput(){

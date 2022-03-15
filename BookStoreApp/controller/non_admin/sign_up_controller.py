@@ -21,7 +21,6 @@ def set_sign_up():
         'username' : data.get('username'),
         'password' : data.get('password')
     }
-    print(iue(listData['username']))
     if iue(listData['username']):    # username đã tồn tại
         return jsonify('exist')
 
@@ -38,7 +37,6 @@ def set_confirm():
     data = json.loads(request.data)
     email= data.get('email')
     info = gv()
-    print(info['message'])
     try:
         send_mail(from_gmail_account='attt92bookstore@gmail.com',
                   from_gmail_password='@TTT92bookstore',

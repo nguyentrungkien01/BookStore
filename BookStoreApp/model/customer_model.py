@@ -23,7 +23,7 @@ class CustomerModel(AccountModel):
     accumulated_point = Column(Integer, default=0)
 
     # Quan hệ
-    carts = relationship('CartModel', backref='customer_model', lazy=True,
+    carts = relationship('CartModel', backref='customer', lazy=True,
                          foreign_keys='[CartModel.customer_id]')
     sales = relationship('SaleModel', secondary='customer_sale_model',
                          backref=backref('customers', lazy=True), lazy=True)
