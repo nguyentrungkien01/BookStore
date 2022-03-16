@@ -209,5 +209,6 @@ $(".close").click( function (){
             $('#register-form').modal("show")
         }
     });
+
 })
 

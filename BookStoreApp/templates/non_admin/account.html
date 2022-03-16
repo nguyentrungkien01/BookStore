@@ -16,7 +16,9 @@
 
 {% block body %}
 {{super()}}
-
+   <!-- content categories + banner slider start -->
+   {% include 'includes/non_admin/content-categories.html' %}
+   <!-- content categories + banner slider end -->
 <!-- cart UI start -->
 {% include 'includes/non_admin/account/account.html' %}
 <!-- cart UI end -->
