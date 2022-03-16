@@ -77,6 +77,7 @@ from model_view.admin.attachment_view import AttachmentView
 # Import controller
 from controller.non_admin.home_controller import *
 from controller.non_admin.sign_up_controller import *
+from controller.non_admin.sign_in_controller import *
 from controller.admin.account_controller import *
 from controller.admin.cart_controller import *
 from controller.admin.change_password_controller import *

@@ -20,21 +20,21 @@
             <div class="modal-body">
                 <form id="form-signin" class="form-signin mt-2">
                     <div class="form-label-group">
-                        <input type="text" class="form-control" placeholder="Tên đăng nhập" name="username" required
+                        <input id="usernameSignIn" type="text" class="form-control" placeholder="Tên đăng nhập" name="username" required
                             autofocus>
                     </div>
 
                     <div class="form-label-group">
-                        <input type="password" class="form-control" placeholder="Mật khẩu" name="password" required>
+                        <input id="passwordSignIn" type="password" class="form-control" placeholder="Mật khẩu" name="password" required>
                     </div>
 
                     <div class="custom-control custom-checkbox mb-3">
                         <a href="#" class="float-right text-decoration-none" style="color: #F5A623">Quên mật
                             khẩu</a>
                     </div>
-
-                    <a class="btn btn-lg btn-block btn-signin text-uppercase text-white" href="/tai-khoan"
-                        style="background: #F5A623">Đăng nhập</a>
+<!--                     href="/tai-khoan"-->
+                    <a class="btn btn-lg btn-block btn-signin text-uppercase text-white"
+                        style="background: #F5A623" id="btnSignIn">Đăng nhập</a>
                 </form>
             </div>
         </div>
