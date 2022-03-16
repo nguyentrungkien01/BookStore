@@ -22,14 +22,14 @@ function getBookNameHint(keyword, choiceInfo) {
 // Lấy thông tin của sách
 function getBookInfo(bookName) {
   fetch('/admin/previewview/api/book-name', {
-    method: 'post',
-    body: JSON.stringify({
-      'book_name': bookName
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
+      method: 'post',
+      body: JSON.stringify({
+        'book_name': bookName
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
     .then(res => res.json()).then(bookInfo => {
       setBookInfoData(bookInfo)
     })
@@ -38,14 +38,14 @@ function getBookInfo(bookName) {
 // Lấy thông tin các bản preview của sách
 function getPreviewBookInfo(bookName) {
   fetch('/admin/previewview/api/preview', {
-    method: 'post',
-    body: JSON.stringify({
-      'book_name': bookName
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
+      method: 'post',
+      body: JSON.stringify({
+        'book_name': bookName
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
     .then(res => res.json()).then(previewInfo => {
       setPreviewInfoData(previewInfo, bookName)
     })
@@ -54,14 +54,14 @@ function getPreviewBookInfo(bookName) {
 // Xóa bản xem trước
 function deletePreview(previewId, bookName) {
   fetch('/admin/previewview/api/delete', {
-    method: 'post',
-    body: JSON.stringify({
-      'preview_id': previewId
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
+      method: 'post',
+      body: JSON.stringify({
+        'preview_id': previewId
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
     .then(res => res.json()).then(result => {
       if (result)
         Swal.fire(
@@ -126,13 +126,25 @@ function setBookInfoData(bookInfo) {
   }
   var image = bookInfo['book_image']
   // if (image == null || image.length == 0)
-    image = 'https://res.cloudinary.com/attt92bookstore/image/upload/v1646019055/book/book_qmruxn.jpg'
+  image = 'https://res.cloudinary.com/attt92bookstore/image/upload/v1646019055/book/book_qmruxn.jpg'
   var data = `
-        <h3>Thông tin sách</h3>
-       <img src='${image}'/>
-      <h2>Tên sách: ${bookInfo['book_name']}</h2>
-      <p>Loại sách: ${bookInfo['category_name']}</p>
-      <p>Nhà xuất bản: ${bookInfo['manufacturer_name']}</p>
+      <div class="card">
+      <div class="card-header">
+          <div class="card-head-row">
+              <div class="card-title">Thông tin sách</div>
+          </div>
+      </div>
+      <div class="card-body d-flex align-items-center justify-content-center flex-wrap text-center">
+          <div class="img-book col-12 col-md-5">
+          <img src='${image}'/>
+          </div>
+          <div class="book-info col-12 col-md-7">
+              <p><span class="text-success fw-bold">Tên sách: </span> ${bookInfo['book_name']}</p>
+              <p><span class="text-success fw-bold">Loại sách:</span>  ${bookInfo['category_name']}</p>
+              <p><span class="text-warning fw-bold">Nhà xuất bản:</span> ${bookInfo['manufacturer_name']}</p>
+          </div>
+      </div>
+  </div>
   `
   $('#bookInfo').html(data)
   $('#bookNameData').val(`${bookInfo['book_name']}`)
@@ -142,9 +154,15 @@ function setBookInfoData(bookInfo) {
 
 // Thiết lập dữ liệu cho bản xem trước
 function setPreviewInfoData(previewData, bookName) {
-  var data = '<h3>Thông tin các bản xem trước của sách</h3>'
+
+  var data = `
+  <div class="card-header">
+  <div class="card-head-row">
+      <div class="card-title">Thông tin các bản xem trước của sách</div>
+  </div>
+</div>`
   if (previewData.length == 0) {
-    data += '<p>Không có bản xem trước nào</p>'
+    data += '<p class="text-danger fw-bold mt-3">Không có bản xem trước nào</p>'
     $('#previewInfo').html(data)
     return
   }
@@ -152,13 +170,17 @@ function setPreviewInfoData(previewData, bookName) {
   for (let i = 0; i < previewData.length; i++) {
     var image = previewData[i]['preview_image']
     // if (image == null || image.length == 0)
-      image = 'https://res.cloudinary.com/attt92bookstore/image/upload/v1646019055/book/book_qmruxn.jpg'
+    image = 'https://res.cloudinary.com/attt92bookstore/image/upload/v1646019055/book/book_qmruxn.jpg'
 
     data += `
-        <div>
-          <img id='${previewData[i]['preview_id']}' src='${image}'/>
-          <button onclick= "deletePreview('${previewData[i]['preview_id']}', '${bookName}')">Xóa</button>
-        </div>
+    <div class="card-body">
+    <div class="img-book col-12 col-md-5">
+    <img id='${previewData[i]['preview_id']}' src='${image}'/>
+    </div>
+    <div class="card-footer text-center">
+    <button class="btn btn-primary "onclick= "deletePreview('${previewData[i]['preview_id']}', '${bookName}')">Xóa</button>
+    </div>
+</div>
       `
   }
   $('#previewInfo').html(data)
