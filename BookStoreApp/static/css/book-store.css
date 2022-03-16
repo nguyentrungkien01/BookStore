@@ -12754,12 +12754,12 @@ body[data-background-color="dark"] .auth-wrapper .form-group label {
   margin-top: 5px;
 }
 
-/* 
-.stats-choice .form-group input {
+
+.form-group input {
   height: 40px;
   padding: 0 10px;
   border-radius: 5px;
-} */
+}
 
 .stats-choice .form-group label,
 .form-check label {
@@ -13734,4 +13734,16 @@ body .main-panel .modal-content .modal-body input:focus {
 
 .book-info p {
   margin: unset;
+}
+
+/* Preview book */
+.preview-book {
+  top: 40px;
+  left: 16px;
+}
+
+@media (max-width:991px) {
+  .btn-search {
+    margin: 10px 0 0 0;
+  }
 }
