@@ -350,3 +350,8 @@ function getCartDetailAmount() {
 }
 
 getCartDetailAmount()
+
+$('#form-signup').on('submit', function (e) {
+    e.preventDefault(); // Now nothing will happen
+});
+

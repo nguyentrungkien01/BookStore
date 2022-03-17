@@ -14,7 +14,9 @@
 
 {% block body %}
 {{super()}}
-
+   <!-- content categories + banner slider start -->
+   {% include 'includes/non_admin/content-categories.html' %}
+   <!-- content categories + banner slider end -->
 <!-- cart UI start -->
 {% include 'includes/non_admin/cart/cart-component.html' %}
 <!-- cart UI end -->

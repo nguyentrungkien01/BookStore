@@ -66,7 +66,7 @@ function getExportReportData(choiceInfo) {
             'Content-Type': 'application/json'
         }
     }).then(res => res.json()).then(reportDatas => {
-        if(reportDatas.length<=0){
+        if (reportDatas.length <= 0) {
             Swal.fire({
                 title: 'Dữ liệu trống không thể xuất pdf. Vui lòng thử lại sau',
                 icon: 'error',
@@ -304,7 +304,7 @@ function getPdf(reportDatas) {
             temp = []
             temp.push(i + 1)
             temp.push(reportDatas[i]['book_name'])
-            temp.push(reportDatas[i]['amount_total']+ ' cuon')
+            temp.push(reportDatas[i]['amount_total'] + ' cuon')
             body.push(temp)
             sum += parseInt(reportDatas[i]['amount_total'])
         }
