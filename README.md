@@ -10,8 +10,7 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
 - IDE, Công cụ: `Pycharm`, `Vscode`, `MySQL Workbench`,`Git/GitHub`, `Trello`, `Diagrams.net`
 - Khác: Thuật toán mã hóa demo (`Vigenere`-> Tự xây dựng, `md5`-> Sử dụng thư viện có sẵn)
 
-# Chức năng
-- Phân quyền người dùng
+# Chức năng (Có phân quyền người dùng)
 - Quản trị viên
    + Đăng nhập
    + Đăng xuất
