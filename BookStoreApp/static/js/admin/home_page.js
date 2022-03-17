@@ -210,7 +210,7 @@ function setChart(elementId, chartInfo, isChangeBackground = true) {
 }
 
 $(document).ready(function () {
-  
+
     setBackgroundChart(gChartBackground)
     getGeneralStatistic()
     getCartAmountInMonth(gChartBackground)

@@ -2,24 +2,24 @@ window.onload = function () {
     getProfileData()
 }
 // Lấy thông tin người dùng
-function getProfileData(){
+function getProfileData() {
     fetch('/admin/profile/api/profile-info', {
         method: 'post',
         body: JSON.stringify({
         }),
         headers: {
-          'Accept': 'application/json',
+            'Accept': 'application/json',
             'Context-Type': 'application/json',
         }
     }).then(res => res.json()).then(data => {
-            setProfileData(data[0])
+        setProfileData(data[0])
     }).catch(err => {
         console.log(err)
     });
 }
 
 // Gán dữ liệu ra html
-function setProfileData(data){
+function setProfileData(data) {
     // last_name
     if (data['last_name'] != '')
         document.getElementById('lastName').innerHTML = data['last_name']

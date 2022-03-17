@@ -25,23 +25,23 @@ function passAccountData() {
             ).then(function () {
                 window.location = '/admin/';
             })
-        } else if (datas['wrong_password']){
-                Swal.fire({
-                    title: 'Nhập mật khẩu cũ sai!!!',
-                    text: 'Xin vui lòng kiểm tra lại',
-                    icon: 'warning',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Ok',
-                })
-                } else{
-                    Swal.fire({
-                        title: 'Đổi mật khẩu thất bại!!!',
-                        text: 'Xin vui lòng kiểm tra lại',
-                        icon: 'warning',
-                        confirmButtonColor: '#3085d6',
-                        confirmButtonText: 'Ok',
-                    })
-                }
+        } else if (datas['wrong_password']) {
+            Swal.fire({
+                title: 'Nhập mật khẩu cũ sai!!!',
+                text: 'Xin vui lòng kiểm tra lại',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+        } else {
+            Swal.fire({
+                title: 'Đổi mật khẩu thất bại!!!',
+                text: 'Xin vui lòng kiểm tra lại',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            })
+        }
     })
 }
 
@@ -73,7 +73,7 @@ $(document).ready(function () {
             }
         })
     })
-    
+
     var numbers = /[0-9]/g;
     $('#oldPsw').keyup(function () {
         // Validate numbers

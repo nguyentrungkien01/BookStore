@@ -5,23 +5,24 @@
                 <!--header-->
                 <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-transparent pt-4">
                     <h1 class="header text-uppercase" style="font-weight: 400;">SÁCH MỚI TUYỂN CHỌN</h1>
-                    <a href="new-book-recommend.html" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
+                    <a href="/bao-tri" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
                 </div>
             </div>
             <div class="block-product" style="padding-bottom: 2rem;">
+                {% for newest_book in newest_books %}
                 <!-- 1 san pham -->
                 <div class="card">
-                    <a href="/chi-tiet-sach" class="product" style="text-decoration: none; color: black;"
-                        data-toggle="tooltip" data-placement="bottom" title="Lập Kế Hoạch Kinh Doanh Hiệu Quả">
-                        <img class="card-img-top picture" src="../static/images/lap-ke-hoach-kinh-doanh-hieu-qua.jpg"
-                            alt="lap-ke-hoach-kinh-doanh-hieu-qua">
+                    <a href="/chi-tiet-sach?book_id={{newest_book['book_id']}}" class="product" style="text-decoration: none; color: black;"
+                        data-toggle="tooltip" data-placement="bottom" title="{{newest_book['book_name']}}">
+                        <img class="card-img-top picture" src="{{newest_book['book_image']}}"
+                            alt="{{newest_book['book_name']}}">
                         <div class="card-body content-product mt-3">
-                            <h3 class="card-title book-name">Lập Kế Hoạch Kinh Doanh Hiệu Quả</h3>
-                            <small class="author text-muted">Brian Finch</small>
+                            <h3 class="card-title book-name">{{newest_book['book_name']}}</h3>
+                            <small class="author text-muted">{{newest_book['book_author']}}</small>
                             <div class="price d-flex align-items-baseline">
-                                <div class="new-price">111.200 ₫</div>
-                                <div class="old-price text-muted">139.000 ₫</div>
-                                <div class="sale">-20%</div>
+                                <div class="new-price">{{newest_book['book_sale_price']}} ₫</div>
+                                <div class="old-price text-muted">{{newest_book['book_price']}} ₫</div>
+                                <div class="sale">-{{newest_book['sale_percent']}}%</div>
                             </div>
                             <div class="review">
                                 <ul class="d-flex" style="list-style: none;">
@@ -36,195 +37,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="card">
-                    <a href="detail-book-2.html" class="product" style="text-decoration: none; color: black;"
-                        data-toggle="tooltip" data-placement="bottom" title="Ma Bùn Lưu Manh Và Những Câu Chuyện Khác Của Nguyễn
-                    Trí">
-                        <img class="card-img-top picture" src="../static/images/ma-bun-luu-manh.jpg"
-                            alt="ma-bun-luu-manh">
-                        <div class="card-body content-product mt-3">
-                            <h3 class="card-title book-name">Ma Bùn Lưu Manh Và Những Câu Chuyện Khác Của Nguyễn
-                                Trí</h3>
-                            <small class="author text-muted">Nguyễn Trí</small>
-                            <div class="price d-flex align-items-baseline">
-                                <div class="new-price">68.000 ₫</div>
-                                <div class="old-price text-muted">85.000 ₫</div>
-                                <div class="sale">-20%</div>
-                            </div>
-                            <div class="review">
-                                <ul class="d-flex" style="list-style: none;">
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><span class="text-muted">0 nhận xét</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#" class="product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                        data-placement="bottom" title="Bank 4.0 - Giao dịch mọi nơi, không chỉ là ngân hàng">
-                        <img class="card-img-top picture" src="../static/images/bank-4.0.jpg" alt="bank-4.0">
-                        <div class="card-body content-product mt-3">
-                            <h3 class="card-title book-name">Bank 4.0 - Giao dịch mọi nơi, không chỉ là ngân hàng
-                            </h3>
-                            <small class="author text-muted">Brett King</small>
-                            <div class="price d-flex align-items-baseline">
-                                <div class="new-price">111.200 ₫</div>
-                                <div class="old-price text-muted">139.000 ₫</div>
-                                <div class="sale">-20%</div>
-                            </div>
-                            <div class="review">
-                                <ul class="d-flex" style="list-style: none;">
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><span class="text-muted">0 nhận xét</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#" class="product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                        data-placement="bottom" title="Bộ Sách 500 Câu Chuyện Đạo Đức - Những Câu Chuyện
-                    Tình Thân (Bộ 8 Cuốn)">
-                        <img class="card-img-top picture" src="../static/images/bo-sach-500-cau-chuyen-dao-duc.jpg"
-                            alt="bo-sach-500-cau-chuyen-dao-duc">
-                        <div class="card-body content-product mt-3">
-                            <h3 class="card-title book-name">Bộ Sách 500 Câu Chuyện Đạo Đức - Những Câu Chuyện
-                                Tình Thân (Bộ 8 Cuốn)</h3>
-                            <small class="author text-muted">Nguyễn Hạnh - Trần Thị Thanh Nguyên</small>
-                            <div class="price d-flex align-items-baseline">
-                                <div class="new-price">111.200 ₫</div>
-                                <div class="old-price text-muted">139.000 ₫</div>
-                                <div class="sale">-20%</div>
-                            </div>
-                            <div class="review">
-                                <ul class="d-flex" style="list-style: none;">
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><span class="text-muted">0 nhận xét</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#" class="product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                        data-placement="bottom" title="Lịch Sử Ung Thư - Hoàng Đế Của Bách Bệnh">
-                        <img class="card-img-top picture" src="../static/images/ung-thu-hoang-de-cua-bach-benh.jpg"
-                            alt="ung-thu-hoang-de-cua-bach-benh">
-                        <div class="card-body content-product mt-3">
-                            <h3 class="card-title book-name">Lịch Sử Ung Thư - Hoàng Đế Của Bách Bệnh</h3>
-                            <small class="author text-muted">Siddhartha Mukherjee</small>
-                            <div class="price d-flex align-items-baseline">
-                                <div class="new-price">111.200 ₫</div>
-                                <div class="old-price text-muted">139.000 ₫</div>
-                                <div class="sale">-20%</div>
-                            </div>
-                            <div class="review">
-                                <ul class="d-flex" style="list-style: none;">
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><span class="text-muted">0 nhận xét</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#" class="product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                        data-placement="bottom" title="Cuốn Sách Khám Phá: Trời Đêm Huyền Diệu">
-                        <img class="card-img-top picture" src="../static/images/troi-dem-huyen-dieu.jpg"
-                            alt="troi-dem-huyen-dieu">
-                        <div class="card-body content-product mt-3">
-                            <h3 class="card-title book-name">Cuốn Sách Khám Phá: Trời Đêm Huyền Diệu</h3>
-                            <small class="author text-muted">Disney Learning</small>
-                            <div class="price d-flex align-items-baseline">
-                                <div class="new-price">111.200 ₫</div>
-                                <div class="old-price text-muted">139.000 ₫</div>
-                                <div class="sale">-20%</div>
-                            </div>
-                            <div class="review">
-                                <ul class="d-flex" style="list-style: none;">
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><span class="text-muted">0 nhận xét</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#" class="product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                        data-placement="bottom" title="Bộ Sách Những Câu Chuyện Cho Con Thành Người Tử Tế (Bộ 5 Cuốn)">
-                        <img class="card-img-top picture"
-                            src="../static/images/bo-sach-nhung-cau-chuyen-cho-con-thanh-nguoi-tu-te.jpg"
-                            alt="bo-sach-nhung-cau-chuyen-cho-con-thanh-nguoi-tu-te">
-                        <div class="card-body content-product mt-3">
-                            <h3 class="card-title book-name">Bộ Sách Những Câu Chuyện Cho Con Thành Người Tử Tế (Bộ
-                                5
-                                Cuốn)</h3>
-                            <small class="author text-muted">Nhiều Tác Giả</small>
-                            <div class="price d-flex align-items-baseline">
-                                <div class="new-price">111.200 ₫</div>
-                                <div class="old-price text-muted">139.000 ₫</div>
-                                <div class="sale">-20%</div>
-                            </div>
-                            <div class="review">
-                                <ul class="d-flex" style="list-style: none;">
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><span class="text-muted">0 nhận xét</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="#" class="product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                        data-placement="bottom" title="Lịch Sử Thế Giới">
-                        <img class="card-img-top picture" src="../static/images/lich-su-the-gioi.jpg"
-                            alt="lich-su-the-gioi">
-                        <div class="card-body content-product mt-3">
-                            <h3 class="card-title book-name">Lịch Sử Thế Giới</h3>
-                            <small class="author text-muted">Nam Phong tùng thư - Phạm Quỳnh chủ nhiệm</small>
-                            <div class="price d-flex align-items-baseline">
-                                <div class="new-price">111.200 ₫</div>
-                                <div class="old-price text-muted">139.000 ₫</div>
-                                <div class="sale">-20%</div>
-                            </div>
-                            <div class="review">
-                                <ul class="d-flex" style="list-style: none;">
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li class="active"><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><span class="text-muted">0 nhận xét</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

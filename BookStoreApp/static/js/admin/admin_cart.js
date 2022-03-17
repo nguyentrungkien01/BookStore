@@ -38,7 +38,7 @@ function setCartData(cart, book) {
     for (let i = 0; i < cart.length; i++) {
         var parent = `<div id='c${cartId}' class='cart-id col-12'></div>`
         document.getElementById('cart-admin').insertAdjacentHTML('beforeend', parent)
-        
+
         var child = ``
         ci = 'c' + (cartId).toString();
         document.getElementById(ci).insertAdjacentHTML('afterbegin', child)
@@ -239,9 +239,9 @@ function getPriceRange() {
     if (document.getElementById('selectPrice').value != 'select-all')
         if (document.getElementById('selectPrice').value == 'select-1') // duoi 1 trieu
             return 1
-    else if (document.getElementById('selectPrice').value == 'select-2') // tu 1 - 2 trieu
-        return 2
-    else return 3 // tren 2 trieu
+        else if (document.getElementById('selectPrice').value == 'select-2') // tu 1 - 2 trieu
+            return 2
+        else return 3 // tren 2 trieu
     else return 0 // mac dinh
 }
 

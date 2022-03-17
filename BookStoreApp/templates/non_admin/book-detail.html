@@ -8,8 +8,8 @@
 
 {% block head%}
 {{super()}}
-<link rel="stylesheet" href="../static/css/product-item.css">
-{% endblock%}
+<script src="{{url_for('static', filename='js/non_admin/book_detail.js')}}"></script>
+{% endblock %}
 
 
 {% block body %}
