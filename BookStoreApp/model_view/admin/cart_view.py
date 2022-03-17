@@ -8,7 +8,8 @@ from BookStoreApp.service.admin.cart_service import get_book_in_cart,get_cart_mo
 class CartView(BaseView):
     @expose('/')
     def index(self):
-        return self.render('/admin/cart.html', total=len(get_cart_model()), cart=get_info_user_in_cart(), book=get_book_in_cart())
+        return self.render('/admin/cart.html', total=len(get_cart_model()),
+                           cart=get_info_user_in_cart(), book=get_book_in_cart())
 
     def is_accessible(self):
         return current_user.is_authenticated

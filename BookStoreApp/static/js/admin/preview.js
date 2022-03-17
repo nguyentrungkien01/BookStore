@@ -22,14 +22,14 @@ function getBookNameHint(keyword, choiceInfo) {
 // Lấy thông tin của sách
 function getBookInfo(bookName) {
   fetch('/admin/previewview/api/book-name', {
-      method: 'post',
-      body: JSON.stringify({
-        'book_name': bookName
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    method: 'post',
+    body: JSON.stringify({
+      'book_name': bookName
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
     .then(res => res.json()).then(bookInfo => {
       setBookInfoData(bookInfo)
     })
@@ -38,14 +38,14 @@ function getBookInfo(bookName) {
 // Lấy thông tin các bản preview của sách
 function getPreviewBookInfo(bookName) {
   fetch('/admin/previewview/api/preview', {
-      method: 'post',
-      body: JSON.stringify({
-        'book_name': bookName
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    method: 'post',
+    body: JSON.stringify({
+      'book_name': bookName
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
     .then(res => res.json()).then(previewInfo => {
       setPreviewInfoData(previewInfo, bookName)
     })
@@ -54,14 +54,14 @@ function getPreviewBookInfo(bookName) {
 // Xóa bản xem trước
 function deletePreview(previewId, bookName) {
   fetch('/admin/previewview/api/delete', {
-      method: 'post',
-      body: JSON.stringify({
-        'preview_id': previewId
-      }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    method: 'post',
+    body: JSON.stringify({
+      'preview_id': previewId
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
     .then(res => res.json()).then(result => {
       if (result)
         Swal.fire(

@@ -6,28 +6,28 @@ $(function () {
         slidesToShow: 5,
         slidesToScroll: 1,
         responsive: [{
-                breakpoint: 1400,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 800,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
+            breakpoint: 1400,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true
             }
+        },
+        {
+            breakpoint: 800,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
         ]
     });
 
@@ -127,9 +127,6 @@ $(function () {
     $(".write-form").click(function (e) {
         $(".vote-form").toggle(200);
     });
-
-
-
 
     //rotate chevron
     $('#step1contentid').on('show.bs.collapse', function () {
@@ -301,182 +298,7 @@ $(function () {
                 email: "Vui lòng nhập email",
             }
         }
-    });
-
-    // add to cart 
-    let product = {
-        name: $('.block-info .book-name').text(),
-        tag: $('.product-image').attr("alt"),
-        price: parseFloat($('.price span.new-price').text()),
-        old_price: parseFloat($('.price span.old-price').text()),
-        inCart: 0
-    }
-
-    let carts = document.querySelector('.buy-btn');
-    if (carts) {
-        carts.addEventListener('click', () => {
-            cartNumbers(product);
-            totalCost(product);
-        })
-    }
-
-    function onLoadCartNumbers() {
-        let productNumbers = localStorage.getItem('cartNumbers');
-        if (productNumbers) {
-            document.querySelector('.cart .cart-amount').textContent = productNumbers;
-        }
-    }
-
-    function cartNumbers(product) {
-
-        let productNumbers = localStorage.getItem('cartNumbers');
-        productNumbers = parseInt(productNumbers);
-
-        if (productNumbers) {
-            localStorage.setItem('cartNumbers', productNumbers + parseInt($(".amount-product").val()));
-            document.querySelector('.cart .cart-amount').textContent = productNumbers + parseInt($(".amount-product").val());
-        } else {
-            localStorage.setItem('cartNumbers', parseInt($(".amount-product").val()));
-            document.querySelector('.cart .cart-amount').textContent = parseInt($(".amount-product").val());
-        }
-        setItem(product);
-    }
-
-    function setItem(product) {
-        let cartItems = localStorage.getItem('productsInCart');
-        cartItems = JSON.parse(cartItems);
-
-        if (cartItems != null) {
-            if (cartItems[product.tag] == undefined) {
-                cartItems = {
-                    ...cartItems,
-                    [product.tag]: product
-                }
-            }
-            cartItems[product.tag].inCart += parseInt($(".amount-product").val());
-        } else {
-            product.inCart = parseInt($(".amount-product").val());
-            cartItems = {
-                [product.tag]: product
-            }
-        }
-
-        localStorage.setItem('productsInCart', JSON.stringify(cartItems));
-    }
-
-    function totalCost(product) {
-        let cartCost = localStorage.getItem('totalCost');
-
-        if (cartCost != null) {
-            cartCost = parseFloat(cartCost);
-            localStorage.setItem('totalCost', cartCost + parseInt($(".amount-product").val()) * product.price);
-        } else {
-            localStorage.setItem('totalCost', parseInt($(".amount-product").val()) * product.price);
-        }
-    }
-
-    function displayCart() {
-        let cartItems = localStorage.getItem("productsInCart");
-        cartItems = JSON.parse(cartItems);
-        let cartContent = document.querySelector(".cart-content");
-        let cartCost = localStorage.getItem('totalCost');
-        let productNumbers = localStorage.getItem('cartNumbers');
-
-        if (cartItems == null) {
-            $(".cart-empty").removeClass("d-none");
-            $('.cart').addClass('lock'); // test "d-none -> lock"
-            $('.cart-steps').addClass('d-none');
-        }
-        if (cartItems && cartContent) {
-            $(".cart-empty").addClass("d-none");
-            $('.cart').removeClass('d-none');
-            $('.cart-steps').removeClass('d-none');
-
-            cartContent.innerHTML = '';
-
-            cartContent.innerHTML += `
-            <h6 class="cart-header">GIỎ HÀNG CỦA BẠN <span>(${productNumbers} sản phẩm)</span></h6>
-            <div class="cart-list-items">
-            `
-            Object.values(cartItems).map(item => {
-                cartContent.innerHTML += `
-                    <div class="cart-item d-flex">
-                        <a href="product-item.html" class="img">
-                            <img src="../static/images/${item.tag}.jpg" class="img-fluid" alt="${item.tag}">
-                        </a>
-                        <div class="item-caption d-flex w-100">
-                            <div class="item-info ml-3">
-                                <a href="product-item.html" class="book-name">${item.name}</a>
-                                <div class="amount d-flex">
-                                    <div class="input-number input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text btn-spin btn-dec">-</span>
-                                        </div>
-                                        <input type="text" value="${item.inCart}" class="amount-product  text-center">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text btn-spin btn-inc">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item-price ml-auto d-flex flex-column align-items-end">
-                                <div class="new-price">${parseFloat(item.price).toFixed(3)} ₫</div>
-                                <div class="old-price">${parseFloat(item.old_price).toFixed(3)} ₫</div>
-                                <span class="remove mt-auto"><i class="far fa-trash-alt"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                `
-            })
-
-            cartContent.innerHTML += `
-            </div>
-
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="index.html" class="btn buy-more mb-3">Mua thêm</a>
-                </div>
-                <div class="col-md-5 offset-md-4">
-                    <div class="total-price">
-                        <div class="group d-flex justify-content-between">
-                            <p class="label">Tạm tính:</p>
-                            <p class="tamtinh">${parseFloat(cartCost).toFixed(3)} ₫</p>
-                        </div>
-                        <div class="group d-flex justify-content-between">
-                            <p class="label">Giảm giá:</p>
-                            <p class="giamgia">0 ₫</p>
-                        </div>
-                        <div class="group d-flex justify-content-between">
-                            <p class="label">Phí vận chuyển:</p>
-                            <p class="phivanchuyen">0 ₫</p>
-                        </div>
-                        <div class="group d-flex justify-content-between">
-                            <p class="label">Phí dịch vụ:</p>
-                            <p class="phidicvu">0 ₫</p>
-                        </div>
-                        <div class="group d-flex justify-content-between align-items-center">
-                            <strong class="text-uppercase">Tổng cộng:</strong>
-                            <p class="total">${parseFloat(cartCost).toFixed(3)} ₫</p>
-                        </div>
-                        <small class="note d-flex justify-content-end text-muted">
-                            (Giá đã bao gồm VAT)
-                        </small>
-                    </div>
-                </div>
-            </div>
-            `
-
-        }
-    }
-
-    $(".btn-checkout").click(function (e) {
-        localStorage.clear();
-        location.reload(true);
-        alert("cảm ơn đã mua hàng");
-    });
-
-    onLoadCartNumbers();
-    displayCart()
+    })
 
     $('.items .row').isotope({
         itemSelector: '.item',
@@ -521,6 +343,15 @@ var cursors = [{
     blending_mode: "normal"
 }];
 
-   $('#form-signup').on('submit', function(e) {
+function getCartDetailAmount() {
+    fetch('/gio-hang/api/amount-book').then(res => res.json()).then(result => {
+        $('#cartDetailAmount').text(result['amount'])
+    })
+}
+
+getCartDetailAmount()
+
+$('#form-signup').on('submit', function (e) {
     e.preventDefault(); // Now nothing will happen
 });
+
