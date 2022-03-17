@@ -1,42 +1,37 @@
-import json
+from flask import render_template
 
-from flask import render_template, jsonify
+from BookStoreApp import app
+from BookStoreApp.service.non_admin.category_service import get_all_category, \
+    get_newest_book, get_recommend_book, get_all_attachment
 
-from BookStoreApp import app, client
-from BookStoreApp.controller.utils.utils_controller import encode_vigenere, decode_vigenere \
-    , send_message_phone_number, send_mail
+
+@app.context_processor
+def common_processor():
+    return {
+        'common_categories': get_all_category()
+    }
 
 
 @app.route('/')
 def home():
-    return render_template('/non_admin/home.html')
-
-
-@app.route('/gio-hang')
-def cart():
-    return render_template('/non_admin/cart.html')
+    newest_books = get_newest_book()
+    recommend_books = get_recommend_book()
+    attachments = get_all_attachment()
+    return render_template('/non_admin/home.html',
+                           newest_books=newest_books,
+                           recommend_books=recommend_books,
+                           attachments=attachments)
 
 
 @app.route('/tai-khoan')
 def account():
     return render_template('/non_admin/account.html')
 
-
-@app.route('/chi-tiet-sach')
-def book_detail():
-    return render_template('/non_admin/book-detail.html')
-
-
-@app.route('/sach-kinh-te')
-def category():
-    return render_template('/non_admin/economy-book.html')
-
-
 # @app.route('/test-vigenere')
 # def test_vigenere():
 #     data = {
-#         'input_plain_text': 123456789,
-#         'output_plain_text': decode_vigenere(encode_vigenere(123456789)),
+#         'input_plain_text': 1,
+#         'output_plain_text': encode_vigenere(1),
 #     }
 #     return jsonify(data)
 

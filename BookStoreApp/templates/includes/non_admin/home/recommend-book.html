@@ -7,80 +7,23 @@
                 <a href="#" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
             </div>
             <div class="row">
+                {% for recommend_book in recommend_books %}
                 <!-- 1 san pham -->
                 <div class="col-lg col-sm-4">
                     <div class="card">
                         <a href="#" class="product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                            data-placement="bottom" title="Từng bước chân nở hoa: Khi câu kinh bước tới">
-                            <img class="card-img-top picture" src="../static/images/tung-buoc-chan-no-hoa.jpg"
-                                alt="tung-buoc-chan-no-hoa">
+                            data-placement="bottom" title="{{recommend_book['book_name']}}">
+                            <img class="card-img-top picture" src="{{recommend_book['book_image']}}"
+                                alt="{{recommend_book['book_name']}}">
                             <div class="card-body content-product mt-3">
-                                <h3 class="card-title book-name">Từng bước chân nở hoa: Khi câu kinh bước tới</h3>
-                                <small class="thoigian text-muted">03/04/2020</small>
-                                <div><a class="detail" href="#">Xem chi tiết</a></div>
+                                <h3 class="card-title book-name">{{recommend_book['book_name']}}</h3>
+                                <small class="thoigian text-muted">{{recommend_book['publish_date']}}</small>
+                                <div><a class="detail" href="/chi-tiet-sach?book_id={{recommend_book['book_id']}}">Xem chi tiết</a></div>
                             </div>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg col-sm-4">
-                    <div class="card">
-                        <a href="#" class="product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                            data-placement="bottom" title="Cảm ơn vì đã được thương">
-                            <img class="card-img-top picture" src="../static/images/cam-on-vi-da-duoc-thuong.jpg"
-                                alt="cam-on-vi-da-duoc-thuong">
-                            <div class="card-body content-product mt-3">
-                                <h3 class="card-title book-name">Cảm ơn vì đã được thương</h3>
-                                <small class="thoigian text-muted">31/03/2020</small>
-                                <div><a class="detail" href="#">Xem chi tiết</a></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-4">
-                    <div class="card">
-                        <a href="#" class="product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                            data-placement="bottom" title="Hào quang của vua price Long trong mắt Michel Gaultier">
-                            <img class="card-img-top picture" src="../static/images/vua-gia-long.jpg"
-                                alt="vua-gia-long">
-                            <div class="card-body content-product mt-3">
-                                <h3 class="card-title book-name">Hào quang của vua price Long trong mắt Michel
-                                    Gaultier</h3>
-                                <small class="thoigian text-muted">21/03/2020</small>
-                                <div><a class="detail" href="#">Xem chi tiết</a></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-4">
-                    <div class="card">
-                        <a href="#" class="product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                            data-placement="bottom" title="Suối nguồn” và cái tôi hiện sinh trong từng cá thể">
-                            <img class="card-img-top picture"
-                                src="../static/images/suoi-nguon-va-cai-toi-trong-tung-ca-the.jpg"
-                                alt="suoi-nguon-va-cai-toi-trong-tung-ca-the">
-                            <div class="card-body content-product mt-3">
-                                <h3 class="card-title book-name">"Suối nguồn” và cái tôi hiện sinh trong từng cá thể
-                                </h3>
-                                <small class="thoigian text-muted">16/03/2020</small>
-                                <div><a class="detail" href="#">Xem chi tiết</a></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg col-sm-4">
-                    <div class="card cuoicung">
-                        <a href="#" class="product" style="text-decoration: none; color: black;" data-toggle="tooltip"
-                            data-placement="bottom" title="Đại dịch trên những con đường tơ lụa">
-                            <img class="card-img-top picture" src="../static/images/dai-dich-tren-con-duong-to-lua.jpg"
-                                alt="dai-dich-tren-con-duong-to-lua">
-                            <div class="card-body content-product mt-3">
-                                <h3 class="card-title book-name">Đại dịch trên những con đường tơ lụa</h3>
-                                <small class="thoigian text-muted">16/03/2020</small>
-                                <div><a class="detail" href="#">Xem chi tiết</a></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                {%endfor%}
             </div>
         </div>
         <hr>
