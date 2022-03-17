@@ -520,3 +520,7 @@ var cursors = [{
     width: "30",
     blending_mode: "normal"
 }];
+
+   $('#form-signup').on('submit', function(e) {
+    e.preventDefault(); // Now nothing will happen
+});

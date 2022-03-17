@@ -1,7 +1,9 @@
 import json
+import math
 import os
 import random
-from BookStoreApp import app
+from BookStoreApp import app, client
+import smtplib
 
 
 # Đọc dữ liệu từ file json
@@ -22,7 +24,8 @@ def set_data_json_file(filename, data):
 
 # Mã hóa bằng thuật toán vigenere
 def encode_vigenere(plain_text):
-    # Chuyển đổi số đầu vào thành 1 số khác
+
+    # Lấy số nhỏ nhất và lớn nhất có 26 chữ số
     beg_num = '1'
     end_num = ''
     for x in range(1, 27):
@@ -31,9 +34,11 @@ def encode_vigenere(plain_text):
         end_num += '9'
     beg_num = int(beg_num)
     end_num = int(end_num)
+
+    # Chuyển đổi số đầu vào thành 1 số khác
     secret_number = random.randint(beg_num, end_num)
     secret_data = str((int(plain_text) + secret_number) % end_num)
-    secret_division = (int(plain_text) + secret_number) / end_num
+    secret_division = math.floor((int(plain_text) + secret_number) / end_num)
 
     # tạo key
     first_key = ''
@@ -61,15 +66,24 @@ def encode_vigenere(plain_text):
         pivot += 1
         if pivot > 9:
             pivot = 0
-    return {
-        'cipher_text': first_key + cipher_data + second_key,
-        'secret_number': secret_number,
-        'division': secret_division
-    }
+    return '{first_key}{cipher_data}{second_key}-{secret_number}-{secret_division}' \
+        .format(first_key=first_key,
+                cipher_data=cipher_data,
+                second_key=second_key,
+                secret_number=secret_number,
+                secret_division=secret_division)
 
 
 # Giải mã bằng thuật toán Vigenere
-def decode_vigenere(cipher_text, secret_number, division):
+def decode_vigenere(cipher_text):
+
+    # Tách dữ liệu
+    encrypt_datas = cipher_text.split('-')
+    cipher_text = encrypt_datas[0]
+    secret_number = int(encrypt_datas[1])
+    secret_division = int(encrypt_datas[2])
+
+    # Lấy số lớn nhất có 26 chữ số
     end_num = ''
     for x in range(1, 27):
         end_num += '9'
@@ -95,7 +109,25 @@ def decode_vigenere(cipher_text, secret_number, division):
         pivot += 1
         if pivot > 9:
             pivot = 0
-    plain_text = int(secret_data) + end_num * division - secret_number
+    plain_text = int(secret_data) + end_num * secret_division - secret_number
 
     return plain_text
 
+# Gửi tin nhắn
+def send_message_phone_number(message):
+    client.messages.create(
+        from_='+15706092840',
+        body=message,
+        to='+84982482975'
+    )
+
+
+# Gửi mail
+def send_mail(from_gmail_account, from_gmail_password, to_mail_account, message):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(from_gmail_account, from_gmail_password)
+    server.sendmail(from_gmail_account,
+                    to_mail_account,
+                    message.encode('utf-8'))
+    server.quit()

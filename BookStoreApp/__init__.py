@@ -5,12 +5,12 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
 from BookStoreApp.model_view.admin.home_page_view import HomeView
-
+from twilio.rest import Client
 app = Flask(__name__)
 
 # thông tin database
 USERNAME_DB = 'root'
-PASSWORD_DB = 'thanhnam'
+PASSWORD_DB = '12345678'
 NAME_DB = 'BookStore'
 IP_DB = 'localhost'
 
@@ -35,6 +35,10 @@ login = LoginManager(app=app)
 cloudinary.config(cloud_name=CLOUD_NAME,
                   api_key=API_KEY,
                   api_secret=API_SECRET)
+# twilio
+account_sid = 'AC1dc7baac41475a5ecf3eeee27c07369c'
+auth_token = '32dcea9652cd23b9b59bb241327a365f'
+client = Client(account_sid, auth_token)
 
 # Import model database
 from model.book_model import BookModel
@@ -72,6 +76,8 @@ from model_view.admin.attachment_view import AttachmentView
 
 # Import controller
 from controller.non_admin.home_controller import *
+from controller.non_admin.sign_up_controller import *
+from controller.non_admin.sign_in_controller import *
 from controller.admin.account_controller import *
 from controller.admin.cart_controller import *
 from controller.admin.change_password_controller import *
@@ -88,7 +94,6 @@ def init_tables():
         db.create_all()
     except:
         db.session.rollback()
-
 
 # Tạo view phía admin
 def init_admin():
