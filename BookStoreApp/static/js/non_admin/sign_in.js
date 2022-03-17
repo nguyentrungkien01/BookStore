@@ -1,4 +1,6 @@
+var url   //update 17/03/2022
 $('#btnSignIn').click(function (){
+    url = location.href // update 17/03/2022
     if(isExactlyDataSignIn() == true){
         fetch('/client/api/sign-in', {
             method: 'post',
@@ -20,7 +22,7 @@ $('#btnSignIn').click(function (){
                         confirmButtonText: 'Ok',
                     })
                 } else
-                    window.location="/"
+                    window.location=url  // update 17/03/2022
 //                    window.location="/tai-khoan"
         })
     }
