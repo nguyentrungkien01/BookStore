@@ -71,7 +71,8 @@ def get_attachment_by_book_id(book_id=None, **kwargs):
             'book_name': book_attachment[3],
             'sale_percent': 0 if book_attachment[4] is None else book_attachment[4],
             'book_price_sale': '{:,.0f}'.format(book_sale_price),
-            'money_saving': '{:,.0f}'.format(book_attachment[2] - book_sale_price)
+            'money_saving': '{:,.0f}'.format(book_attachment[2] - book_sale_price),
+            'book_author': book_attachment[5]
         })
     return datas
 

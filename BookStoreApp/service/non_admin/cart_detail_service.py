@@ -2,6 +2,7 @@ from BookStoreApp.repository.non_admin.cart_detail_repository import get_book_by
                     get_cart_detail as gcd, get_total_by_cart_id as gt
 from BookStoreApp.controller.utils.utils_controller import encode_vigenere
 
+# lấy thông tin từ tầng repository và chuyển sang dạng danh sách từ điển
 def get_cart_detail(account_id = None, **kwargs):
     if account_id:
         account_data = []

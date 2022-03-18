@@ -1,11 +1,11 @@
-from datetime import datetime
+from BookStoreApp import CustomerModel
 from BookStoreApp import db
 from BookStoreApp.model.account_model import AccountModel
-from BookStoreApp import CustomerModel
+
 
 # Tạo tài khoản
 def set_sign_up(data=None, **kwargs):
-    id = get_latest_account_id()[0] +1
+    id = get_latest_account_id()[0] + 1
     if id:
         customer = CustomerModel(account_id=id,
                                  first_name=data['first_name'],
@@ -29,6 +29,7 @@ def set_sign_up(data=None, **kwargs):
 def get_latest_account_id(name=None, **kwargs):
     query = db.session.query(AccountModel.account_id).order_by(AccountModel.account_id.desc())
     return query.first()
+
 
 # kiểm tra tên tài khoản chưa
 def is_username_exactly(username=None):

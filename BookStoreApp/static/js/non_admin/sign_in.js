@@ -12,7 +12,6 @@ $('#btnSignIn').click(function (){
                 'Accept': 'application/json',
                 'Context-Type': 'application/json',
             }
-
             }).then(res => res.json()).then(data => {
                 if(data == 'error'){
                     Swal.fire({
@@ -33,7 +32,6 @@ $('#btnSignIn').click(function (){
 // kiểm tra thông tin nhập
 function isExactlyDataSignIn(){
     if (document.getElementById('usernameSignIn').value == '' || document.getElementById('passwordSignIn').value == ''){
-
         Swal.fire({
             title: 'Vui lòng kiểm tra lại !!!',
             text: '',
@@ -41,7 +39,6 @@ function isExactlyDataSignIn(){
             confirmButtonColor: '#3085d6',
             confirmButtonText: 'Ok',
             })
-
         return false
     }
     return true

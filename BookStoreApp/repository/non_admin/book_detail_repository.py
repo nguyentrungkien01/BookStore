@@ -1,11 +1,8 @@
 from BookStoreApp import db, BookModel, SaleModel, PointModel, ManufacturerModel, CategoryModel, AttachmentModel, \
-    PreviewModel, viewed_book_model, CustomerModel
+    PreviewModel, viewed_book_model
 
 
 # Lấy thông tin của sách dựa vào id sách
-from BookStoreApp.model.account_model import AccountModel
-
-
 def get_book_detail_by_id(book_id=None, **kwargs):
     return db.session.query(BookModel.book_id,
                             BookModel.name,
@@ -54,7 +51,8 @@ def get_attachment_by_id(attachment_id=None, **kwargs):
                             BookModel.image,
                             BookModel.price,
                             BookModel.name,
-                            SaleModel.percent) \
+                            SaleModel.percent,
+                            BookModel.author) \
         .select_from(BookModel) \
         .join(SaleModel, BookModel.sale_id.__eq__(SaleModel.sale_id), isouter=True) \
         .join(AttachmentModel, BookModel.attachment_id.__eq__(AttachmentModel.attachment_id)) \

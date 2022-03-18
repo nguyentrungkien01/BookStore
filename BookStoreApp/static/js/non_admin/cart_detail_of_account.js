@@ -1,4 +1,4 @@
-$('#order-nav').ready(function () {
+$('#accountCD').ready(function () {
     fetch('/client/api/cart-detail', {
         method: 'post',
         body: JSON.stringify({
@@ -23,6 +23,7 @@ $('#order-nav').ready(function () {
     })
 })
 
+// đổ dữ liệu ra client
 function setCartDetail(data){
     if(isData(data) == true){
         html =``
@@ -40,6 +41,7 @@ function setCartDetail(data){
 
 }
 
+// kiểm tra có đơn hàng hay không
 function isData(data){
     if(data.length < 1){
         html =`<h5 style="text-align: center; margin-top: 50px; margin-bottom: 50px">Chưa có đơn hàng nào!!!</h5>`

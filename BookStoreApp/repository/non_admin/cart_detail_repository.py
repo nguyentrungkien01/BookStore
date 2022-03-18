@@ -19,7 +19,7 @@ def get_total_by_cart_id(cart_id = 0, **kwargs):
         total += l.price * l.amount
     return total
 
-#
+# lấy danh sách book theo cart id
 def get_book_by_cart_id(cart_id=None, **kwargs):
     query = db.session.query(BookModel.name)\
         .filter(cart_detail_model.c.cart_id == cart_id)\
