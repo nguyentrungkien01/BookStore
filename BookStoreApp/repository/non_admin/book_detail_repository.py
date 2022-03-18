@@ -51,7 +51,8 @@ def get_attachment_by_id(attachment_id=None, **kwargs):
                             BookModel.image,
                             BookModel.price,
                             BookModel.name,
-                            SaleModel.percent) \
+                            SaleModel.percent,
+                            BookModel.author) \
         .select_from(BookModel) \
         .join(SaleModel, BookModel.sale_id.__eq__(SaleModel.sale_id), isouter=True) \
         .join(AttachmentModel, BookModel.attachment_id.__eq__(AttachmentModel.attachment_id)) \

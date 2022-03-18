@@ -4,78 +4,81 @@
             <div class="row">
                 <!-- giao diện giỏ hàng khi không có item  -->
                 <div class="col-12 cart-empty d-none">
-                    <div class="py-3 pl-3">
+                    <div class="py-3">
                         <h6 class="cart-header">GIỎ HÀNG CỦA BẠN <span>(0 sản phẩm)</span></h6>
                         <div class="cart-empty-content w-100 text-center justify-content-center">
                             <img src="../static/images/shopping-cart-not-product.png" alt="shopping-cart-not-product">
                             <p>Chưa có sản phẩm nào trong giở hàng của bạn</p>
-                            <a href="/" class="btn buy-more mb-3 mt-3">Mua thêm</a>
+                            <a href="/" class="btn buy-more my-3">Mua thêm</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- giao diện giỏ hàng khi có hàng (phần comment màu xanh bên dưới là phần 2 sản phẩm trong giỏ hàng nhưng giờ đã demo bằng jquery) -->
-                <div class="col-md-8 cart">
-                    <div class="cart-content py-3 pl-3" id = "cartDetail">
+                <div class="col-lg-7 col-xl-8 cart">
+                    <div class="cart-content py-3 pl-3" id="cartDetail">
                         {% if current_user.is_authenticated %}
-                        <div id ="bookList"></div>
-                        <div id ="totalPrice"></div>
+                        <div id="bookList"></div>
+                        <div id="totalPrice"></div>
                         {% else %}
-                        <p>Bạn phải đăng nhập để thông tin giỏ hàng</p>
+                        <div class="cart-empty-content w-100 text-center justify-content-center">
+                            <img src="../static/images/shopping-cart-not-product.png" alt="shopping-cart-not-product">
+                            <p>Bạn phải đăng nhập để thông tin giỏ hàng</p>
+                        </div>
                         {% endif %}
                     </div>
                 </div>
 
                 <!-- giao diện phần thanh toán nằm bên phải  -->
-                <div class="col-md-4 cart-steps pl-0">
+                <div class="col-lg-5 col-xl-4">
                     <div id="cart-steps-accordion" role="tablist" aria-multiselectable="true">
-                         {% if not current_user.is_authenticated %}
-                            <!-- bước số 1: đăng nhập hoặc đăng ký -->
-                            <div class="card">
-                                <div class="card-header cardheader active" role="tab" id="step1header">
+                        {% if not current_user.is_authenticated %}
+                        <!-- bước số 1: đăng nhập hoặc đăng ký -->
+                        <div class="">
+                            <div class="card-header cardheader active" role="tab" id="step1header">
 
-                                    <h5 class="mb-0 ">
-                                        <a data-toggle="collapse" data-parent="#cart-steps-accordion" href="#step1contentid"
-                                            aria-expanded="true" aria-controls="step1contentid"
-                                            class="text-uppercase header"><span class="steps">1</span>
-                                            <span class="label ">KHÁCH HÀNG MỚI / ĐĂNG NHẬP</span>
-                                            <i class="fa fa-chevron-right"></i>
-                                        </a>
-                                    </h5>
-
-                                </div>
-
-                                    <div id="step1contentid" class="collapse in" role="tabpanel" aria-labelledby="step1header"
-                                    class="stepscontent">
-                                    <div class="card-body p-0">
-                                        <nav>
-                                            <div class="nav nav-tabs login-logout" id="nav-tab" role="tablist">
-                                                <a class="nav-item nav-link active text-center text-uppercase"
-                                                    href="javascript:;" id = 'loginBtn'
-                                                   onclick="getForm(isAuthenticated='{{current_user.is_authenticated}}')">
-                                                    Đăng nhập</a>
-                                                <a class="nav-item nav-link text-center text-uppercase"
-                                                    href="javascript:;" id = "registerBtn"
-                                                   onclick="getForm(status=false,isAuthenticated='{{current_user.is_authenticated}}')">
-                                                    Đăng ký</a>
-                                            </div>
-                                        </nav>
-                                    </div>
-                                </div>
+                                <h5 class="mb-0 ">
+                                    <a data-toggle="collapse" data-parent="#cart-steps-accordion" href="#step1contentid"
+                                        aria-expanded="true" aria-controls="step1contentid"
+                                        class="text-uppercase header"><span class="steps">1</span>
+                                        <span class="label ">KHÁCH HÀNG MỚI / ĐĂNG NHẬP</span>
+                                        <i class="fa fa-chevron-right"></i>
+                                    </a>
+                                </h5>
 
                             </div>
+
+                            <div id="step1contentid" class="collapse in" role="tabpanel" aria-labelledby="step1header"
+                                class="stepscontent">
+                                <div class="card-body p-0">
+                                    <nav>
+                                        <div class="nav nav-tabs login-logout" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link active text-center text-uppercase"
+                                                href="javascript:;" id='loginBtn'
+                                                onclick="getForm(isAuthenticated='{{current_user.is_authenticated}}')">
+                                                Đăng nhập</a>
+                                            <a class="nav-item nav-link text-center text-uppercase" href="javascript:;"
+                                                id="registerBtn"
+                                                onclick="getForm(status=false,isAuthenticated='{{current_user.is_authenticated}}')">
+                                                Đăng ký</a>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+
+                        </div>
                         {% endif %}
                         <!-- bước số 2: nhập địa chỉ giao hàng  -->
-                        <div class="card">
+                        <div class="">
                             <div class="card-header" role="tab" id="step2header">
                                 <h5 class="mb-0">
                                     <a data-toggle="collapse" data-parent="#cart-steps-accordion" href="#step2contentid"
                                         aria-expanded="true" aria-controls="step2contentid"
                                         class="text-uppercase header">
-                                         {% if not current_user.is_authenticated %}
-                                            <span class="steps">2</span>
+                                        {% if not current_user.is_authenticated %}
+                                        <span class="steps">2</span>
                                         {% else %}
-                                            <span class="steps">1</span>
+                                        <span class="steps">1</span>
                                         {% endif %}
                                         <span class="label">Địa chỉ giao hàng</span>
                                         <i class="fa fa-chevron-right"></i>
@@ -94,7 +97,7 @@
                                             <input type="text" id="phoneNumberShip" class="form-control"
                                                 placeholder="Nhập số điện thoại (*)" name="phone" required>
                                         </div>
-                                         <div class="form-label-group">
+                                        <div class="form-label-group">
                                             <input type="text" id="addressShip" class="form-control"
                                                 placeholder="Nhập Địa chỉ giao hàng (*)" name="address" required>
                                         </div>
@@ -103,10 +106,10 @@
                                                 placeholder="Nhập ghi chú (Nếu có)" name="note"></textarea>
                                         </div>
                                     </form>
-                                      <button class="btn btn-lg btn-block btn-checkout text-uppercase text-white"
-                                        style="background: #F5A623" id ="buyButton">Đặt mua</button>
+                                    <button class="btn btn-lg btn-block btn-checkout text-uppercase text-white"
+                                        style="background: #F5A623" id="buyButton">Đặt mua</button>
                                     <p class="text-center note-before-checkout">(Vui lòng kiểm tra lại đơn hàng
-                                        trước khi Đặt Mua)</p>
+                                        trước khi Đặt mua)</p>
                                 </div>
                             </div>
                         </div>
@@ -121,22 +124,21 @@
     <!-- het container  -->
 </section>
 
-<div class="modal fade" tabindex="-1" role="dialog"
-     aria-labelledby="otpModal" aria-hidden="true" id="otpModal">
-  <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Mã xác nhận OTP</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    <div class="modal-content">
-        <form>
-            <input type="text" id="otpInput" placeholder="Nhập mã OTP"/>
-        </form>
-        <p id="countDown">60</p>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="otpModal" aria-hidden="true" id="otpModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mã xác nhận OTP</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-content">
+                <form>
+                    <input type="text" id="otpInput" placeholder="Nhập mã OTP" />
+                </form>
+                <p id="countDown">60</p>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 </div>

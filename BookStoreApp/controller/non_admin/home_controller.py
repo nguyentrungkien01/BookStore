@@ -31,8 +31,7 @@ def account():
 
 @app.route('/bao-tri')
 def maintain():
-    return render_template('/non_admin/maintain.html')
-
+    return  render_template('/non_admin/maintain.html')
 
 @app.route('/client/api/log-out')
 def log_out_client():

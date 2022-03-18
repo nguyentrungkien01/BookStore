@@ -132,7 +132,7 @@ def add_to_cart(book_id=None, account_id=None, amount=None, **kwargs):
     if get_not_paid_cart(account_id=account_id) is None:
         customer = get_user_by_account_id(account_id=account_id)
         cart = CartModel(customer_id=customer.account_id)
-        if add_new_cart(cart=cart):
+        if not add_new_cart(cart=cart)  :
             return False
 
     book = get_book_by_book_id(book_id=book_id)

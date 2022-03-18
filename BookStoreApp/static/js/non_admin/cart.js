@@ -43,17 +43,17 @@ function setCartDetail(books) {
     $('#bookList').html('')
     htmlData = `
         <h6 class="cart-header">GIỎ HÀNG CỦA BẠN <span>(${books.length} sản phẩm)</span></h6>
-        <div class="cart-list-items">
+        <div class="cart-list-items mt-3">
     `
     for (let i = 0; i < books.length; i++)
         htmlData += `
                 <div class="cart-item d-flex">
                     <a href="/chi-tiet-sach?book_id=${books[i]['book_id']}" class="img">
-                        <img src="${books[i]['book_image']}" class="img-fluid" alt="${books[i]['book_name']}">
+                        <img src="${books[i]['book_image']}" class="img-fluid" alt="${books[i]['book_name']}" style="margin:unset;">
                     </a>
                     <div class="item-caption d-flex w-100">
                         <div class="item-info ml-3">
-                            <a href="product-item.html" class="book-name">${books[i]['book_name']}</a>
+                            <a href="product-item.html" class="book-name mb-3">${books[i]['book_name']}</a>
                             <div class="amount d-flex">
                                 <div class="input-number input-group mb-3">
                                     <div class="input-group-prepend">
@@ -70,8 +70,9 @@ function setCartDetail(books) {
                             </div>
                         </div>
                         <div class="item-price ml-auto d-flex flex-column align-items-end">
+                        <div class="d-flex">
                             <div class="new-price">${books[i]['book_sale_price']} ₫</div>
-                            <div class="old-price">${books[i]['book_price']} ₫</div>
+                            <div class="old-price">${books[i]['book_price']} ₫</div></div>
                             <span class="remove mt-auto"><i class="far fa-trash-alt"
                                 onclick ="deleteBook('${books[i]['book_id']}')"></i></span>
                         </div>
@@ -88,7 +89,7 @@ function setMoneyTotal(moneyTotal) {
     htmlData = `
         <div class="row">
             <div class="col-md-3">
-                <a href="/" class="btn buy-more mb-3">Mua thêm</a>
+                <a href="/" class="btn buy-more my-4">Mua thêm</a>
             </div>
             <div class="col-md-5 offset-md-4">
                 <div class="total-price">
