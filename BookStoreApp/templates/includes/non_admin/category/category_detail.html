@@ -9,13 +9,6 @@
         </ol>
     </div>
 </section>
-<!-- ảnh banner  -->
-<section class="banner">
-    <div class="container">
-        <a href="#"><img src="../static/images/banner-sach-ktkn.jpg" alt="banner-sach-ktkn"
-                class="img-fluid" /></a>
-    </div>
-</section>
 
 <!-- thể loại sách: kinh tế chính trị nhân vật bài học kinh doanh ( từng ô vuông) -->
 <section class="page-content my-3">
@@ -23,7 +16,7 @@
         <div>
             <h1 class="header text-uppercase">{{category_name['category_name']}}</h1>
         </div>
-        <div class="category-book">
+        <div class="category-book mt-4">
             <ul class="list-unstyled d-flex">
                 {% for top_selling_book in top_selling_books%}
                 <li>
@@ -31,7 +24,7 @@
                         <div class="img text-center">
                             <img src="{{top_selling_book['book_image']}}" alt="{{top_selling_book['book_name']}}" />
                         </div>
-                        <div class="name">{{top_selling_book['book_name']}}</div>
+                        <p class="name text-center">{{top_selling_book['book_name']}}</p>
                     </a>
                 </li>
                 {% endfor %}

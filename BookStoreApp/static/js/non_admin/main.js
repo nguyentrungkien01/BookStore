@@ -6,28 +6,28 @@ $(function () {
         slidesToShow: 5,
         slidesToScroll: 1,
         responsive: [{
-            breakpoint: 1400,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                infinite: true,
-                dots: true
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
             }
-        },
-        {
-            breakpoint: 800,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 1
-            }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
         ]
     });
 
@@ -158,12 +158,24 @@ $(function () {
     // validate
     $("#form-signup").validate({
         rules: {
-            name: {
+            last_name: {
+                required: true,
+            },
+            first_name: {
+                required: true,
+            },
+            dateOfBirth: {
+                required: true,
+            },
+            address: {
                 required: true,
             },
             phone: {
                 required: true,
                 minlength: 8
+            },
+            username: {
+                required: true,
             },
             password: {
                 required: true,
@@ -180,12 +192,24 @@ $(function () {
             }
         },
         messages: {
-            name: {
-                required: "Vui lòng nhập họ và tên",
+            last_name: {
+                required: "Vui lòng nhập họ",
+            },
+            first_name: {
+                required: "Vui lòng nhập tên",
+            },
+            dateOfBirth: {
+                required: "Vui lòng nhập ngày sinh",
+            },
+            address: {
+                required: "Vui lòng nhập địa chỉ",
             },
             phone: {
                 required: "Vui lòng nhập số điện thoại",
                 minlength: "Số máy quý khách vừa nhập là số không có thực"
+            },
+            username: {
+                required: "Vui lòng nhập tên tài khoản",
             },
             password: {
                 required: 'Vui lòng nhập mật khẩu',
@@ -204,29 +228,29 @@ $(function () {
         }
     });
 
-    $("#form-signin").validate({
-        rules: {
-            password: {
-                required: true,
-                minlength: 6
-            },
-            email: {
-                required: true,
-                email: true
-            }
-        },
-        messages: {
-            password: {
-                required: 'Vui lòng nhập mật khẩu',
-                minlength: 'Vui lòng nhập ít nhất 6 kí tự'
-            },
-            email: {
-                required: "Vui lòng nhập email",
-                minlength: "Email không hợp lệ",
-                email: "Vui lòng nhập email",
-            }
-        }
-    });
+    // $("#form-signin").validate({
+    //     rules: {
+    //         password: {
+    //             required: true,
+    //             minlength: 6
+    //         },
+    //         email: {
+    //             required: true,
+    //             email: true
+    //         }
+    //     },
+    //     messages: {
+    //         password: {
+    //             required: 'Vui lòng nhập mật khẩu',
+    //             minlength: 'Vui lòng nhập ít nhất 6 kí tự'
+    //         },
+    //         email: {
+    //             required: "Vui lòng nhập email",
+    //             minlength: "Email không hợp lệ",
+    //             email: "Vui lòng nhập email",
+    //         }
+    //     }
+    // });
 
     $("#form-signup-cart").validate({
         rules: {
@@ -355,3 +379,20 @@ $('#form-signup').on('submit', function (e) {
     e.preventDefault(); // Now nothing will happen
 });
 
+// Show Password
+function showPassword(button) {
+    var inputPassword = $(button).parent().find('input');
+    if (inputPassword.attr('type') === "password") {
+        inputPassword.attr('type', 'text');
+        $(".show-password i").removeClass("far fa-eye");
+        $(".show-password i").addClass("far fa-eye-slash");
+    } else {
+        inputPassword.attr('type', 'password');
+        $(".show-password i").removeClass("far fa-eye-slash");
+        $(".show-password i").addClass("far fa-eye");
+    }
+}
+
+$('.show-password').on('click', function () {
+    showPassword(this);
+})
