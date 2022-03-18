@@ -156,8 +156,12 @@ def delete_to_cart(book_id=None, account_id=None, **kwargs):
 
 # Lấy số lượng chi tiết đơn hàng
 def get_amount_cart_detail_by_cart_id(cart_id=None, **kwargs):
-    return db.session.query(func.sum(cart_detail_model.c.amount)) \
-        .filter(cart_detail_model.c.cart_id.__eq__(cart_id)).first()[0]
+
+    data = db.session.query(func.sum(cart_detail_model.c.amount)) \
+        .filter(cart_detail_model.c.cart_id.__eq__(cart_id)).first()
+    if data is None:
+        return 0
+    return data[0]
 
 
 # Lấy số lượng sách trong đơn hàng

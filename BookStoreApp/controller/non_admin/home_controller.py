@@ -33,6 +33,7 @@ def account():
 def maintain():
     return  render_template('/non_admin/maintain.html')
 
+
 @app.route('/client/api/log-out')
 def log_out_client():
     logout_user()

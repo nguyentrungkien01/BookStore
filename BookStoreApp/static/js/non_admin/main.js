@@ -28,14 +28,6 @@ $(function () {
                     slidesToScroll: 1
                 }
             }
-        },
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }
         ]
     });
 
@@ -378,6 +370,7 @@ var cursors = [{
 function getCartDetailAmount() {
     fetch('/gio-hang/api/amount-book').then(res => res.json()).then(result => {
         $('#cartDetailAmount').text(result['amount'])
+        console.info(result)
     })
 }
 
