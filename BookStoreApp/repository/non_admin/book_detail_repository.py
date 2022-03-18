@@ -3,8 +3,6 @@ from BookStoreApp import db, BookModel, SaleModel, PointModel, ManufacturerModel
 
 
 # Lấy thông tin của sách dựa vào id sách
-
-
 def get_book_detail_by_id(book_id=None, **kwargs):
     return db.session.query(BookModel.book_id,
                             BookModel.name,
