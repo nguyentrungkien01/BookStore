@@ -1,4 +1,5 @@
-from flask import render_template
+from flask import render_template, redirect
+from flask_login import logout_user
 
 from BookStoreApp import app
 from BookStoreApp.service.non_admin.category_service import get_all_category, \
@@ -30,11 +31,10 @@ def account():
 
 @app.route('/bao-tri')
 def maintain():
-    return  render_template('/non_admin/maintain.html')
+    return render_template('/non_admin/maintain.html')
 
-# @app.route('/test-vigenere')
-# def test_vigenere():
-#     data = {
-#         'input_plain_text': 1,
-#         'output_plain_text': encode_vigenere(1),
 
+@app.route('/client/api/log-out')
+def log_out_client():
+    logout_user()
+    return redirect('/')

@@ -1,11 +1,8 @@
 from BookStoreApp import db, BookModel, SaleModel, PointModel, ManufacturerModel, CategoryModel, AttachmentModel, \
-    PreviewModel, viewed_book_model, CustomerModel
+    PreviewModel, viewed_book_model
 
 
 # Lấy thông tin của sách dựa vào id sách
-from BookStoreApp.model.account_model import AccountModel
-
-
 def get_book_detail_by_id(book_id=None, **kwargs):
     return db.session.query(BookModel.book_id,
                             BookModel.name,

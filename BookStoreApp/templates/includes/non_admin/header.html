@@ -20,6 +20,8 @@
                     </div>
                 </div>
             </form>
+
+
             <!-- ô đăng nhập đăng ký giỏ hàng trên header  -->
             <ul class="navbar-nav ml-auto nav-right-mobile">
                 <div class="dropdown">
@@ -28,12 +30,19 @@
                             <i class="fa fa-user"></i>
                         </a>
                     </li>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item btn-register text-center mb-2" href="#" data-toggle="modal"
-                            data-target="#register-form">Đăng ký</a>
-                        <a class="dropdown-item btn-login text-center" href="#" data-toggle="modal"
-                            data-target="#login-form">Đăng nhập</a>
-                    </div>
+                    {% if current_user.is_authenticated %}
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="nav-link text-dark text-uppercase username" href="tai-khoan.html">{{current_user.username}}</a>
+                            <a class=" nav-link text-dark logout" href="/client/api/log-out">Thoát <i class="fas fa-sign-out-alt"></i></a>
+                        </div>
+                    {%else%}
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item btn-login text-center" href="#" data-toggle="modal"
+                                data-target="#login-form">Đăng nhập</a>
+                            <a class="dropdown-item btn-register text-center mb-2" href="#" data-toggle="modal"
+                                data-target="#register-form">Đăng ký</a>
+                        </div>
+                    {% endif %}
                 </div>
                 <li class="nav-item cart">
                     <a href="/gio-hang" class="btn btn-secondary rounded-circle">
