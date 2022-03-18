@@ -80,7 +80,6 @@
                             </div>
                             <div class="buy-btn btn w-100 text-uppercase" onclick="addToCart('{{book_detail['book_id']}}',
                                 isAuthenticated='{{current_user.is_authenticated}}')">Chọn mua</div>
-
                         </div>
                         <!-- thông tin khác của sản phẩm:  tác giả, ngày xuất bản, kích thước ....  -->
                         <div class="col-md-5">
@@ -110,7 +109,6 @@
                     <div class="row block-info">
                         {% for attachment in book_attachments%}
                         {% if attachment['book_name'] != book_detail['book_name']%}
-
                         <div class="card preferential attachment mb-4">
                             <a href="/chi-tiet-sach?book_id={{attachment['book_id']}}">
                                 <img id="attachment{{attachment['book_id']}}" src="{{attachment['book_image']}}"
