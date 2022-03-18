@@ -1,6 +1,7 @@
 from BookStoreApp import db
 from BookStoreApp.model.account_model import AccountModel
-from BookStoreApp import  RoleModel
+from BookStoreApp import RoleModel
+
 
 def get_info_user_by_account_id(id=0):
     query = db.session.query(AccountModel.username,
@@ -10,7 +11,7 @@ def get_info_user_by_account_id(id=0):
                              AccountModel.avatar,
                              AccountModel.gmail,
                              RoleModel.name,
-                             AccountModel.lass_access)\
-            .filter(AccountModel.role_id == RoleModel.role_id)\
-            .filter(AccountModel.account_id == id)
+                             AccountModel.lass_access) \
+        .filter(AccountModel.role_id == RoleModel.role_id) \
+        .filter(AccountModel.account_id == id)
     return query.first()
