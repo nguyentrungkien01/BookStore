@@ -1,4 +1,3 @@
-
 var url   //update 17/03/2022
 $('#btnSignIn').click(function (){
     url = location.href // update 17/03/2022

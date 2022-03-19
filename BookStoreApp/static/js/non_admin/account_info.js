@@ -195,3 +195,4 @@ function setDefaultChangePassword(){
     $('.thay-doi-mk').hide()
     document.getElementById('changepass').checked = false
 }
+

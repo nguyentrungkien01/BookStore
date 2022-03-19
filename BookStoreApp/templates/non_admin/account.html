@@ -10,6 +10,8 @@
 {{super()}}
    {% if current_user.is_authenticated %}
       <script src="{{ url_for('static', filename='js/non_admin/account_info.js') }}"></script>
+   <!-- Account cart detail -->
+   <script src="{{ url_for('static', filename='js/non_admin/cart_detail_of_account.js') }}"></script>
    {% endif %}
 {% endblock %}
 
