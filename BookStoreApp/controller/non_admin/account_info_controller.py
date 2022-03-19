@@ -12,14 +12,14 @@ from BookStoreApp.service.non_admin.account_info_service import get_account_info
 @app.route('/client/api/account-info', methods=['POST'])
 def get_account_info():
     id = None
-
     if current_user.is_authenticated:
         id = current_user.account_id
 
-    if id:
-        return jsonify(gd(gaibi(id)))
+        if id:
+            return jsonify(gd(gaibi(id)))
 
-    return jsonify('error')
+        return jsonify('error')
+    return jsonify('0')      #update 18/03/2022
 
 
 # thay đổi mật khẩu
