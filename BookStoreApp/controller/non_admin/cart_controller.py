@@ -76,7 +76,7 @@ def update_ship_info():
     customer_phone_number = request.json.get('customer_phone_number')
     customer_address = request.json.get('customer_address')
     customer_note = request.json.get('customer_note')
-    cart_otp = str(random.randint(100000,999999))
+    cart_otp = str(random.randint(100000, 999999))
     usi(account_id=account_id,
         customer_fullname=customer_fullname,
         customer_phone_number=customer_phone_number,

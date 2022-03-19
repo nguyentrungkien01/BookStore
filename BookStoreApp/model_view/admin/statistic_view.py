@@ -1,12 +1,12 @@
 from flask_admin import expose
 from flask_login import current_user
 
-from BookStoreApp.model_view.admin.base_view import BaseView
+from BookStoreApp.model_view.admin.base_view import CustomBaseView
 from BookStoreApp.controller.utils.utils_controller import get_data_json_file as gdjf
 
 
 # Lớp tượng trưng cho trang chức năng thống kê phía admin
-class StatisticView(BaseView):
+class StatisticView(CustomBaseView):
     @expose('/')
     def index(self):
         selections = gdjf('statistic_data.json')

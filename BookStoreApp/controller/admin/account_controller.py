@@ -1,7 +1,7 @@
 from flask import request, redirect
-from flask_login import login_user
+from flask_login import login_user, current_user, logout_user
 from BookStoreApp import login, app
-from BookStoreApp.service.admin.account_service import get_account as ga,\
+from BookStoreApp.service.admin.account_service import get_account as ga, \
     get_account_by_id as gabi, set_last_access as sla
 
 
@@ -21,7 +21,8 @@ def login_admin():
             account = ga(username=username, password=password)
         else:
             account = None
-        if account and account.is_active == True:
+        if account and account.is_active == True and account.role_id == 1:
             login_user(user=account)
             sla(account=account)
     return redirect('/admin')
+
