@@ -40,7 +40,7 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
    
 # Tóm tắt các ứng dụng bảo mật: 
    - Phân quyền người dùng
-   - Mã hóa dữ liệu bằng thuật toán tự xây dựng
+   - Mã hóa dữ liệu bằng thuật toán tự xây dựng (Vigenere)
    - Xác thực bằng email
    - Xác thực bằng số điệ thoại
 # Link video demo: 
