@@ -84,9 +84,9 @@ def update_ship_info():
         customer_note=customer_note,
         cart_otp=cart_otp)
     message = 'Mã OTP đơn hàng của bạn là: ' + cart_otp
-    # send_message_phone_number(message=message)
+    send_message_phone_number(message=message)
     return jsonify({
-        'cart_otp': 12345  #cart_otp
+        'cart_otp': cart_otp
     })
 
 
