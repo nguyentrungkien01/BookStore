@@ -83,6 +83,7 @@ from controller.non_admin.category_controller import *
 from controller.non_admin.sign_up_controller import *
 from controller.non_admin.sign_in_controller import *
 from controller.non_admin.account_info_controller import *
+from controller.non_admin.cart_detail_controller import *
 from controller.admin.account_controller import *
 from controller.admin.cart_controller import *
 from controller.admin.change_password_controller import *
