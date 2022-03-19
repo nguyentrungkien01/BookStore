@@ -14,7 +14,6 @@ def get_account_info():
     id = None
     if current_user.is_authenticated:
         id = current_user.account_id
-
         if id:
             return jsonify(gd(gaibi(id)))
 

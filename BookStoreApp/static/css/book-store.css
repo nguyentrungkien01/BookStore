@@ -463,6 +463,12 @@ body {
   display: none;
 }
 
+.btn-delete {
+  position: absolute;
+  bottom: 20px;
+  right: 35px;
+}
+
 .btn-toggle {
   font-size: 20px !important;
   line-height: 20px;
@@ -12757,7 +12763,6 @@ body[data-background-color="dark"] .auth-wrapper .form-group label {
 
 .form-group input {
   height: 40px;
-  padding: 0 10px;
   border-radius: 5px;
 }
 
@@ -13725,7 +13730,7 @@ body .main-panel .modal-content .modal-body input:focus {
 /* Cart guest */
 .img-book img {
   display: block;
-  width: 80%;
+  width: 90%;
   height: auto;
   margin: auto;
   margin-bottom: 10px;
