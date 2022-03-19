@@ -1,8 +1,11 @@
 import json
-from flask import request,  render_template, jsonify
+
+from flask import request, jsonify
+
 from BookStoreApp import app
-from BookStoreApp.service.admin.cart_service import get_info_user_in_cart as info_user, get_book_in_cart as gbic,\
-    get_cart_model as gcm, get_info_user_data as giud, get_book as gb, get_list_total_money_by_cart_id as gltmbc
+from BookStoreApp.service.admin.cart_service import get_info_user_in_cart as info_user, get_book_in_cart as gbic, \
+    get_info_user_data as giud, get_book as gb, get_list_total_money_by_cart_id as gltmbc
+
 
 # Lấy thông tin giỏ hàng của khách
 @app.route('/admin/api/cart', methods=['post'])
@@ -14,6 +17,4 @@ def get_cart():
     if arr == 1:
         return jsonify(giud(info_user()), gb(gbic()), sorted(gltmbc(info_user())))
     else:
-        return jsonify(giud(info_user()), gb(gbic()), sorted(gltmbc(info_user()),reverse=True))
-
-
+        return jsonify(giud(info_user()), gb(gbic()), sorted(gltmbc(info_user()), reverse=True))

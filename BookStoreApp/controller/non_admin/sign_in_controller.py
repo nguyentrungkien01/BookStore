@@ -1,7 +1,7 @@
-from flask import request, redirect, jsonify, json, render_template
-from flask_login import login_user, current_user
-from BookStoreApp import login, app
-from BookStoreApp.service.admin.account_service import get_account as ga,\
+from flask import request, redirect, jsonify, json
+from flask_login import login_user
+from BookStoreApp import app
+from BookStoreApp.service.admin.account_service import get_account as ga, \
     set_last_access as sla
 
 

@@ -156,7 +156,6 @@ def delete_to_cart(book_id=None, account_id=None, **kwargs):
 
 # Lấy số lượng chi tiết đơn hàng
 def get_amount_cart_detail_by_cart_id(cart_id=None, **kwargs):
-
     data = db.session.query(func.sum(cart_detail_model.c.amount)) \
         .filter(cart_detail_model.c.cart_id.__eq__(cart_id)).first()
     if data is None:
@@ -171,7 +170,10 @@ def get_amount_book_in_cart(account_id=None, **kwargs):
     not_paid_cart = get_not_paid_cart(account_id=account_id)
     if not_paid_cart is None:
         return 0
-    return get_amount_cart_detail_by_cart_id(cart_id=not_paid_cart[0])
+    amount = get_amount_cart_detail_by_cart_id(cart_id=not_paid_cart[0])
+    if amount is None:
+        return 0
+    return amount
 
 
 # Cập nhật thông tin ship hàng

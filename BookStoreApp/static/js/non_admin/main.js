@@ -370,7 +370,6 @@ var cursors = [{
 function getCartDetailAmount() {
     fetch('/gio-hang/api/amount-book').then(res => res.json()).then(result => {
         $('#cartDetailAmount').text(result['amount'])
-        console.info(result)
     })
 }
 

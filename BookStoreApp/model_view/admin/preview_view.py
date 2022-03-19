@@ -1,11 +1,11 @@
 from flask_admin import expose
 from flask_login import current_user
 
-from BookStoreApp.model_view.admin.base_view import BaseView
+from BookStoreApp.model_view.admin.base_view import CustomBaseView
 
 
 # Lớp tượng trưng cho trang chức năng chỉnh sửa bản xem trước của sách phía admin
-class PreviewView(BaseView):
+class PreviewView(CustomBaseView):
     @expose('/')
     def index(self):
         return self.render('/admin/preview.html')

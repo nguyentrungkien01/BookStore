@@ -29,10 +29,18 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
    + Đăng nhập
    + Đăng xuất
    + Đăng ký tài khoản (Xác thực bằng gửi mã xác nhận qua email)
+   + Đổi mật khẩu
    + Xem thông tin cá nhân
-   + Xem thông tin các giỏ hàng đã thanh toán
+   + Xem thông tin các giỏ hàng đã thanh toán, chưa thanh toán
    + Xem thông tin các các loại sách, sách mới, chi tiết loại sách ..
    + Xem chi tiết sách
    + Quản lý lịch sử thông tin những sách đã xem qua
    + Quản lý giỏ hàng cá nhân
    + Đặt hàng (Xác thực bằng gửi mã OTP đến điện thoại)
+   
+# Tóm tắt các ứng dụng bảo mật: 
+   - Phân quyền người dùng
+   - Mã hóa dữ liệu bằng thuật toán tự xây dựng (Vigenere)
+   - Xác thực bằng email
+   - Xác thực bằng số điện thoại
+# Link video demo: 

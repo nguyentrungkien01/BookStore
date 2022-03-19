@@ -1,4 +1,4 @@
-let listCountry = {};
+let listCountry = {}
 // Lấy dữ liệu các tỉnh/thành API
 window.onload = function () {
     fetch("https://provinces.open-api.vn/api/?depth=2")

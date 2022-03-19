@@ -24,21 +24,19 @@ def set_data_json_file(filename, data):
 
 # Mã hóa bằng thuật toán vigenere
 def encode_vigenere(plain_text):
-
     # Lấy số nhỏ nhất và lớn nhất có 26 chữ số
     beg_num = '1'
     end_num = ''
-    for x in range(1, 27):
-        if len(beg_num) < 26:
+    for x in range(1, 11):
+        if len(beg_num) < 10:
             beg_num += '0'
         end_num += '9'
     beg_num = int(beg_num)
     end_num = int(end_num)
 
     # Chuyển đổi số đầu vào thành 1 số khác
-    secret_number = random.randint(beg_num, end_num)
-    secret_data = str((int(plain_text) + secret_number) % end_num)
-    secret_division = math.floor((int(plain_text) + secret_number) / end_num)
+    secret_number = random.randint(beg_num - plain_text, end_num - plain_text)
+    secret_data = str(plain_text + secret_number)
 
     # tạo key
     first_key = ''
@@ -66,33 +64,20 @@ def encode_vigenere(plain_text):
         pivot += 1
         if pivot > 9:
             pivot = 0
-    return '{first_key}{cipher_data}{second_key}-{secret_number}-{secret_division}' \
+    return '{first_key}{cipher_data}{second_key}{secret_number}' \
         .format(first_key=first_key,
                 cipher_data=cipher_data,
                 second_key=second_key,
-                secret_number=secret_number,
-                secret_division=secret_division)
+                secret_number=secret_number)
 
 
 # Giải mã bằng thuật toán Vigenere
 def decode_vigenere(cipher_text):
-
-    # Tách dữ liệu
-    encrypt_datas = cipher_text.split('-')
-    cipher_text = encrypt_datas[0]
-    secret_number = int(encrypt_datas[1])
-    secret_division = int(encrypt_datas[2])
-
-    # Lấy số lớn nhất có 26 chữ số
-    end_num = ''
-    for x in range(1, 27):
-        end_num += '9'
-    end_num = int(end_num)
-
     # Tách dữ liệu mã hóa
     first_key = cipher_text[:10]
-    cipher_data = cipher_text[10:36]
-    second_key = cipher_text[36:46]
+    cipher_data = cipher_text[10:20]
+    second_key = cipher_text[20:30]
+    secret_number = int(cipher_text[30:])
 
     # Tạo bảng ánh xạ
     map_table = []
@@ -109,7 +94,7 @@ def decode_vigenere(cipher_text):
         pivot += 1
         if pivot > 9:
             pivot = 0
-    plain_text = int(secret_data) + end_num * secret_division - secret_number
+    plain_text = int(secret_data) - secret_number
 
     return plain_text
 

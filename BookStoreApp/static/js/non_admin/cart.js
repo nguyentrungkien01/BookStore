@@ -348,5 +348,14 @@ $(document).ready(function () {
         $('#countDown').text('60')
         confirmOrder()
     })
+     $('#customerBuyButton').click(function () {
+         Swal.fire({
+            title: 'Chỉ có khách hàng mới có thể đặt hàng',
+            text: 'Xin vui lòng kiểm tra lại',
+            icon: 'warning',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Ok',
+        })
+    })
 })
 
