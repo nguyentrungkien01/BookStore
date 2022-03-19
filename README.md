@@ -38,9 +38,9 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
    + Quản lý giỏ hàng cá nhân
    + Đặt hàng (Xác thực bằng gửi mã OTP đến điện thoại)
    
-=> Tóm tắt các ứng dụng bảo mật: 
+# Tóm tắt các ứng dụng bảo mật: 
    - Phân quyền người dùng
    - Mã hóa dữ liệu bằng thuật toán tự xây dựng
    - Xác thực bằng email
    - Xác thực bằng số điệ thoại
-=> Link video demo: 
+# Link video demo: 
