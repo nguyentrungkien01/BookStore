@@ -5,26 +5,13 @@
 <title>Chi tiết loại sách</title>
 {% endblock %}
 
-
-{% block head %}
-{{super()}}
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-
-{% endblock %}
-
-
 {% block body %}
-{{super()}}
+    {{super()}}
 
-<!-- content categories + banner slider start -->
-{% include 'includes/non_admin/content-categories.html' %}
-<!-- content categories + banner slider end -->
+    <!-- content categories + banner slider start -->
+    {% include 'includes/non_admin/content-categories.html' %}
 
-{% include 'includes/non_admin/category/category_detail.html' %}
+    <!-- content categories + banner slider end -->
+    {% include 'includes/non_admin/category/category_detail.html' %}
 
-{% block script %}
-{{super()}}
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-{% endblock %}
 {% endblock %}

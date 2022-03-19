@@ -20,6 +20,7 @@ function getCartData() {
             'Context-Type': 'application/json',
         }
     }).then(res => res.json()).then(data => {
+        console.info(data)
         if (getTypeArrange() == 0 && val == 0) // sắp xếp mặc định
             setCartData(data[0], data[1])
         else if (val == 0)
@@ -47,7 +48,7 @@ function setCartData(cart, book) {
         var bookx = `
         <div class="card col-12">
             <div class="card-header">
-                <div class="card-title">Thông tin tài khoản thứ ${cartId}</div>
+                <div class="card-title">Thông tin giỏ hàng thứ ${cartId}</div>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -87,8 +88,7 @@ function setCartData(cart, book) {
             </div>
         </div>
         `
-        var listBook = `<div id='b${cartId++}' class='row'></div>
-        `
+        var listBook = `<div id='b${cartId++}' class='row'></div>`
         document.getElementById(ci).insertAdjacentHTML('beforeend', listBook)
         for (let j = 0; j < book.length; j++) {
             if (cart[i]['cart_id'] == book[j]['cart_id']) {
@@ -102,7 +102,7 @@ function setCartData(cart, book) {
                     </div>
                     <div class="card-body">
                         <div class="img-book">
-                            <img src="src='${book[j]['image']}'" alt="src='${book[j]['image']}'">
+                            <img src="${book[j]['image']}" alt="${book[j]['image']}">
                         </div>
                         <div class="book-info">
                             <p><span class="text-success fw-bold">Loại sách:</span> ${book[j]['name_category']}</p>
@@ -136,7 +136,7 @@ function setCartDataArrange(cart, book, listTotal) {
                 var child = `
                 <div class="card col-12">
                     <div class="card-header">
-                        <div class="card-title">Thông tin tài khoản thứ ${cartId}</div>
+                        <div class="card-title">Thông tin giỏ hàng thứ ${cartId}</div>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -196,7 +196,7 @@ function setCartDataArrange(cart, book, listTotal) {
                             </div>
                             <div class="card-body">
                                 <div class="img-book">
-                                    <img src="src='${book[j]['image']}'" alt="src='${book[j]['image']}'">
+                                    <img src="${book[j]['image']}" alt="${book[j]['image']}">
                                 </div>
                                 <div class="book-info">
                                     <p><span class="text-success fw-bold">Loại sách:</span> ${book[j]['name_category']}</p>

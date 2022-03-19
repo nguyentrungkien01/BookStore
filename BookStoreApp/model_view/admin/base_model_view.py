@@ -1,6 +1,7 @@
 from flask_admin.contrib.sqla import ModelView
 from flask_login import current_user
 
+
 # Lớp cơ sở dành cho những trang phía admin có thêm, sửa, xóa
 class BaseModelView(ModelView):
     column_hide_backrefs = False
