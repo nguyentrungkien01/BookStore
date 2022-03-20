@@ -723,7 +723,7 @@ h3.card-title.book-name {
 .recommend-book .card {
     margin: 0;
     border: 1px solid #eaeaea;
-    border-radius:10px;
+    border-radius: 10px;
     transition: all 0.2s ease-in-out;
 }
 
@@ -731,6 +731,7 @@ h3.card-title.book-name {
     box-shadow: 0px 0px 2px 1px #d5d5d5;
     border: 1px solid #F5A623;
 }
+
 .recommend-book .col-lg {
     padding-bottom: 30px;
 }
@@ -806,7 +807,7 @@ footer .header {
     }
 
     .input-search {
-        width: 320px !important;
+        width: 290px !important;
     }
 
     .category-content ul li ul {
@@ -1557,6 +1558,7 @@ label.transfer {
 .category-book .img img {
     border-radius: 5px 5px 0 0;
 }
+
 .category-book .name {
     color: #474747;
     text-align: center;
@@ -1626,6 +1628,23 @@ label.label-select {
 
 /* ======== Account page ========== */
 /* page tai khoan  */
+.info-logout .nav-link {
+    padding: 0 15px 0 0 !important;
+    margin: 0 0 3px 0;
+    font-size: 13px;
+}
+
+.username,
+.logout {
+    color: #333 !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.username:hover,
+.logout:hover {
+    color: #F5A623 !important;
+}
+
 .account-page-tab-content .nav-tabs .nav-link {
     border-radius: 0;
 }

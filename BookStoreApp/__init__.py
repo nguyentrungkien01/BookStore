@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # thông tin database
 USERNAME_DB = 'root'
-PASSWORD_DB = '12345678'
+PASSWORD_DB = 'thanhnam'
 NAME_DB = 'BookStore'
 IP_DB = 'localhost'
 
@@ -38,7 +38,7 @@ cloudinary.config(cloud_name=CLOUD_NAME,
                   api_secret=API_SECRET)
 # twilio
 account_sid = 'AC1dc7baac41475a5ecf3eeee27c07369c'
-auth_token = '3683386b03106059370d77f3a914a53e'
+auth_token = '38344bd845cd5090fdac6718aade404b'
 client = Client(account_sid, auth_token)
 
 # Import model database
