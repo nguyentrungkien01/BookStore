@@ -1,6 +1,6 @@
 from flask_admin import expose
 from flask_login import current_user
-from BookStoreApp.model_view.admin.base_view import CustomBaseView
+from BookStoreApp.model_view.base_view import CustomBaseView
 from BookStoreApp.service.admin.cart_service import get_book_in_cart,get_cart_model,get_info_user_in_cart
 
 

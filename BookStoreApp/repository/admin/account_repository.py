@@ -1,5 +1,4 @@
 import datetime
-from math import acos
 
 from BookStoreApp import db
 from BookStoreApp.model.account_model import AccountModel

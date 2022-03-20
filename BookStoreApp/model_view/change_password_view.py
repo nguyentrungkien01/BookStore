@@ -1,7 +1,7 @@
 from flask_admin import expose
 from flask_login import current_user
 
-from BookStoreApp.model_view.admin.base_view import CustomBaseView
+from BookStoreApp.model_view.base_view import CustomBaseView
 
 
 # Lớp tượng trưng cho trang chức năng đổi mật khẩu phía admin

@@ -2,6 +2,7 @@ from BookStoreApp.repository.admin.cart_repository import get_book_in_cart as gb
     get_cart_model as gcm, get_total_by_cart_id as gtbc
 
 
+# Lấy thông tin giỏ hàng
 def get_cart_model():
     return gcm()
 
