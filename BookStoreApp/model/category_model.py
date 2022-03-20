@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 
 from BookStoreApp import db
@@ -13,7 +13,7 @@ class CategoryModel(db.Model):
     category_id = Column(Integer, primary_key=True, autoincrement=True)
 
     # Thuộc tính
-    name = Column(String(50), nullable=False, unique=True)
+    name = Column(String(255), nullable=False, unique=True)
 
     # Quan hệ
     books = relationship('BookModel', backref='category', lazy=True,

@@ -2,7 +2,7 @@ import datetime
 
 from sqlalchemy import Column, Integer, String, Boolean, Text, ForeignKey, DateTime, Float
 from sqlalchemy.dialects.mysql import DECIMAL
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy.orm import relationship
 
 from BookStoreApp import db
 

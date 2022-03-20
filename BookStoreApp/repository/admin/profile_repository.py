@@ -3,6 +3,7 @@ from BookStoreApp.model.account_model import AccountModel
 from BookStoreApp import RoleModel
 
 
+# Lấy thông tin account dựa vào id
 def get_info_user_by_account_id(id=0):
     query = db.session.query(AccountModel.username,
                              AccountModel.first_name,

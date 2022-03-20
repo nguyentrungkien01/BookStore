@@ -4,7 +4,7 @@ from wtforms import validators
 from wtforms.validators import DataRequired
 
 from BookStoreApp import CategoryModel
-from BookStoreApp.model_view.admin.base_model_view import BaseModelView
+from BookStoreApp.model_view.base_model_view import BaseModelView
 
 
 # Lớp này tượng trưng cho trang quản lý loại sách phía admin
@@ -27,7 +27,7 @@ class CategoryView(BaseModelView):
         rules.FieldSet(('books',), 'Thông tin khác có liên quan')
     ]
     form_args = dict(
-        name=dict(validators=[DataRequired(), validators.Length(max=50)],
+        name=dict(validators=[DataRequired(), validators.Length(max=255)],
                   render_kw={
                       'placeholder': 'Tên loại sách...'
                   })

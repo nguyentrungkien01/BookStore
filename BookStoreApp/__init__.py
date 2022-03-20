@@ -4,7 +4,7 @@ from flask_admin import Admin
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
-from BookStoreApp.model_view.admin.home_page_view import HomeView
+from BookStoreApp.model_view.home_page_view import HomeView
 from twilio.rest import Client
 
 app = Flask(__name__)
@@ -59,21 +59,21 @@ from model.love_book_model import love_book_model
 from model.viewed_book_model import viewed_book_model
 
 # Import view
-from model_view.admin.book_view import BookView
-from model_view.admin.category_view import CategoryView
-from model_view.admin.customer_view import CustomerView
-from model_view.admin.manufacturer_view import ManufacturerView
-from model_view.admin.point_view import PointView
-from model_view.admin.role_view import RoleView
-from model_view.admin.sale_view import SaleView
-from model_view.admin.cart_view import CartView
-from model_view.admin.change_password_view import ChangePasswordView
-from model_view.admin.log_out_view import LogOutView
-from model_view.admin.preview_view import PreviewView
-from model_view.admin.profile_view import ProfileView
-from model_view.admin.report_view import ReportView
-from model_view.admin.statistic_view import StatisticView
-from model_view.admin.attachment_view import AttachmentView
+from BookStoreApp.model_view.book_view import BookView
+from BookStoreApp.model_view.category_view import CategoryView
+from BookStoreApp.model_view.customer_view import CustomerView
+from BookStoreApp.model_view.manufacturer_view import ManufacturerView
+from BookStoreApp.model_view.point_view import PointView
+from BookStoreApp.model_view.role_view import RoleView
+from BookStoreApp.model_view.sale_view import SaleView
+from BookStoreApp.model_view.cart_view import CartView
+from BookStoreApp.model_view.change_password_view import ChangePasswordView
+from BookStoreApp.model_view.log_out_view import LogOutView
+from BookStoreApp.model_view.preview_view import PreviewView
+from BookStoreApp.model_view.profile_view import ProfileView
+from BookStoreApp.model_view.report_view import ReportView
+from BookStoreApp.model_view.statistic_view import StatisticView
+from BookStoreApp.model_view.attachment_view import AttachmentView
 
 # Import controller
 from controller.non_admin.home_controller import *

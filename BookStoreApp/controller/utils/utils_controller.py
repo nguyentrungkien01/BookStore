@@ -1,9 +1,9 @@
 import json
-import math
 import os
 import random
-from BookStoreApp import app, client
 import smtplib
+
+from BookStoreApp import app, client
 
 
 # Đọc dữ liệu từ file json
@@ -31,11 +31,9 @@ def encode_vigenere(plain_text):
         if len(beg_num) < 10:
             beg_num += '0'
         end_num += '9'
-    beg_num = int(beg_num)
-    end_num = int(end_num)
 
     # Chuyển đổi số đầu vào thành 1 số khác
-    secret_number = random.randint(beg_num - plain_text, end_num - plain_text)
+    secret_number = random.randint(int(beg_num) - plain_text, int(end_num) - plain_text)
     secret_data = str(plain_text + secret_number)
 
     # tạo key
@@ -64,6 +62,7 @@ def encode_vigenere(plain_text):
         pivot += 1
         if pivot > 9:
             pivot = 0
+
     return '{first_key}{cipher_data}{second_key}{secret_number}' \
         .format(first_key=first_key,
                 cipher_data=cipher_data,
