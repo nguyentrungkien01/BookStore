@@ -97,7 +97,7 @@ function setCartData(cart, book) {
                 <div class="card">
                     <div class="card-header">
                         <div class="card-head-row">
-                            <div class="card-title">${bookId++}. ${book[j]['name_book']}</div>
+                            <div class="">${bookId++}. ${book[j]['name_book']}</div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -191,7 +191,7 @@ function setCartDataArrange(cart, book, listTotal) {
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-head-row">
-                                    <div class="card-title">${bookId++}. ${book[j]['name_book']}</div>
+                                    <div class="">${bookId++}. ${book[j]['name_book']}</div>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -239,9 +239,9 @@ function getPriceRange() {
     if (document.getElementById('selectPrice').value != 'select-all')
         if (document.getElementById('selectPrice').value == 'select-1') // duoi 1 trieu
             return 1
-        else if (document.getElementById('selectPrice').value == 'select-2') // tu 1 - 2 trieu
-            return 2
-        else return 3 // tren 2 trieu
+    else if (document.getElementById('selectPrice').value == 'select-2') // tu 1 - 2 trieu
+        return 2
+    else return 3 // tren 2 trieu
     else return 0 // mac dinh
 }
 

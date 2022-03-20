@@ -113,26 +113,29 @@
                     <div class="recommend-book py-3">
                         <h1 class="header text-uppercase" style="font-weight: 400;">Mua kèm giảm thêm</h1>
                     </div>
-                    <div class="row block-info">
+                    <div class="row block-product">
                         {% for attachment in book_attachments%}
                         {% if attachment['book_name'] != book_detail['book_name']%}
-                        <div class="card preferential attachment mb-4">
-                            <a href="/chi-tiet-sach?book_id={{attachment['book_id']}}">
-                                <img id="attachment{{attachment['book_id']}}" src="{{attachment['book_image']}}"
+                    
+                        <div class="card">
+                            <a href="/chi-tiet-sach?book_id={{attachment['book_id']}}" class="product"
+                                style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom"
+                                title="{{attachment['book_name']}}">
+                                <img class="card-img-top picture" src="{{attachment['book_image']}}"
                                     alt="{{attachment['book_name']}}">
                                 <div class="card-body content-product mt-3">
                                     <h3 class="card-title book-name">{{attachment['book_name']}}</h3>
                                     <small class="author text-muted">{{attachment['book_author']}}</small>
                                     <div class="price d-flex align-items-baseline">
                                         <div class="new-price">{{attachment['book_price_sale']}} đ</div>
-                                        <div class="old-price text-muted">{{attachment['book_price']}} đ</div>
-                                        <div class="sale">-{{attachment['sale_percent']}} %</div>
+                                        <div class="old-price text-muted">{{attachment['book_price']}} ₫</div>
+                                        <div class="sale">-{{attachment['sale_percent']}}%</div>
                                     </div>
-                                    <small class="author text-muted">Tiết kiệm: {{attachment['money_saving']}} đ</small>
+                                    <small class="author text-muted">Tiết kiệm: {{attachment['money_saving']}}
+                                        đ</small>
                                 </div>
                             </a>
                         </div>
-
                         {%endif%}
                         {% endfor %}
 
@@ -277,7 +280,7 @@
                     <a href="/chi-tiet-sach?book_id={{book['book_id']}}" class="product"
                         style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom"
                         title="{{book['book_name']}}">
-                        <img class="card-img-top picture" src="{{book['book_image']}}" alt="ma-bun-luu-manh">
+                        <img class="card-img-top picture" src="{{book['book_image']}}" alt="{{book['book_name']}}">
                         <div class="card-body content-product mt-3">
                             <h3 class="card-title book-name">{{book['book_name']}}</h3>
                             <small class="author text-muted">{{book['book_author']}}</small>

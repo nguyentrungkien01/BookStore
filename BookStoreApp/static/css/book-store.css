@@ -13730,7 +13730,7 @@ body .main-panel .modal-content .modal-body input:focus {
 /* Cart guest */
 .img-book img {
   display: block;
-  width: 90%;
+  width: 50%;
   height: auto;
   margin: auto;
   margin-bottom: 10px;
@@ -13752,4 +13752,3 @@ body .main-panel .modal-content .modal-body input:focus {
     margin: 10px 0 0 0;
   }
 }
-
