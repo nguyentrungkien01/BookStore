@@ -5,8 +5,7 @@ window.onload = function () {
 function getProfileData() {
     fetch('/admin/profile/api/profile-info', {
         method: 'post',
-        body: JSON.stringify({
-        }),
+        body: JSON.stringify({}),
         headers: {
             'Accept': 'application/json',
             'Context-Type': 'application/json',
@@ -49,11 +48,6 @@ function setProfileData(data) {
         document.getElementById('lassAccess').innerHTML = data['lass_access']
     else
         document.getElementById('lassAccess').innerHTML = 'Thông tin chưa cập nhật'
-
-    // avatar
-    if (data['avatar'] != '')
-        document.getElementById('avatar').src = data['avatar']
-
 
     // username
     if (data['username'] != '')

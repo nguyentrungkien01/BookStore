@@ -105,15 +105,15 @@ def init_tables():
 # Tạo view phía admin
 def init_admin():
     admin.add_view(CustomerView(CustomerModel, db.session, name='Khách hàng'))
-    admin.add_view(BookView(BookModel, db.session, name='Sách'))
-    admin.add_view(StatisticView(name='Thống kê', category='Dữ liệu'))
     admin.add_view(CartView(name='Giỏ hàng khách'))
-    admin.add_view(ReportView(name='Báo cáo', category='Dữ liệu'))
+    admin.add_view(BookView(BookModel, db.session, name='Sách'))
+    admin.add_view(PreviewView(name='Bản xem trước sách'))
+    admin.add_view(AttachmentView(AttachmentModel, db.session, name='Sách đính kèm', category='Thông tin bổ sung sách'))
     admin.add_view(CategoryView(CategoryModel, db.session, name='Loại sách', category='Thông tin bổ sung sách'))
     admin.add_view(ManufacturerView(ManufacturerModel, db.session, name='Nhà xuất bản',
                                     category='Thông tin bổ sung sách'))
-    admin.add_view(PreviewView(name='Bản xem trước sách', category='Thông tin bổ sung sách'))
-    admin.add_view(AttachmentView(AttachmentModel, db.session, name='Sách đính kèm', category='Thông tin bổ sung sách'))
+    admin.add_view(StatisticView(name='Thống kê'))
+    admin.add_view(ReportView(name='Báo cáo'))
     admin.add_view(SaleView(SaleModel, db.session, name='Giảm giá', category='Khác'))
     admin.add_view(PointView(PointModel, db.session, name='Điểm', category='Khác'))
     admin.add_view(RoleView(RoleModel, db.session, name='Vai trò tài khoản', category='Khác'))

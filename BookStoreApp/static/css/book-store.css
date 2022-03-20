@@ -12776,7 +12776,7 @@ body[data-background-color="dark"] .auth-wrapper .form-group label {
 }
 
 .stats-scroll {
-  height: 530px;
+  height: 730px;
   position: relative;
 }
 
@@ -13300,13 +13300,13 @@ body .main-panel .modal-content .modal-body input:focus {
 
 .owl-img-responsive .owl-wrapper .item,
 .owl-img-responsive .owl-stage .item {
-  height: 450px;
+  height: unset;
 }
 
 .owl-img-responsive .owl-item img.img-fluid {
   border-radius: 20px;
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   max-width: initial;
 }

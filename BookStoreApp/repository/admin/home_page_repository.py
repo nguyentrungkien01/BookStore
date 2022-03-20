@@ -23,7 +23,7 @@ def get_top_book_selling(**kwargs):
                   ManufacturerModel.name,
                   BookModel.image) \
         .order_by(desc(func.sum(cart_detail_model.c.amount * BookModel.price))) \
-        .slice(0, 10) \
+        .slice(0, 15) \
         .all()
 
 
