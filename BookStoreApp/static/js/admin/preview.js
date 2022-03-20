@@ -125,7 +125,7 @@ function setBookInfoData(bookInfo) {
     return
   }
   var image = bookInfo['book_image']
-  // if (image == null || image.length == 0)
+  if (image == null || image.length == 0)
   image = 'https://res.cloudinary.com/attt92bookstore/image/upload/v1646019055/book/book_qmruxn.jpg'
   var data = `
       <div class="card">
@@ -170,7 +170,7 @@ function setPreviewInfoData(previewData, bookName) {
 
   for (let i = 0; i < previewData.length; i++) {
     var image = previewData[i]['preview_image']
-    // if (image == null || image.length == 0)
+    if (image == null || image.length == 0)
     image = 'https://res.cloudinary.com/attt92bookstore/image/upload/v1646019055/book/book_qmruxn.jpg'
 
     data += `

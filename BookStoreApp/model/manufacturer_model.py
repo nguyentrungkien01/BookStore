@@ -14,7 +14,7 @@ class ManufacturerModel(db.Model):
     manufacturer_id = Column(Integer, primary_key=True, autoincrement=True)
 
     # Thuộc tính
-    name = Column(String(50), nullable=False, unique=True)
+    name = Column(String(255), nullable=False, unique=True)
 
     # Quan hệ
     books = relationship('BookModel', backref='manufacturer', lazy=True,

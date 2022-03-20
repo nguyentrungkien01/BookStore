@@ -14,7 +14,7 @@
                 <div class="input-group input-search">
                     <input type="text" class="form-control" aria-label="Small" placeholder="Nhập sách cần tìm kiếm...">
                     <div class="input-group-append">
-                        <button type="button" class="btn" style="background-color: #CF111A; color: white;">
+                        <button type="button" class="btn" style="background-color: #CF111A; color: white;" id="bookSearchBtn">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -30,8 +30,8 @@
                         </a>
                     </li>
                     <div class="info-logout">
-                        <a class="nav-link username" href="/tai-khoan">{{current_user.username}}</a>
-                        <a class="nav-link logout" href="/client/api/log-out">Thoát <i
+                        <a class="font-weight-bold nav-link username text-success" href="/tai-khoan">{{current_user.username}}</a>
+                        <a class="font-weight-bold nav-link logout text-danger" href="/client/api/log-out">Thoát <i
                                 class="fas fa-sign-out-alt"></i></a>
                     </div>
                     {%else%}

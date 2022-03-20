@@ -60,8 +60,35 @@ def get_newest_book():
 # Lấy tất cả các combo sách
 def get_all_attachment():
     return db.session.query(AttachmentModel.attachment_id,
-                            AttachmentModel.name) \
+                            AttachmentModel.name,
+                            func.sum(BookModel.price)) \
+        .select_from(AttachmentModel) \
+        .join(BookModel, AttachmentModel.attachment_id.__eq__(BookModel.book_id)) \
+        .group_by(AttachmentModel.attachment_id,
+                  AttachmentModel.name) \
         .order_by(AttachmentModel.name).all()
+
+
+# Lấy những sách sắp phát hành
+def get_coming_book():
+    return db.session.query(BookModel.book_id,
+                            BookModel.name,
+                            BookModel.image,
+                            BookModel.author,
+                            BookModel.price,
+                            SaleModel.percent) \
+        .select_from(BookModel) \
+        .join(SaleModel, BookModel.sale_id.__eq__(SaleModel.sale_id), isouter=True) \
+        .join(cart_detail_model, BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
+        .filter(BookModel.publish_date.__gt__(datetime.datetime.today())) \
+        .group_by(BookModel.book_id,
+                  BookModel.name,
+                  BookModel.image,
+                  BookModel.author,
+                  BookModel.price,
+                  SaleModel.percent) \
+        .order_by(desc(func.sum(cart_detail_model.c.amount * BookModel.price))) \
+        .all()
 
 
 # Lấy thông tin sách đề xuất
@@ -76,7 +103,28 @@ def get_recommend_book():
                   BookModel.image,
                   BookModel.publish_date) \
         .order_by(desc(func.sum(cart_detail_model.c.amount))) \
-        .slice(0, 5).all()
+        .all()
+
+
+# Láy top sách được bán
+def get_top_selling_book():
+    return db.session.query(BookModel.book_id,
+                            BookModel.name,
+                            BookModel.image,
+                            BookModel.author,
+                            BookModel.price,
+                            SaleModel.percent) \
+        .select_from(BookModel) \
+        .join(SaleModel, BookModel.sale_id.__eq__(SaleModel.sale_id), isouter=True) \
+        .join(cart_detail_model, BookModel.book_id.__eq__(cart_detail_model.c.book_id)) \
+        .group_by(BookModel.book_id,
+                  BookModel.name,
+                  BookModel.image,
+                  BookModel.author,
+                  BookModel.price,
+                  SaleModel.percent) \
+        .order_by(desc(func.sum(cart_detail_model.c.amount * BookModel.price))) \
+        .all()
 
 
 # Lấy thông tin loại sách dựa vào id

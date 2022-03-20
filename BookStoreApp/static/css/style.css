@@ -431,6 +431,7 @@ label.error {
     box-sizing: border-box;
     height: 387px;
     background: white;
+    overflow-y: scroll;
 }
 
 .category-content.show {
@@ -587,6 +588,8 @@ img.card-img-top.picture {
     position: relative;
     top: 15px;
     transition: 0.3s;
+    height: 275px;
+    width: 200px;
 }
 
 ul span.text-muted {
@@ -789,6 +792,11 @@ footer .header {
     margin-bottom: 13px;
 }
 
+/* 
+.overflow-scroll {
+    overflow-y: scroll;
+} */
+
 /* het css cho footer  */
 
 /* ================= Reponsive ================= */
@@ -809,6 +817,7 @@ footer .header {
     .input-search {
         width: 290px !important;
     }
+
 
     .category-content ul li ul {
         margin-left: 225px;
@@ -950,7 +959,7 @@ footer .header {
 }
 
 .amount .amount-product {
-    width: 32px;
+    width: 50px;
     border: 1px solid #d1d1d1;
 }
 
@@ -1202,7 +1211,8 @@ label.transfer {
 }
 
 .product-detail .list-detailpic {
-    height: 76px;
+    height: 120px;
+    overflow-x: scroll;
 }
 
 .product-detail .thumb-img:hover {
@@ -1267,7 +1277,7 @@ label.transfer {
 }
 
 .block-info .input-number .amount-product {
-    width: 38px;
+    width: 50px;
     border: 1px solid #ebebeb;
 }
 
@@ -1636,7 +1646,6 @@ label.label-select {
 
 .username,
 .logout {
-    color: #333 !important;
     transition: all 0.3s ease-in-out;
 }
 

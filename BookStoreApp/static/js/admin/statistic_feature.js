@@ -145,7 +145,7 @@ function setStatisticInput(choiceInfo, chartInfo) {
     }
 
     if (conditionSelect.includes('year')) {
-      minVal = 2022
+      minVal = 2018
       maxVal = 2100
     }
 
@@ -215,8 +215,8 @@ function setStatisticDataTable(statisticData) {
                   <td>${statisticData[i]['time']}</td>
                   <td>${statisticData[i]['revenue_total']}</td>
               </tr>`
-    else
-      row += `<tr> 
+  else
+    row += `<tr> 
                   <td>${i + 1}</td>
                   <td>${statisticData[i]['time']}</td>
                   <td>${statisticData[i]['amount_total']}</td>
@@ -367,11 +367,11 @@ $(document).ready(() => {
   gChartInfo.backgroundColor = $('.card').css('background-color')
   setInitialData(gChartInfo, gChoiceInfo)
 
-   // Bắt sự kiện khi nhập từ khóa tìm kiếm tên sách
+  // Bắt sự kiện khi nhập từ khóa tìm kiếm tên sách
   $('#bookName').keydown((event) => {
     if (gChoiceInfo.hintIndex == null)
       return;
-      // Ấn enter
+    // Ấn enter
     if (event.keyCode == 13) {
       event.preventDefault()
       $('#bookName').val($(`.stats-choice .show-hint p:nth-child(${gChoiceInfo.hintIndex})`).text().trim())

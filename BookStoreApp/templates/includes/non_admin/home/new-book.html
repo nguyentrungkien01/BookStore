@@ -10,10 +10,10 @@
             </div>
             <div class="block-product" style="padding-bottom: 2rem;">
                 {% for newest_book in newest_books %}
-                <!-- 1 san pham -->
                 <div class="card">
-                    <a href="/chi-tiet-sach?book_id={{newest_book['book_id']}}" class="product" style="text-decoration: none; color: black;"
-                        data-toggle="tooltip" data-placement="bottom" title="{{newest_book['book_name']}}">
+                    <a href="/chi-tiet-sach?book_id={{newest_book['book_id']}}" class="product"
+                        style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom"
+                        title="{{newest_book['book_name']}}">
                         <img class="card-img-top picture" src="{{newest_book['book_image']}}"
                             alt="{{newest_book['book_name']}}">
                         <div class="card-body content-product mt-3">

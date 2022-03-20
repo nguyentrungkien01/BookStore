@@ -130,3 +130,7 @@ def add_viewed_book(book_id=None, account_id=None, **kwargs):
     return {
         'result': avb(book_id=book_id, account_id=account_id)
     }
+
+
+
+
