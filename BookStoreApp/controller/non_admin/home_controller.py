@@ -6,6 +6,7 @@ from BookStoreApp.service.non_admin.category_service import get_all_category, \
     get_newest_book, get_recommend_book, get_top_selling_book, get_coming_book
 
 
+# Những dữ liệu dùng chung giữa các trang
 @app.context_processor
 def common_processor():
     return {
@@ -13,6 +14,7 @@ def common_processor():
     }
 
 
+# Trang chủ
 @app.route('/')
 def home():
     newest_books = get_newest_book()
@@ -26,16 +28,19 @@ def home():
                            coming_books=coming_books)
 
 
+# Trang tài khoản
 @app.route('/tai-khoan')
 def account():
     return render_template('/non_admin/account.html')
 
 
+# Trang bảo trì
 @app.route('/bao-tri')
 def maintain():
     return render_template('/non_admin/maintain.html')
 
 
+# Đăng xuất
 @app.route('/client/api/log-out')
 def log_out_client():
     logout_user()

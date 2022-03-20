@@ -3,7 +3,7 @@ from flask_admin.contrib.sqla.filters import FilterLike, FilterNotLike, BooleanE
     DateNotBetweenFilter, IntEqualFilter, IntNotEqualFilter, IntGreaterFilter, IntSmallerFilter
 
 from BookStoreApp import CustomerModel
-from BookStoreApp.model_view.admin.base_model_view import BaseModelView
+from BookStoreApp.model_view.base_model_view import BaseModelView
 
 
 # Lóp này tượng trưng cho trang quản lý thông tin khách hàng phía admin

@@ -5,7 +5,7 @@ from wtforms import FileField, validators
 from wtforms.validators import DataRequired
 import cloudinary.uploader
 from BookStoreApp import BookModel
-from BookStoreApp.model_view.admin.base_model_view import BaseModelView
+from BookStoreApp.model_view.base_model_view import BaseModelView
 
 
 # Lớp này tượng trưng cho trang quản lý sách phía admin

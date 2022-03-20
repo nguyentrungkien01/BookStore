@@ -4,7 +4,7 @@ from wtforms import validators
 from wtforms.validators import DataRequired
 
 from BookStoreApp import AttachmentModel
-from BookStoreApp.model_view.admin.base_model_view import BaseModelView
+from BookStoreApp.model_view.base_model_view import BaseModelView
 
 
 # Lớp này tượng trưng cho trang quản lý sách đính kèm phía admin
@@ -27,7 +27,7 @@ class AttachmentView(BaseModelView):
         rules.FieldSet(('books',), 'Thông tin khác có liên quan')
     ]
     form_args = dict(
-        name=dict(validators=[DataRequired(), validators.Length(max=100)],
+        name=dict(validators=[DataRequired(), validators.Length(max=255)],
                   render_kw={
                       'placeholder': 'Tên bộ đính kèm...'
                   }),

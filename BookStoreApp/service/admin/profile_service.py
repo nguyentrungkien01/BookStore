@@ -1,8 +1,11 @@
 from BookStoreApp.repository.admin.profile_repository import get_info_user_by_account_id as giu
 
+
+# Lấy thông tin account dựa vào id
 def get_info_user_by_account_id(id=0):
     if id:
         return giu(id)
+
 
 # Chuyển thông tin sang dictionary
 def get_info(data=None, **kwargs):
