@@ -7,24 +7,27 @@
 
 {% block body %}
 {{super()}}
-    <!-- content categories + banner slider start -->
-    {% include 'includes/non_admin/content-categories.html' %}
-    <!-- content categories + banner slider end -->
+<!-- content categories + banner slider start -->
+{% include 'includes/non_admin/content-categories.html' %}
+<!-- content categories + banner slider end -->
 
-    <!-- new book start -->
-    {% include 'includes/non_admin/home/new-book.html' %}
-    <!-- new book end -->
+<!-- sale start -->
+{% include 'includes/non_admin/sale.html' %}
+<!-- sale end -->
 
-    <!-- recommend book start -->
-    {% include 'includes/non_admin/home/recommend-book.html' %}
-    <!-- recommend book end -->
+<!-- new book start -->
+{% include 'includes/non_admin/home/new-book.html' %}
+<!-- new book end -->
 
-    <!-- hot book start -->
-    {% include 'includes/non_admin/home/hot-book.html' %}
-    <!-- hot book end -->
+<!-- hot book start -->
+{% include 'includes/non_admin/home/hot-book.html' %}
+<!-- hot book end -->
 
-    <!-- comming soon book start -->
-    {% include 'includes/non_admin/home/commingsoon-book.html' %}
-    <!-- comming soon book end -->
+<!-- comming soon book start -->
+{% include 'includes/non_admin/home/commingsoon-book.html' %}
+<!-- comming soon book end -->
 
+<!-- recommend book start -->
+{% include 'includes/non_admin/home/recommend-book.html' %}
+<!-- recommend book end -->
 {% endblock %}

@@ -123,7 +123,7 @@ function setTopBookSellingChartData(topBooks, chartInfo) {
                 .replaceAll(',', '')
         )
     }
-    chartInfo.type = 'line'
+    chartInfo.type = 'polarArea'
     chartInfo.label = 'Các loại sách bán chạy nhất'
 }
 

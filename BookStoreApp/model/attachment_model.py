@@ -14,7 +14,7 @@ class AttachmentModel(db.Model):
     attachment_id = Column(Integer, primary_key=True, autoincrement=True)
 
     # Thuộc tính
-    name = Column(String(100), nullable=False, unique=True)
+    name = Column(String(255), nullable=False, unique=True)
 
     # Quan hệ
     books = relationship('BookModel', backref='attachment', lazy=True,
