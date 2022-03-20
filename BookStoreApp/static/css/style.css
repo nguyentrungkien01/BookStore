@@ -431,6 +431,7 @@ label.error {
     box-sizing: border-box;
     height: 387px;
     background: white;
+    overflow-y: scroll;
 }
 
 .category-content.show {
@@ -587,6 +588,8 @@ img.card-img-top.picture {
     position: relative;
     top: 15px;
     transition: 0.3s;
+    height: 275px;
+    width: 200px;
 }
 
 ul span.text-muted {
@@ -723,7 +726,7 @@ h3.card-title.book-name {
 .recommend-book .card {
     margin: 0;
     border: 1px solid #eaeaea;
-    border-radius:10px;
+    border-radius: 10px;
     transition: all 0.2s ease-in-out;
 }
 
@@ -731,6 +734,7 @@ h3.card-title.book-name {
     box-shadow: 0px 0px 2px 1px #d5d5d5;
     border: 1px solid #F5A623;
 }
+
 .recommend-book .col-lg {
     padding-bottom: 30px;
 }
@@ -788,6 +792,11 @@ footer .header {
     margin-bottom: 13px;
 }
 
+/* 
+.overflow-scroll {
+    overflow-y: scroll;
+} */
+
 /* het css cho footer  */
 
 /* ================= Reponsive ================= */
@@ -806,8 +815,9 @@ footer .header {
     }
 
     .input-search {
-        width: 320px !important;
+        width: 290px !important;
     }
+
 
     .category-content ul li ul {
         margin-left: 225px;
@@ -949,7 +959,7 @@ footer .header {
 }
 
 .amount .amount-product {
-    width: 32px;
+    width: 50px;
     border: 1px solid #d1d1d1;
 }
 
@@ -1201,7 +1211,8 @@ label.transfer {
 }
 
 .product-detail .list-detailpic {
-    height: 76px;
+    height: 120px;
+    overflow-x: scroll;
 }
 
 .product-detail .thumb-img:hover {
@@ -1266,7 +1277,7 @@ label.transfer {
 }
 
 .block-info .input-number .amount-product {
-    width: 38px;
+    width: 50px;
     border: 1px solid #ebebeb;
 }
 
@@ -1557,6 +1568,7 @@ label.transfer {
 .category-book .img img {
     border-radius: 5px 5px 0 0;
 }
+
 .category-book .name {
     color: #474747;
     text-align: center;
@@ -1626,6 +1638,22 @@ label.label-select {
 
 /* ======== Account page ========== */
 /* page tai khoan  */
+.info-logout .nav-link {
+    padding: 0 15px 0 0 !important;
+    margin: 0 0 3px 0;
+    font-size: 13px;
+}
+
+.username,
+.logout {
+    transition: all 0.3s ease-in-out;
+}
+
+.username:hover,
+.logout:hover {
+    color: #F5A623 !important;
+}
+
 .account-page-tab-content .nav-tabs .nav-link {
     border-radius: 0;
 }

@@ -396,3 +396,12 @@ function showPassword(button) {
 $('.show-password').on('click', function () {
     showPassword(this);
 })
+$('#bookSearchBtn').on('click', function () {
+    Swal.fire({
+        title: 'Chức năng đang hoàn thiện !',
+        text: 'Vui lòng quay lại sau',
+        icon: 'warning',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Ok',
+    })
+})

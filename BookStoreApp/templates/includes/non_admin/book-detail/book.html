@@ -2,7 +2,7 @@
 <section class="breadcrumbbar">
     <div class="container">
         <ol class="breadcrumb mb-0 p-0 bg-transparent">
-            <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
             <li class="breadcrumb-item active"><a href="#">{{book_detail['book_name']}}</a></li>
         </ol>
     </div>
@@ -72,7 +72,7 @@
                                         <span class="input-group-text btn-spin btn-dec">-</span>
                                     </div>
                                     <input id="bookAmountInput" type="number" value="1"
-                                        class="amount-product text-center" readonly>
+                                        class="amount-product text-right" readonly>
                                     <div class="input-group-append">
                                         <span class="input-group-text btn-spin btn-inc">+</span>
                                     </div>
@@ -80,7 +80,7 @@
                             </div>
                             <div class="buy-btn btn w-100 text-uppercase" onclick="addToCart('{{book_detail['book_id']}}',
                                 isAuthenticated='{{current_user.is_authenticated}}')">Chọn mua</div>
-                                
+
                         </div>
                         <!-- thông tin khác của sản phẩm:  tác giả, ngày xuất bản, kích thước ....  -->
                         <div class="col-md-5">
@@ -89,7 +89,13 @@
                                     <li>Tác giả: <a href="#" class="author">{{book_detail['book_author']}}</a></li>
                                     <li>Ngày xuất bản: <b>{{book_detail['book_publish_date']}}</b></li>
                                     <li>Loại sách: <b>{{book_detail['category_name']}}</b></li>
-                                    <li>Dịch giả: <b>{{book_detail['book_translator']}}</b></li>
+                                    <li>Dịch giả:
+                                        {% if book_detail['book_translator']|length>0 %}
+                                        <b>{{book_detail['book_translator']}}</b>
+                                        {% else %}
+                                        <b>Không có</b>
+                                        {% endif %}
+                                    </li>
                                     <li>Nhà xuất bản: <b>{{book_detail['manufacturer_name']}}</b></li>
                                     <li>Hình thức bìa: <b>{{book_detail['book_cover_page_type']}}</b></li>
                                     <li>Số trang: <b>{{book_detail['book_page_number']}}</b></li>
@@ -292,13 +298,12 @@
                                 <li><span class="text-muted">0 nhận xét</span></li>
                             </ul>
                         </div>
+                    </a>
                 </div>
-                </a>
+                {%endif%}
+                {%endfor%}
             </div>
-            {%endif%}
-            {%endfor%}
         </div>
-    </div>
     </div>
 </section>
 

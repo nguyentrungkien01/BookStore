@@ -2,7 +2,8 @@ import math
 
 from BookStoreApp.repository.non_admin.category_repository import get_all_category as gac, \
     get_book_in_category as gbc, get_top_selling_book_category as gtb, get_newest_book as gnb, \
-    get_recommend_book as grb, get_all_attachment as gaa, get_category_by_id as gci
+    get_recommend_book as grb, get_all_attachment as gaa, get_category_by_id as gci, get_coming_book as gcb,\
+    get_top_selling_book as gsb
 from BookStoreApp.controller.utils.utils_controller import encode_vigenere
 
 
@@ -112,6 +113,7 @@ def get_all_attachment():
         datas.append({
             'attachment_id': encode_vigenere(int(attachment[0])),
             'attachment_name': attachment[1],
+            'book_price': '{:,.0f}'.format(attachment[2])
         })
     return datas
 
@@ -124,3 +126,51 @@ def get_category_name_by_id(category_id=None, **kwargs):
     return {
         'category_name': category.name
     }
+
+
+# Láy top sách được bán
+def get_top_selling_book():
+    top_selling_books = gsb()
+
+    datas = []
+    if top_selling_books is None or len(top_selling_books) == 0:
+        return datas
+
+    for book in top_selling_books:
+        book_sale_price = book[4] if book[5] is None else \
+            math.floor(book[4] * book[5] / 100)
+        datas.append({
+            'book_id': encode_vigenere(int(book[0])),
+            'book_name': book[1],
+            'book_image': book[2],
+            'book_author': book[3],
+            'book_price': '{:,.0f}'.format(book[4]),
+            'sale_percent': 0 if book[5] is None else book[5],
+            'book_sale_price': '{:,.0f}'.format(book_sale_price),
+            'money_saving': '{:,.0f}'.format(book[4] - book_sale_price)
+        })
+    return datas
+
+
+# Lấy những sách sắp phát hành
+def get_coming_book():
+    coming_books = gcb()
+
+    datas = []
+    if coming_books is None or len(coming_books) == 0:
+        return datas
+
+    for book in coming_books:
+        book_sale_price = book[4] if book[5] is None else \
+            math.floor(book[4] * book[5] / 100)
+        datas.append({
+            'book_id': encode_vigenere(int(book[0])),
+            'book_name': book[1],
+            'book_image': book[2],
+            'book_author': book[3],
+            'book_price': '{:,.0f}'.format(book[4]),
+            'sale_percent': 0 if book[5] is None else book[5],
+            'book_sale_price': '{:,.0f}'.format(book_sale_price),
+            'money_saving': '{:,.0f}'.format(book[4] - book_sale_price)
+        })
+    return datas

@@ -19,7 +19,7 @@ class BookModel(db.Model):
     # Thuộc tính
     name = Column(String(100), nullable=False)
     price = Column(DECIMAL, default=0.0)
-    image = Column(String(100), default='')
+    image = Column(String(255), default='')
     like_amount = Column(Integer, default=0)
     is_free_ship = Column(Boolean, default=False)
     description = Column(Text, default='')

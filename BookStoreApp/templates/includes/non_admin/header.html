@@ -14,7 +14,7 @@
                 <div class="input-group input-search">
                     <input type="text" class="form-control" aria-label="Small" placeholder="Nhập sách cần tìm kiếm...">
                     <div class="input-group-append">
-                        <button type="button" class="btn" style="background-color: #CF111A; color: white;">
+                        <button type="button" class="btn" style="background-color: #CF111A; color: white;" id="bookSearchBtn">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -22,24 +22,30 @@
             </form>
             <!-- ô đăng nhập đăng ký giỏ hàng trên header  -->
             <ul class="navbar-nav ml-auto nav-right-mobile">
-                <div class="dropdown">
+                <div class="dropdown d-flex">
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item account" type="button" class="btn">
+                        <a href="#" class="btn btn-secondary rounded-circle">
+                            <i class="fa fa-user" style="color: #ff6f0e;"></i>
+                        </a>
+                    </li>
+                    <div class="info-logout">
+                        <a class="font-weight-bold nav-link username text-success" href="/tai-khoan">{{current_user.username}}</a>
+                        <a class="font-weight-bold nav-link logout text-danger" href="/client/api/log-out">Thoát <i
+                                class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                    {%else%}
                     <li class="nav-item account" type="button" class="btn dropdown" data-toggle="dropdown">
                         <a href="#" class="btn btn-secondary rounded-circle">
                             <i class="fa fa-user"></i>
                         </a>
                     </li>
-                    {% if current_user.is_authenticated %}
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="nav-link text-dark text-uppercase username" href="/tai-khoan">{{current_user.username}}</a>
-                            <a class=" nav-link text-dark logout" href="/client/api/log-out">Thoát <i class="fas fa-sign-out-alt"></i></a>
-                        </div>
-                    {%else%}
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item btn-login text-center my-2" href="#" data-toggle="modal"
-                                data-target="#login-form">Đăng nhập</a>
-                            <a class="dropdown-item btn-register text-center mb-2" href="#" data-toggle="modal"
-                                data-target="#register-form">Đăng ký</a>
-                        </div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item btn-login text-center my-2" href="#" data-toggle="modal"
+                            data-target="#login-form">Đăng nhập</a>
+                        <a class="dropdown-item btn-register text-center mb-2" href="#" data-toggle="modal"
+                            data-target="#register-form">Đăng ký</a>
+                    </div>
                     {% endif %}
                 </div>
                 <li class="nav-item cart">

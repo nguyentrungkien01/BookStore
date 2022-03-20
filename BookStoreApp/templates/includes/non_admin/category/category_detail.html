@@ -20,7 +20,7 @@
             <ul class="list-unstyled d-flex">
                 {% for top_selling_book in top_selling_books%}
                 <li>
-                    <a href="/chi-tiet-sach?book_id={{top_selling_book['book_id']}}" class="text-decoration-none">
+                    <a href="/chi-tiet-sach?book_id={{top_selling_book['book_id']}}" class="text-decoration-none w-100">
                         <div class="img text-center">
                             <img src="{{top_selling_book['book_image']}}" alt="{{top_selling_book['book_name']}}" />
                         </div>

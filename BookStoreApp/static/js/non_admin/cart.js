@@ -61,7 +61,7 @@ function setCartDetail(books) {
                                             onclick="subtractBook('${books[i]['book_id']}')">-</span>
                                     </div>
                                     <input type="number" value="${books[i]['book_amount']}"
-                                    readonly class="amount-product  text-center" id="input${books[i]['book_id']}">
+                                    readonly class="amount-product text-right" id="input${books[i]['book_id']}">
                                     <div class="input-group-append">
                                         <span class="input-group-text btn-spin btn-inc" 
                                             onclick="addBook('${books[i]['book_id']}')">+</span>
@@ -348,8 +348,8 @@ $(document).ready(function () {
         $('#countDown').text('60')
         confirmOrder()
     })
-    $('#customerBuyButton').click(function () {
-        Swal.fire({
+     $('#customerBuyButton').click(function () {
+         Swal.fire({
             title: 'Chỉ có khách hàng mới có thể đặt hàng',
             text: 'Xin vui lòng kiểm tra lại',
             icon: 'warning',

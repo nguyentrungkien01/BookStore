@@ -1,19 +1,19 @@
 <section class="header bg-light">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-lg-3 overflow-scroll" style="margin-right: -15px;">
+            <div class="col-12 col-lg-4 overflow-scroll" style="margin-right: -15px;">
                 <!-- CATEGORIES -->
                 <div class="category-content">
                     <ul>
                         {% for category in common_categories %}
                         <li> <a href="/chi-tiet-loai-sach?category_id={{category['category_id']}}">
-                            {{category['category_name']}}</a></li>
+                                {{category['category_name']}}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
             </div>
             <!-- banner slider  -->
-            <div class="col-md-8 col-lg-9 px-0">
+            <div class="col-12 col-lg-8 px-0">
                 <div id="carouselId" class="carousel slide" data-ride="carousel">
                     <ol class="nutcarousel carousel-indicators rounded-circle">
                         <li data-target="#carouselId" data-slide-to="0" class="active"></li>
@@ -22,15 +22,18 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <a href="#"><img src="https://res.cloudinary.com/attt92bookstore/image/upload/v1647679834/icon%20-%20payment%20-%20banner/banner-sach-moi_yw1lrb.jpg" class="img-fluid"
-                                    style="height: 386px;" width="900px" alt="First slide"></a>
+                            <a href="#"><img
+                                    src="https://res.cloudinary.com/attt92bookstore/image/upload/v1647679834/icon%20-%20payment%20-%20banner/banner-sach-moi_yw1lrb.jpg"
+                                    class="img-fluid" style="height: 386px;" width="900px" alt="First slide"></a>
                         </div>
                         <div class="carousel-item">
-                            <a href="#"><img src="https://res.cloudinary.com/attt92bookstore/image/upload/v1647679833/icon%20-%20payment%20-%20banner/banner-beethoven_v9mqre.jpg" class="img-fluid"
-                                    style="height: 386px;" width="900px" alt="Second slide"></a>
+                            <a href="#"><img
+                                    src="https://res.cloudinary.com/attt92bookstore/image/upload/v1647679833/icon%20-%20payment%20-%20banner/banner-beethoven_v9mqre.jpg"
+                                    class="img-fluid" style="height: 386px;" width="900px" alt="Second slide"></a>
                         </div>
                         <div class="carousel-item">
-                            <a href="#"><img src="https://res.cloudinary.com/attt92bookstore/image/upload/v1647679832/icon%20-%20payment%20-%20banner/neu-toi-biet-duoc-khi-20-full-banner_kynvpx.jpg"
+                            <a href="#"><img
+                                    src="https://res.cloudinary.com/attt92bookstore/image/upload/v1647679832/icon%20-%20payment%20-%20banner/neu-toi-biet-duoc-khi-20-full-banner_kynvpx.jpg"
                                     class="img-fluid" style="height: 386px;" alt="Third slide"></a>
                         </div>
                     </div>

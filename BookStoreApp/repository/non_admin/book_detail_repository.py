@@ -1,5 +1,9 @@
+import datetime
+
+from sqlalchemy import desc, func
+
 from BookStoreApp import db, BookModel, SaleModel, PointModel, ManufacturerModel, CategoryModel, AttachmentModel, \
-    PreviewModel, viewed_book_model
+    PreviewModel, viewed_book_model, cart_detail_model
 
 
 # Lấy thông tin của sách dựa vào id sách
@@ -107,3 +111,6 @@ def add_viewed_book(book_id=None, account_id=None, **kwargs):
     except:
         db.session.rollback()
         return False
+
+
+
