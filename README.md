@@ -32,7 +32,7 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
    + Đổi mật khẩu
    + Xem thông tin cá nhân
    + Xem thông tin các giỏ hàng đã thanh toán, chưa thanh toán
-   + Xem thông tin các các loại sách, sách mới, chi tiết loại sách ..
+   + Xem thông tin các các loại sách, sách mới, sách bán chạy, sách đề xuất, combo sách, ...
    + Xem chi tiết sách
    + Quản lý lịch sử thông tin những sách đã xem qua
    + Quản lý giỏ hàng cá nhân
