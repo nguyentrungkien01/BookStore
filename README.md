@@ -23,7 +23,7 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
    + Xem thông tin chung của website
    + Thống kê doanh thu ngày hiện tại so với ngày trước đó
    + Thống kê số lượng khách hàng trong tháng hiện tại
-   + Thống kê top 10 loại sách bán chạy nhất
+   + Thống kê top 15 loại sách bán chạy nhất
    + Báo cáo doanh thu, báo cáo tần suất bán sách: Báo cáo theo tháng, quý, năm. Xuất dữ liêu báo cáo ra pdf
 - Khách hàng
    + Đăng nhập
@@ -38,7 +38,7 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
    + Quản lý giỏ hàng cá nhân
    + Đặt hàng (Xác thực bằng gửi mã OTP đến điện thoại)
    
-# Tóm tắt các ứng dụng bảo mật: 
+# Tóm tắt các ứng dụng của bảo mật: 
    - Phân quyền người dùng
    - Mã hóa dữ liệu bằng thuật toán tự xây dựng (Vigenere)
    - Xác thực bằng email
