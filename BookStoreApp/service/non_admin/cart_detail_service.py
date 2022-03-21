@@ -16,9 +16,9 @@ def get_cart_detail(account_id=None, **kwargs):
                 for lb in list_book:
                     books += lb[0] + '</br>'
             if c[2]:
-                status = '<span class="text-success">Đã thanh toán</span>'
+                status = '<span class="font-weight-bold text-success">Đã thanh toán</span>'
             else:
-                status = '<span class="text-danger">Chưa thanh toán</span>'
+                status = '<span class="font-weight-bold text-danger">Chưa thanh toán</span>'
 
             account_data.append({
                 'id': encode_vigenere(c[0]),

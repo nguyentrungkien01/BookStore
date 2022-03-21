@@ -1691,11 +1691,15 @@ table {
 }
 
 .order-table table th {
-    font-weight: 500;
+    font-weight: bold;
     background: #cecece;
 }
 
 h3.account-header {
     color: #9d9d9d;
     font-size: 18px;
+}
+
+#accountCD td {
+    text-align: center;
 }
