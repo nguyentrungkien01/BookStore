@@ -117,7 +117,7 @@
 
 <div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="otpModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="margin:1.75rem auto;">
-        <div class="swal2-popup" style="display: grid;">
+        <div class="swal2-popup" style="display: grid; pointer-events: fill;">
             <h2 class="swal2-title" id="exampleModalLabel" style="display: block;">Mã xác nhận OTP</h2>
             <label for="swal2-input" class="swal2-input-label">Nhập mã xác nhận OTP vào bên dưới</label>
             <button type="button" class="close position-absolute" style="top: 10px; right:15px;" data-dismiss="modal"
@@ -125,12 +125,12 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             <form class="mt-3">
-                <input class="swal2-input mt-2" id="otpInput" placeholder="Nhập mã OTP..." type="text"
+                <input class="swal2-input mt-2" id="otpInput" placeholder="Nhập mã OTP..." type="number"
                     style="display: flex; margin:auto">
             </form>
 
             <div class="swal2-actions" style="display: flex;">
-                <button id="countDown" class="btn btn-primary btn-center">60</button>
+                <button id="countDown" class="btn btn-primary btn-center">90</button>
             </div>
         </div>
     </div>

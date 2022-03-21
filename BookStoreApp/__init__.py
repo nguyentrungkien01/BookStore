@@ -38,7 +38,7 @@ cloudinary.config(cloud_name=CLOUD_NAME,
                   api_secret=API_SECRET)
 # twilio
 account_sid = 'AC1dc7baac41475a5ecf3eeee27c07369c'
-auth_token = '38344bd845cd5090fdac6718aade404b'
+auth_token = '465cf375e90cbb0d7cac2fec3cc2a8c4'
 client = Client(account_sid, auth_token)
 
 # Import model database
