@@ -30,11 +30,11 @@ function setCartDetail(data){
         html =``
         for(let i =0; i < data.length; i++){
             html +=`<tr >
-                        <td class ='text-primary text-center'>${data[i]['id']}</td>
-                        <td class='text-center'>${data[i]['date']}</td>
-                        <td class='text-center'>${data[i]['books']}</td>
-                        <td class='text-center'>${format(data[i]['total'])}</td>
-                        <td class='text-center'>${data[i]['status']}</td>
+                        <td class ='text-primary font-weight-bold'>${data[i]['id']}</td>
+                        <td >${data[i]['date']}</td>
+                        <td >${data[i]['books']}</td>
+                        <td >${format(data[i]['total'])}</td>
+                        <td >${data[i]['status']}</td>
                   </tr>`
         }
         document.getElementById('cartDetailAccount').insertAdjacentHTML('beforeend', html)
