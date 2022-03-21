@@ -275,7 +275,7 @@ function setShipInfo() {
         countDown()
         $('#otpInput').on('input', () => {
             if ($('#otpInput').val() == cartOTP['cart_otp']) {
-                $('#countDown').text(60)
+                $('#countDown').text(90)
                 payCart()
             }
         })
@@ -345,7 +345,7 @@ function countDown() {
 $(document).ready(function () {
     getBookInCart()
     $('#buyButton').click(function () {
-        $('#countDown').text('60')
+        $('#countDown').text('90')
         confirmOrder()
     })
      $('#customerBuyButton').click(function () {
