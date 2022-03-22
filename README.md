@@ -49,7 +49,7 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
      git clone https://github.com/nguyentrungkien01/BookStore.git
      ```
    - Mở project bằng `IDE` hoặc `Editor` bạn muốn (Ở đây mình sẽ hướng dẫn chạy bằng `Pycharm Community - JetBrains`)
-   - Tạo venv: `File` - `Setting` - `Project: BookStore` - `Python Interpreter` - `Show All` - `+` - `New Enviroment` - `Ok` <br>
+   - Tạo venv: `File` -> `Setting` -> `Project: BookStore` -> `Python Interpreter` -> `Show All` -> `+` -> `New Enviroment` -> `Ok` <br>
      ![config](https://res.cloudinary.com/attt92bookstore/image/upload/v1647954679/config/Screenshot_from_2022-03-22_20-11-05_bdqpfd.png) <br>
    - Nếu dùng `Window` thì cần active venv: Mở `Terminal` trong Pycharm và nhập lệnh: <br>
      ``` shell
