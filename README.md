@@ -43,4 +43,12 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
    - Mã hóa dữ liệu bằng thuật toán tự xây dựng (Vigenere)
    - Xác thực bằng email
    - Xác thực bằng số điện thoại
+# Hướng dẫn cài đặt:
+   - Clone project về máy 
+     ``` shell 
+     git clone https://github.com/nguyentrungkien01/BookStore.git
+     ```
+   - Mở project bằng `IDE` hoặc `Editor` bạn muốn (Ở đây mình sẽ hướng dẫn chạy bằng `Pycharm Community - JetBrains`)
+   - 
 # Link video demo: 
+[Tại đây](https://youtu.be/TujjD5DU_9k)
