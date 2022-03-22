@@ -70,7 +70,7 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
          + Mở file `BookStore/BookStoreApp/controller/utils/utils.controller.py`, tìm đoạn code gửi tin nhắn như bên dưới và sau đó thay đổi các thông tin của `from=...` (Thông tin số điện thoại của Twillio cấp), `to=...` (Thông tin số điện thoại muốn gửi đến) thành các thông tin tương ứng trong tài khoản của bạn <br>
          ![config](https://res.cloudinary.com/attt92bookstore/image/upload/v1647955685/config/Screenshot_from_2022-03-22_20-27-52_zvykhx.png) <br>
          => Lưu ý: `Trial account` chỉ có thể gửi đến 1 số điện thoại đã dùng để đăng kí tài khoản <br>
-   - Import script dữ liệu test bằng cách dùng `MySQL Workbench` (Script dữ liệu test đã được đính kèm chung với project)<br>
+   - Import script dữ liệu test bằng cách dùng `MySQL Workbench` (Script dữ liệu test đã được đính kèm chung với project `BookStore/BookStore.sql`)<br>
    - Quay lại `Pycharm` và mở và run file `BookStore/BookStoreApp/main.py` để chạy chương trình.<br>
 # Link video demo: [Tại đây](https://youtu.be/TujjD5DU_9k)
 
