@@ -39,7 +39,7 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
    + Đặt hàng (Xác thực bằng gửi mã OTP đến điện thoại)
    
 # Tóm tắt các ứng dụng của bảo mật: 
-   - Phân quyền người dùng
+   - Xác thực và phân quyền người dùng
    - Mã hóa dữ liệu bằng thuật toán tự xây dựng (Vigenere)
    - Xác thực bằng email
    - Xác thực bằng số điện thoại
