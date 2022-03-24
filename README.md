@@ -72,5 +72,6 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
          => Lưu ý: `Trial account` chỉ có thể gửi đến 1 số điện thoại đã dùng để đăng kí tài khoản <br>
    - Import script dữ liệu test bằng cách dùng `MySQL Workbench` (Script dữ liệu test đã được đính kèm chung với project `BookStore/BookStore.sql`)<br>
    - Quay lại `Pycharm` và mở và run file `BookStore/BookStoreApp/main.py` để chạy chương trình.<br>
-# Link video demo: [Tại đây](https://youtu.be/TujjD5DU_9k)
+# Link website: [BookStore website](http://attt92bookstore.pythonanywhere.com)
+# Link video demo: [BookStore demo video](https://youtu.be/TujjD5DU_9k)
 
