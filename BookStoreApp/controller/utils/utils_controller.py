@@ -58,10 +58,8 @@ def encode_vigenere(plain_text):
     pivot = 0
     cipher_data = ''
     for sd in secret_data:
-        cipher_data += str(map_table[first_key.index(second_key[pivot])][first_key.index(sd)])
+        cipher_data += str(map_table[first_key.index(second_key[pivot % len(second_key)])][first_key.index(sd)])
         pivot += 1
-        if pivot > 9:
-            pivot = 0
 
     return '{first_key}{cipher_data}{second_key}{secret_number}' \
         .format(first_key=first_key,
@@ -89,10 +87,10 @@ def decode_vigenere(cipher_text):
     secret_data = ''
     pivot = 0
     for c in cipher_data:
-        secret_data += first_key[map_table[first_key.index(second_key[pivot])].index(int(c))]
+        secret_data += first_key[
+            map_table[first_key.index(second_key[pivot % len(second_key)])].index(int(c))]
         pivot += 1
-        if pivot > 9:
-            pivot = 0
+        
     plain_text = int(secret_data) - secret_number
 
     return plain_text
