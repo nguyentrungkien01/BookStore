@@ -120,53 +120,53 @@ def checkout_payment():
 def create_order(
         amount: str,
         order_info: str,
-        notify_url: str = "http://127.0.0.1:5000/gio-hang",
-        return_url: str = "http://127.0.0.1:5000/gio-hang",
+        notify_url: str = 'http://127.0.0.1:5000/gio-hang',
+        return_url: str = 'http://127.0.0.1:5000/gio-hang',
 ) -> dict:
     request_id = str(uuid.uuid4())
     order_id = str(uuid.uuid4())
     auto_capture = True
-    request_type = "captureWallet"
+    request_type = 'captureWallet'
     notify_url = notify_url
     return_url = return_url
     amount = amount
     order_info = order_info
-    extra_data = ""
+    extra_data = ''
 
     raw_signature = (
-        f"accessKey={ACCESS_KEY}"
-        f"&amount={amount}"
-        f"&extraData={extra_data}"
-        f"&ipnUrl={notify_url}"
-        f"&orderId={order_id}"
-        f"&orderInfo={order_info}"
-        f"&partnerCode={PARTNER_CODE}"
-        f"&redirectUrl={return_url}"
-        f"&requestId={request_id}"
-        f"&requestType={request_type}"
+        f'accessKey={ACCESS_KEY}'
+        f'&amount={amount}'
+        f'&extraData={extra_data}'
+        f'&ipnUrl={notify_url}'
+        f'&orderId={order_id}'
+        f'&orderInfo={order_info}'
+        f'&partnerCode={PARTNER_CODE}'
+        f'&redirectUrl={return_url}'
+        f'&requestId={request_id}'
+        f'&requestType={request_type}'
     )
 
     h = hmac.new(SECRET_KEY.encode(), raw_signature.encode(), hashlib.sha256)
     signature = h.hexdigest()
 
     payload = {
-        "partnerCode": PARTNER_CODE,
-        "partnerName": "BookStore OU",
-        "storeId": PARTNER_CODE,
-        "requestType": request_type,
-        "ipnUrl": notify_url,
-        "redirectUrl": return_url,
-        "orderId": order_id,
-        "amount": amount,
-        "autoCapture": auto_capture,
-        "orderInfo": order_info,
-        "requestId": request_id,
-        "extraData": extra_data,
-        "signature": signature,
+        'partnerCode': PARTNER_CODE,
+        'partnerName': 'BookStore OU',
+        'storeId': PARTNER_CODE,
+        'requestType': request_type,
+        'ipnUrl': notify_url,
+        'redirectUrl': return_url,
+        'orderId': order_id,
+        'amount': amount,
+        'autoCapture': auto_capture,
+        'orderInfo': order_info,
+        'requestId': request_id,
+        'extraData': extra_data,
+        'signature': signature,
     }
     resp = requests.post(API_URL, json=payload)
     if not resp.ok:
-        response = resp.content.decode("utf8")
+        response = resp.content.decode('utf8')
         raise Exception(response)
 
     return resp.json()
