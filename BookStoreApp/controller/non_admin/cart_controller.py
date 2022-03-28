@@ -1,14 +1,18 @@
 import random
 
-from flask import render_template, json, jsonify, request
+from flask import render_template, json, jsonify, request, redirect
 from flask_login import current_user
 
-from BookStoreApp import app
+from BookStoreApp import app, ACCESS_KEY, PARTNER_CODE, SECRET_KEY, API_URL
 from BookStoreApp.service.non_admin.cart_service import get_book_in_not_paid_cart, \
     get_money_total, add_book_to_cart as abc, delete_book_in_cart as dbc, get_amount_book_in_cart, \
     update_ship_info as usi, pay_cart as pc
 from BookStoreApp.controller.utils.utils_controller import decode_vigenere, send_message_phone_number
 
+import hashlib
+import hmac
+import requests
+import uuid
 
 # Lấy view giỏ hàng
 @app.route('/gio-hang')
@@ -95,3 +99,74 @@ def update_ship_info():
 def pay_cart():
     account_id = current_user.account_id if current_user.is_authenticated else None
     return jsonify(pc(account_id=account_id))
+
+
+@app.route('/thanh-toan', methods=['get'])
+def checkout_payment():
+    account_id = current_user.account_id if current_user.is_authenticated else None
+    books = get_book_in_not_paid_cart(account_id=account_id)
+    money_total = get_money_total(account_id=account_id)['cost_total'].replace(',', '')
+    order_info = ''
+    for book in books:
+        order_info += 'Tên sách: {book_name} (số lượng: {book_amount}), '\
+            .format(book_name=book['book_name'],
+                    book_amount=book['book_amount'])
+
+    order_info = order_info[:len(order_info)-2]
+    result = create_order(amount=money_total, order_info=order_info)
+    return redirect(result["payUrl"])
+
+
+def create_order(
+        amount: str,
+        order_info: str,
+        notify_url: str = "http://127.0.0.1:5000/gio-hang",
+        return_url: str = "http://127.0.0.1:5000/gio-hang",
+) -> dict:
+    request_id = str(uuid.uuid4())
+    order_id = str(uuid.uuid4())
+    auto_capture = True
+    request_type = "captureWallet"
+    notify_url = notify_url
+    return_url = return_url
+    amount = amount
+    order_info = order_info
+    extra_data = ""
+
+    raw_signature = (
+        f"accessKey={ACCESS_KEY}"
+        f"&amount={amount}"
+        f"&extraData={extra_data}"
+        f"&ipnUrl={notify_url}"
+        f"&orderId={order_id}"
+        f"&orderInfo={order_info}"
+        f"&partnerCode={PARTNER_CODE}"
+        f"&redirectUrl={return_url}"
+        f"&requestId={request_id}"
+        f"&requestType={request_type}"
+    )
+
+    h = hmac.new(SECRET_KEY.encode(), raw_signature.encode(), hashlib.sha256)
+    signature = h.hexdigest()
+
+    payload = {
+        "partnerCode": PARTNER_CODE,
+        "partnerName": "BookStore OU",
+        "storeId": PARTNER_CODE,
+        "requestType": request_type,
+        "ipnUrl": notify_url,
+        "redirectUrl": return_url,
+        "orderId": order_id,
+        "amount": amount,
+        "autoCapture": auto_capture,
+        "orderInfo": order_info,
+        "requestId": request_id,
+        "extraData": extra_data,
+        "signature": signature,
+    }
+    resp = requests.post(API_URL, json=payload)
+    if not resp.ok:
+        response = resp.content.decode("utf8")
+        raise Exception(response)
+
+    return resp.json()

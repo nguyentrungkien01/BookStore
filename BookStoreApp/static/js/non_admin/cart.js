@@ -1,4 +1,3 @@
-
 // Hiển thi form đăng nhập hoặc đăng ký
 function getForm(status = true, isAuthenticated = false) {
     isAuthenticated = isAuthenticated == 'True'
@@ -42,18 +41,18 @@ function getMoneyTotalInCart() {
 function setCartDetail(books) {
     $('#bookList').html('')
     htmlData = `
-        <h6 class="cart-header">GIỎ HÀNG CỦA BẠN <span>(${books.length} sản phẩm)</span></h6>
+        <h6 class="cart-header font-weight-bold">GIỎ HÀNG CỦA BẠN <span>(${books.length} sản phẩm)</span></h6>
         <div class="cart-list-items mt-3">
     `
     for (let i = 0; i < books.length; i++)
         htmlData += `
-                <div class="cart-item d-flex">
+                <div class="cart-item d-flex mb-4">
                     <a href="/chi-tiet-sach?book_id=${books[i]['book_id']}" class="img">
                         <img src="${books[i]['book_image']}" class="img-fluid" alt="${books[i]['book_name']}" style="margin:unset;">
                     </a>
                     <div class="item-caption d-flex w-100">
                         <div class="item-info ml-3">
-                            <a href="product-item.html" class="book-name mb-3">${books[i]['book_name']}</a>
+                            <a href="/chi-tiet-sach?book_id=${books[i]['book_id']}" class="book-name mb-3">${books[i]['book_name']}</a>
                             <div class="amount d-flex">
                                 <div class="input-number input-group mb-3">
                                     <div class="input-group-prepend">
@@ -89,7 +88,7 @@ function setMoneyTotal(moneyTotal) {
     htmlData = `
         <div class="row">
             <div class="col-md-3">
-                <a href="/" class="btn buy-more my-4">Mua thêm</a>
+                <a href="/" class="btn buy-more">Mua thêm</a>
             </div>
             <div class="col-md-5 offset-md-4">
                 <div class="total-price">
@@ -133,8 +132,7 @@ function addBook(bookId) {
         if (result['result']) {
             getMoneyTotalInCart()
             getCartDetailAmount()
-        }
-        else
+        } else
             Swal.fire({
                 title: 'Thêm thất bại',
                 text: 'Xin vui lòng kiểm tra lại',
@@ -166,8 +164,7 @@ function subtractBook(bookId) {
         if (result['result']) {
             getMoneyTotalInCart()
             getCartDetailAmount()
-        }
-        else
+        } else
             Swal.fire({
                 title: 'Giảm thất bại',
                 text: 'Xin vui lòng kiểm tra lại',
@@ -210,8 +207,7 @@ function deleteBook(bookId) {
                         getCartDetailAmount()
                     })
 
-                }
-                else
+                } else
                     Swal.fire({
                         title: 'Xóa thất bại',
                         text: 'Xin vui lòng kiểm tra lại',
@@ -230,30 +226,6 @@ function getCartDetailAmount() {
     fetch('/gio-hang/api/amount-book').then(res => res.json()).then(result => {
         $('#cartDetailAmount').text(result['amount'])
     })
-}
-
-// Xác nhận đặt hàng
-function payCart() {
-    fetch('/gio-hang/api/pay')
-        .then(res => res.json()).then(result => {
-            if (result['result']) {
-                Swal.fire(
-                    'Đặt hàng thành công',
-                    '',
-                    'success'
-                ).then(function () {
-                    window.location.href = '/'
-                })
-            } else {
-                Swal.fire({
-                    title: 'Đặt hàng thất bại',
-                    text: 'Xin vui lòng kiểm tra lại',
-                    icon: 'warning',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'Ok',
-                })
-            }
-        })
 }
 
 // Gửi thông tin đặt hàng xuống server
@@ -276,7 +248,8 @@ function setShipInfo() {
         $('#otpInput').on('input', () => {
             if ($('#otpInput').val() == cartOTP['cart_otp']) {
                 $('#countDown').text(90)
-                payCart()
+                // payCart()
+                window.location.href = '/thanh-toan'
             }
         })
 
@@ -342,14 +315,75 @@ function countDown() {
     }, 1000)
 }
 
+function checkPaymentResult() {
+    const resultCode = new URLSearchParams(window.location.search).get("resultCode");
+    if (resultCode != null) {
+        var url = window.location.href
+
+        if (parseInt(resultCode) == 1004) {
+            Swal.fire({
+                title: 'Đặt hàng thất bại do số tiền thanh toán vượt quá hạn mức thanh toán của bạn',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            }).then(() => {
+                if (url.indexOf('?') != -1)
+                    window.location.href = url.substring(0, url.indexOf('?'))
+            })
+        } else if (parseInt(resultCode) == 1005) {
+            Swal.fire({
+                title: 'Đặt hàng thất bại do url hoặc QR code đã hết hạn',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            }).then(() => {
+                if (url.indexOf('?') != -1)
+                    window.location.href = url.substring(0, url.indexOf('?'))
+            })
+        } else if (parseInt(resultCode) == 1006) {
+            Swal.fire({
+                title: 'Đặt hàng thất bại do bạn đã huỷ giao dịch',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            }).then(() => {
+                if (url.indexOf('?') != -1)
+                    window.location.href = url.substring(0, url.indexOf('?'))
+            })
+        } else if (parseInt(resultCode) != 0) {
+            Swal.fire({
+                title: 'Đặt hàng thất bại do lỗi hệ thống',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            }).then(() => {
+                if (url.indexOf('?') != -1)
+                    window.location.href = url.substring(0, url.indexOf('?'))
+            })
+        } else {
+            Swal.fire({
+                title: 'Đặt hàng thành công !',
+                icon: 'success',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Ok',
+            }).then(() => {
+                if (url.indexOf('?') != -1)
+                    window.location.href = url.substring(0, url.indexOf('?'))
+                fetch('/gio-hang/api/pay')
+            })
+
+        }
+    }
+}
+
 $(document).ready(function () {
     getBookInCart()
     $('#buyButton').click(function () {
         $('#countDown').text('90')
         confirmOrder()
     })
-     $('#customerBuyButton').click(function () {
-         Swal.fire({
+    $('#customerBuyButton').click(function () {
+        Swal.fire({
             title: 'Chỉ có khách hàng mới có thể đặt hàng',
             text: 'Xin vui lòng kiểm tra lại',
             icon: 'warning',
@@ -357,5 +391,6 @@ $(document).ready(function () {
             confirmButtonText: 'Ok',
         })
     })
-})
 
+    checkPaymentResult();
+})

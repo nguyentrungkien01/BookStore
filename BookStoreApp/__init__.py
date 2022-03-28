@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # thông tin database
 USERNAME_DB = 'root'
-PASSWORD_DB = '12345678'
+PASSWORD_DB = 'thanhnam'
 NAME_DB = 'BookStore'
 IP_DB = 'localhost'
 
@@ -36,10 +36,17 @@ login = LoginManager(app=app)
 cloudinary.config(cloud_name=CLOUD_NAME,
                   api_key=API_KEY,
                   api_secret=API_SECRET)
+
 # twilio
 account_sid = 'AC1dc7baac41475a5ecf3eeee27c07369c'
 auth_token = '465cf375e90cbb0d7cac2fec3cc2a8c4'
 client = Client(account_sid, auth_token)
+
+# thanh toán momo
+API_URL = "https://test-payment.momo.vn/v2/gateway/api/create"
+SECRET_KEY = "NsyubDwquURwV46FycWCxdCqYsB8HUEd"
+ACCESS_KEY = "zvdfoutMBqzlawgZ"
+PARTNER_CODE = "MOMOO5NG20220325"
 
 # Import model database
 from model.book_model import BookModel

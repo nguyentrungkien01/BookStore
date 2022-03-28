@@ -65,8 +65,7 @@
         </div>
         {% endblock %}
         <!-- setting color - swich mode -->
-        {% if current_user.is_authenticated %} {% include
-        'includes/admin/configuration.html' %} {% endif %}
+        {% include 'includes/admin/configuration.html' %}
     </div>
     {% block tail_js %}
     <script src="{{ admin_static.url(filename='bootstrap/bootstrap4/js/popper.min.js') }}" type="text/javascript">
