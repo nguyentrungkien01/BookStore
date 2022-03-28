@@ -2,6 +2,8 @@ $(function () {
     $('.block-product').slick({
         dots: false,
         infinite: false,
+        autoplay: true,
+        autoplaySpeed: 3000,
         speed: 300,
         slidesToShow: 5,
         slidesToScroll: 1,
@@ -172,7 +174,8 @@ $(function () {
             },
             phone: {
                 required: true,
-                minlength: 8
+                minlength: 10,
+                maxlength: 10,
             },
             username: {
                 required: true,
@@ -206,7 +209,8 @@ $(function () {
             },
             phone: {
                 required: "Vui lòng nhập số điện thoại",
-                minlength: "Số máy quý khách vừa nhập là số không có thực"
+                minlength: "Số máy quý khách vừa nhập là số không có thực",
+                maxlength: "Vui lòng nhập đúng 10 kí tự"
             },
             username: {
                 required: "Vui lòng nhập tên tài khoản",

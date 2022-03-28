@@ -130,7 +130,7 @@ a.nav-link {
 }
 
 a.navbar-brand {
-    font-size: 34px;
+    font-size: 29px;
 }
 
 li.nav-item.account {
@@ -590,6 +590,7 @@ img.card-img-top.picture {
     transition: 0.3s;
     height: 275px;
     width: 200px;
+    margin: auto;
 }
 
 ul span.text-muted {
@@ -629,6 +630,7 @@ li.active .fa-star {
     font-size: 14px;
     font-weight: 500;
     padding-right: 10px;
+    white-space: nowrap;
 }
 
 .price.d-flex {
@@ -940,6 +942,7 @@ footer .header {
 .item-price .old-price {
     text-decoration: line-through;
     color: #b6b6b6;
+    white-space: nowrap;
 }
 
 .item-price {
@@ -959,7 +962,7 @@ footer .header {
 }
 
 .amount .amount-product {
-    width: 50px;
+    width: 43px;
     border: 1px solid #d1d1d1;
 }
 

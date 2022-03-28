@@ -4,7 +4,7 @@
             <div class="row">
                 <!-- giao diện giỏ hàng khi có hàng (phần comment màu xanh bên dưới là phần 2 sản phẩm trong giỏ hàng nhưng giờ đã demo bằng jquery) -->
                 <div class="col-lg-7 col-xl-8 cart">
-                    <div class="cart-content py-3 pl-3" id="cartDetail">
+                    <div class="cart-content p-3" id="cartDetail">
                         {% if current_user.is_authenticated and current_user.role_id!=1 %}
                         <div id="bookList"></div>
                         <div id="totalPrice"></div>
@@ -70,8 +70,8 @@
                                     </a>
                                 </h5>
                             </div>
-                            <div id="step2contentid" class="collapse in show" role="tabpanel" aria-labelledby="step2header"
-                                class="stepscontent">
+                            <div id="step2contentid" class="collapse in show" role="tabpanel"
+                                aria-labelledby="step2header" class="stepscontent">
                                 <div class="card-body">
                                     <form class="form-diachigiaohang">
                                         <div class="form-label-group">
@@ -93,10 +93,15 @@
                                     </form>
                                     {% if current_user.role_id!=1%}
                                     <button class="btn btn-lg btn-block btn-checkout text-uppercase text-white"
-                                        style="background: #F5A623" id="buyButton">Đặt mua</button>
+                                        style="background: #F5A623" id="buyButton">
+                                        <img src="https://res.cloudinary.com/attt92bookstore/image/upload/v1648461706/icon%20-%20payment%20-%20banner/momo_uz0oxj.png"
+                                            alt="momo payment img" style="
+                                        width: 30%;
+                                        height: auto;">
+                                        Thanh toán Momo</button>
                                     {% else %}
                                     <button class="btn btn-secondary btn-block btn-checkout text-uppercase
-                                            text-white" id="customerBuyButton"> Đặt mua</button>
+                                            text-white" id="customerBuyButton">Thanh toán Momo</button>
                                     {% endif %}
                                     <p class="text-center note-before-checkout">(Vui lòng kiểm tra lại đơn hàng
                                         trước khi Đặt mua)</p>
