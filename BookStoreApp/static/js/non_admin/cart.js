@@ -343,6 +343,7 @@ function checkPaymentResult() {
         } else if (parseInt(resultCode) == 1006) {
             Swal.fire({
                 title: 'Đặt hàng thất bại do bạn đã huỷ giao dịch',
+                text: 'Vui lòng thử lại sau',
                 icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Ok',
