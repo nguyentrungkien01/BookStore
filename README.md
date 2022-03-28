@@ -8,6 +8,7 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
 - Database: `Mysql`
 - Thuật toán mã hóa demo (`Vigenere`-> Tự xây dựng, `md5`-> Sử dụng thư viện có sẵn)
 - Nền tảng deploy: `PythonAnywhere`
+- Nền tảng thanh toán online: `Momo`
 - IDE, Công cụ: `Pycharm`, `Vscode`, `MySQL Workbench`,`Git/GitHub`, `Trello`, `Diagrams.net`
 
 # Chức năng (Có phân quyền người dùng)
@@ -36,7 +37,7 @@ Website quản lý mua bán sách online ứng dụng của môn `An Toàn Hệ 
    + Xem chi tiết sách
    + Quản lý lịch sử thông tin những sách đã xem qua
    + Quản lý giỏ hàng cá nhân
-   + Đặt hàng (Xác thực bằng gửi mã OTP đến điện thoại)
+   + Đặt hàng (Xác thực bằng gửi mã OTP đến điện thoại, thanh toán qua momo)
    
 # Tóm tắt các ứng dụng của bảo mật: 
    - Xác thực và phân quyền người dùng
