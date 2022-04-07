@@ -40,8 +40,7 @@ def encode_vigenere(plain_text):
     data_source = []
     for dt in range(65, 91):
         data_source.append(chr(dt))
-    for dt in range(97, 123):
-        data_source.append(chr(dt))
+        data_source.append(chr(dt + 32))
 
     # tạo key
     first_key = ''
@@ -109,8 +108,7 @@ def decode_vigenere(cipher_text):
     data_source = []
     for dt in range(65, 91):
         data_source.append(chr(dt))
-    for dt in range(97, 123):
-        data_source.append(chr(dt))
+        data_source.append(chr(dt + 32))
 
     # Tạo map pivot
     map_pivot = [x for x in first_key]
